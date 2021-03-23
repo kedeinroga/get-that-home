@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_23_210214) do
+ActiveRecord::Schema.define(version: 2021_03_23_220249) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2021_03_23_210214) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["property_id"], name: "index_contacteds_on_property_id"
+    t.index ["user_id", "property_id"], name: "index_contacteds_on_user_id_and_property_id", unique: true
     t.index ["user_id"], name: "index_contacteds_on_user_id"
   end
 
@@ -30,24 +31,26 @@ ActiveRecord::Schema.define(version: 2021_03_23_210214) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["property_id"], name: "index_favorites_on_property_id"
+    t.index ["user_id", "property_id"], name: "index_favorites_on_user_id_and_property_id", unique: true
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "properties", force: :cascade do |t|
-    t.integer "operation_type"
+    t.integer "operation_type", default: 0
     t.string "address"
     t.integer "rent"
-    t.integer "maintanance"
-    t.integer "property_type"
-    t.integer "bedrooms"
-    t.integer "bathrooms"
+    t.integer "maintanance", default: 0
+    t.integer "property_type", default: 0
+    t.integer "bedrooms", default: 0
+    t.integer "bathrooms", default: 0
     t.float "area"
-    t.boolean "pets"
+    t.boolean "pets", default: false
     t.text "about"
     t.string "photos"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["address"], name: "index_properties_on_address", unique: true
     t.index ["user_id"], name: "index_properties_on_user_id"
   end
 
@@ -61,7 +64,7 @@ ActiveRecord::Schema.define(version: 2021_03_23_210214) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
     t.integer "phone"
-    t.integer "role"
+    t.integer "role", default: 0
     t.string "token"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
