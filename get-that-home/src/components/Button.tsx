@@ -6,19 +6,19 @@ import { colors, TextButton } from '../ui'
 interface IProps {
   children: ReactNode
   secundary: boolean
-  active: boolean
+  disabled: boolean
 }
 
 const StyledButton = styled.button`
   background-color: ${(props: IProps) =>
-    props.secundary ? colors.white : colors.pink};
+    props.disabled === true && colors.shallowGray};
   background-color: ${(props: IProps) =>
-    props.active === false && colors.shallowGray};
+    props.secundary ? colors.white : colors.pink};
   color: ${colors.white};
   border: 1px solid
-    ${(props: IProps) => (props.secundary ? colors.pink : colors.white)};
+    ${(props: IProps) => props.disabled === true && colors.shallowGray};
   border: 1px solid
-    ${(props: IProps) => props.active === false && colors.shallowGray};
+    ${(props: IProps) => (props.secundary ? colors.pink : colors.white)};
   border-radius: 16px;
   display: flex;
   flex-direction: row;
@@ -26,22 +26,22 @@ const StyledButton = styled.button`
   padding: 8px 16px;
 
   & > p {
+    color: ${(props: IProps) => props.disabled === true && colors.lightGray};
     color: ${(props: IProps) => (props.secundary ? colors.gray : colors.white)};
-    color: ${(props: IProps) => props.active === false && colors.lightGray};
     margin: 0 12px;
   }
 
   & > svg {
-    fill: ${(props: IProps) => (props.secundary ? colors.gray : colors.white)};
-    fill: ${(props: IProps) => props.active === false && colors.lightGray};
+    fill: ${(props: IProps) => props.disabled === true && colors.lightGray};
+    fill: ${(props: IProps) => (props.secundary ? colors.gray : colors.white)};   
     font-size: 20px;
   }
 `
 
 export default function Button(props: IProps) {
-  const { children, secundary, active } = props
+  const { children, secundary, disabled } = props
   return (
-    <StyledButton secundary={secundary} active={active}>
+    <StyledButton secundary={secundary} disabled={disabled}>
       <RiUserLine />
       <TextButton>{children}</TextButton>
       <RiArrowDownSLine />
