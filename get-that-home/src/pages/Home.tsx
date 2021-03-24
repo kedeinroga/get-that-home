@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import Button from '../components/Button'
 
 export const Home: React.FC = () => {
   return (
@@ -9,6 +10,16 @@ export const Home: React.FC = () => {
         template and bootstrapped with Redux, React Router, TypeScript, ESlint,
         Prettier for you. Take a look around ;)
       </p>
+      <Button
+        icon
+        secundary
+        disabled={false}
+        ghost
+        large={false}
+        small={false}
+      >
+        Button
+      </Button>
     </Fragment>
   )
 }

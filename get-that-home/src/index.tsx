@@ -1,14 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import { Global, css } from "@emotion/react";
-import { colors } from './ui';
+import { Global, css } from '@emotion/react'
+import { colors } from './ui'
 import store from './store'
 import App from './App'
 
 const globalStyles = css`
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@300;400;500;700&display=swap');
-  
+
   * {
     color: ${colors.darkGray};
     font-family: 'Montserrat', sans-serif;
@@ -17,6 +17,10 @@ const globalStyles = css`
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+  }
+
+  body {
+    background-color: ${colors.white};
   }
 
   h1 {
