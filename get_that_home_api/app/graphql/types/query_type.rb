@@ -3,7 +3,7 @@ module Types
     # Add root-level fields here.
     # They will be entry points for queries on your schema.
 
-    field :fetch_properties, resolver: Queries::FetchProperties
-    field :fetch_property, resolver: Queries::FetchProperty
+    field :fetch_properties, resolver: Queries::Properties::FetchProperties
+    field :fetch_property, resolver: Queries::Properties::FetchProperty
   end
 end
