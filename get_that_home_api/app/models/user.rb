@@ -16,4 +16,8 @@ class User < ApplicationRecord
   has_many :contacted_properties, through: :contacteds, source: :property, dependent: :destroy
 
   has_secure_token
+
+  def invalidate_token
+    update(token: nil)
+  end
 end

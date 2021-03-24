@@ -6,5 +6,7 @@ module Types
 
     field :add_user, mutation: Mutations::Users::AddUser
     field :update_user, mutation: Mutations::Users::UpdateUser
+
+    field :login, mutation: Mutations::Sessions::Login
   end
 end
