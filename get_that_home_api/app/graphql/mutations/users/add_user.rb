@@ -9,7 +9,7 @@ module Mutations
         user_params = Hash params
 
         begin
-          user = User.create!(user_params)
+          user = User.create!(user_params)  
 
           { user: user }
         rescue ActiveRecord::RecordInvalid => e
