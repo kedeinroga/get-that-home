@@ -5,5 +5,6 @@ module Types
     # field :destroy_property, mutation: Mutations::DestroyProperty
 
     field :add_user, mutation: Mutations::Users::AddUser
+    field :update_user, mutation: Mutations::Users::UpdateUser
   end
 end
