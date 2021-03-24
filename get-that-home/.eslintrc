@@ -10,7 +10,8 @@
     "prettier/react"
   ],
   "env": {
-    "jest": true
+    "jest": true,
+    "es6": true
   },
   "rules": {
     // Make prettier code formatting suggestions more verbose.
@@ -28,5 +29,8 @@
         "project": ["./tsconfig.json"]
       }
     }
-  ]
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2017
+  }
 }
