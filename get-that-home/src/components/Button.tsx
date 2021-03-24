@@ -8,6 +8,8 @@ interface IProps {
   secundary: boolean
   disabled: boolean
   ghost: boolean
+  large: boolean
+  small: boolean
 }
 
 const StyledButton = styled.button`
@@ -26,7 +28,8 @@ const StyledButton = styled.button`
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 8px 16px;
+  padding: ${(props: IProps) => (props.large ? '16px 24px' : '8px 16px')};
+  padding: ${(props: IProps) => (props.small ? '4px 8px' : '8px 16px')};
 
   & > p {
     color: ${(props: IProps) => (props.secundary ? colors.gray : colors.white)};
@@ -42,9 +45,15 @@ const StyledButton = styled.button`
 `
 
 export default function Button(props: IProps) {
-  const { children, secundary, disabled, ghost } = props
+  const { children, secundary, disabled, ghost, large, small } = props
   return (
-    <StyledButton secundary={secundary} disabled={disabled} ghost={ghost}>
+    <StyledButton
+      secundary={secundary}
+      disabled={disabled}
+      ghost={ghost}
+      large={large}
+      small={small}
+    >
       <RiUserLine />
       <TextButton>{children}</TextButton>
       <RiArrowDownSLine />
