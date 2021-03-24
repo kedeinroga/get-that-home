@@ -12,21 +12,21 @@ const StyledButton = styled.button`
   background-color: ${(props: IProps) =>
     props.secundary ? colors.white : colors.pink};
   color: ${colors.white};
-  border: ${colors.pink};
+  border: 1px solid
+    ${(props: IProps) => (props.secundary ? colors.pink : colors.white)};
   border-radius: 16px;
-
   display: flex;
   flex-direction: row;
   align-items: center;
   padding: 8px 16px;
 
   & > p {
-    color: ${colors.white};
+    color: ${(props: IProps) => (props.secundary ? colors.gray : colors.white)};
     margin: 0 12px;
   }
 
   & > svg {
-    fill: ${colors.white};
+    fill: ${(props: IProps) => (props.secundary ? colors.gray : colors.white)};
     font-size: 20px;
   }
 `
