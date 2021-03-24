@@ -7,7 +7,7 @@ import store from './store'
 import App from './App'
 
 const globalStyles = css`
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Montserrat:wght@300;400;500;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@300;400;500;700&display=swap');
   
   * {
     color: ${colors.darkGray};
