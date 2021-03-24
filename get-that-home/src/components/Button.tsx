@@ -5,11 +5,12 @@ import { colors, TextButton } from '../ui'
 
 interface IProps {
   children: ReactNode
-  // any other props that come into the component
+  secundary: boolean
 }
 
 const StyledButton = styled.button`
-  background-color: ${colors.pink};
+  background-color: ${(props: IProps) =>
+    props.secundary ? colors.white : colors.pink};
   color: ${colors.white};
   border: ${colors.pink};
   border-radius: 16px;
@@ -30,12 +31,17 @@ const StyledButton = styled.button`
   }
 `
 
-export default function Button({ children }: IProps) {
+export default function Button(props: IProps) {
+  const { children, secundary } = props
   return (
-    <StyledButton>
+    <StyledButton secundary={secundary}>
       <RiUserLine />
       <TextButton>{children}</TextButton>
       <RiArrowDownSLine />
     </StyledButton>
   )
+}
+
+Button.defaultProps = {
+  // secundary: false
 }

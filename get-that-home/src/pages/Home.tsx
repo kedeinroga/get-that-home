@@ -10,7 +10,7 @@ export const Home: React.FC = () => {
         template and bootstrapped with Redux, React Router, TypeScript, ESlint,
         Prettier for you. Take a look around ;)
       </p>
-      <Button>Button</Button>
+      <Button secundary>Button</Button>
     </Fragment>
   )
 }
