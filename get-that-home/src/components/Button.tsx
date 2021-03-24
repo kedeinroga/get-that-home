@@ -1,11 +1,12 @@
 import styled from '@emotion/styled'
 import React, { ReactNode } from 'react'
-import { RiUserLine, RiArrowDownSLine } from 'react-icons/ri'
+import { RiArrowDownSLine } from 'react-icons/ri'
 import { FiBell } from 'react-icons/fi'
 import { colors, TextButton } from '../ui'
 
 interface IProps {
   children: ReactNode
+  childrenIcon: string
   icon: boolean
   secundary: boolean
   disabled: boolean
@@ -19,7 +20,8 @@ const StyledButton = styled.button`
   border-radius: 16px;
   background-color: transparent;
 
-  :active, :focus {
+  :active,
+  :focus {
     background-color: transparent;
   }
 
@@ -99,9 +101,20 @@ const StyledButtonIcon = styled.i`
 `
 
 export default function Button(props: IProps) {
-  const { children, icon, secundary, disabled, ghost, large, small } = props
+  const {
+    children,
+    childrenIcon,
+    icon,
+    secundary,
+    disabled,
+    ghost,
+    large,
+    small,
+  } = props
+
   return (
     <StyledButton
+      childrenIcon={childrenIcon}
       icon={icon}
       secundary={secundary}
       disabled={disabled}
@@ -111,7 +124,7 @@ export default function Button(props: IProps) {
     >
       {icon === false && (
         <div>
-          <RiUserLine />
+          childrenIcon
           <TextButton>{children}</TextButton>
           <RiArrowDownSLine />
         </div>
