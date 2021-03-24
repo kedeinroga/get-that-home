@@ -12,4 +12,9 @@ const colors = {
   white: "#FFFFFF",
 }
 
-export default { colors };
+const shadows = {
+  shadow1: "box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2)",
+  shadow2: "box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2)",
+}
+
+export default { colors, shadows };
