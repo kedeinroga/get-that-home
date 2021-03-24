@@ -11,7 +11,7 @@ export const Home: React.FC = () => {
         Prettier for you. Take a look around ;)
       </p>
       <Button
-        icon={false}
+        icon
         secundary
         disabled={false}
         ghost

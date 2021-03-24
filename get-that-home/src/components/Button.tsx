@@ -19,6 +19,10 @@ const StyledButton = styled.button`
   border-radius: 16px;
   background-color: transparent;
 
+  :active, :focus {
+    background-color: transparent;
+  }
+
   & > div {
     display: flex;
     flex-direction: row;
@@ -77,8 +81,21 @@ const StyledButton = styled.button`
 `
 
 const StyledButtonIcon = styled.i`
-  background-color: black;
-  padding: 10px;
+  display: grid;
+  place-items: center;
+  font-size: 20px;
+  padding: 8px;
+  border-radius: 50px;
+  transition: 0.45s all;
+  cursor: pointer;
+
+  :hover {
+    background-color: ${colors.shallowPink};
+  }
+
+  :focus {
+    background-color: black;
+  }
 `
 
 export default function Button(props: IProps) {
