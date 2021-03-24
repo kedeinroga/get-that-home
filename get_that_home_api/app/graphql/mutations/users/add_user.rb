@@ -11,6 +11,10 @@ module Mutations
         begin
           user = User.create!(user_params)
 
+          puts "--------------------------"
+          p user
+          puts "--------------------------"  
+
           { user: user }
         rescue ActiveRecord::RecordInvalid => e
           GraphQL::ExecutionError.new("Invalid attributes for #{e.record.class}:"\

@@ -14,4 +14,6 @@ class User < ApplicationRecord
   has_many :contacteds, dependent: :destroy
   has_many :favorited_properties, through: :favorites, source: :property, dependent: :destroy
   has_many :contacted_properties, through: :contacteds, source: :property, dependent: :destroy
+
+  has_secure_token
 end
