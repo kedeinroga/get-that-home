@@ -30,6 +30,7 @@ const StyledButton = styled.button`
     flex-direction: row;
     align-items: center;
     border: 1px solid;
+    gap: 12px;
 
     background-color: ${colors.pink};
     background-color: ${(props: IProps) => props.secundary && colors.white};
@@ -58,7 +59,6 @@ const StyledButton = styled.button`
       color: ${(props: IProps) => props.secundary && colors.gray};
       color: ${(props: IProps) => props.ghost && colors.gray};
       color: ${(props: IProps) => props.disabled && colors.lightGray};
-      margin: 0 12px;
     }
 
     & > svg {
@@ -90,7 +90,6 @@ const StyledButton = styled.button`
         color: ${(props: IProps) => props.secundary && colors.darkGray};
         color: ${(props: IProps) => props.ghost && colors.darkGray};
         color: ${(props: IProps) => props.disabled && colors.lightGray};
-        margin: 0 12px;
       }
 
       & > svg {

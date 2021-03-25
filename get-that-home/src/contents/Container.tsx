@@ -11,10 +11,6 @@ const StyledContainer = styled.div`
 `
 
 export default function Container(props: IProps) {
-  const {children} = props
-  return (
-    <StyledContainer>
-      {children}
-    </StyledContainer>
-  )
+  const { children } = props
+  return <StyledContainer>{children}</StyledContainer>
 }
