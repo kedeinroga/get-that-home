@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react'
-import { FiBell } from 'react-icons/fi'
 import Button from '../components/Button'
 
 export const Home: React.FC = () => {
@@ -11,15 +10,8 @@ export const Home: React.FC = () => {
         template and bootstrapped with Redux, React Router, TypeScript, ESlint,
         Prettier for you. Take a look around ;)
       </p>
-      <Button
-        icon
-        secundary={false}
-        disabled={false}
-        ghost={false}
-        large={false}
-        small={false}
-      >
-        <FiBell />
+      <Button>
+        Holaaa
       </Button>
     </Fragment>
   )

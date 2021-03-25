@@ -7,12 +7,12 @@ interface IProps {
   children: ReactNode
   childrenIcon?: ReactNode
   select?: boolean
-  icon: boolean
-  secundary: boolean
-  disabled: boolean
-  ghost: boolean
-  large: boolean
-  small: boolean
+  icon?: boolean
+  secundary?: boolean
+  disabled?: boolean
+  ghost?: boolean
+  large?: boolean
+  small?: boolean
 }
 
 const StyledButton = styled.button`
@@ -145,7 +145,12 @@ export default function Button(props: IProps) {
 }
 
 Button.defaultProps = {
-  // ghost: false
   childrenIcon: '',
+  icon: false,
   select: false,
+  secundary: false,
+  disabled: false,
+  ghost: false,
+  large: false,
+  small: false,
 }
