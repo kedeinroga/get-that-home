@@ -2,6 +2,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { colors } from '../ui'
 import Container from '../contents/Container'
+import Logo from '../assets/logo.svg'
 
 const StyledHeader = styled.header`
   background-color: blue;
@@ -15,6 +16,7 @@ export default function Header() {
   return (
     <StyledHeader>
       <Container>
+        <img src={Logo} alt='Get that home!'/>
         Header
       </Container>
     </StyledHeader>
