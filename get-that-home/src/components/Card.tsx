@@ -5,10 +5,11 @@ import {
   RiMoneyDollarCircleLine,
   RiMoneyDollarCircleFill,
   RiBuildingLine,
+  RiCloseCircleLine,
 } from 'react-icons/ri'
-import { BiBed, BiBath, BiArea } from 'react-icons/bi'
+import { BiBed, BiBath, BiArea, BiEdit } from 'react-icons/bi'
 import { MdPets } from 'react-icons/md'
-import { TextSubtitle1, TextBody1, TextBody2, colors } from '../ui'
+import { TextSubtitle1, TextBody1, TextBody2, TextButton, colors } from '../ui'
 import imageDefault from '../assets/image-default.png'
 import Icon from './Icon'
 
@@ -66,17 +67,18 @@ CardLabel.defaultProps = {
 // Card function:
 
 interface IPropsC {
+  landlord?: boolean
   type?: string
   image?: string
 }
 
 export default function Card(props: IPropsC) {
-  const { type, image } = props
+  const { landlord, type, image } = props
 
   const StyledCard = styled.div`
     background-color: ${colors.white};
     width: 300px;
-    height: 360px;
+    min-height: 360px;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
     position: relative;
@@ -145,6 +147,41 @@ export default function Card(props: IPropsC) {
         }
       }
     }
+
+    & > footer {
+      display: grid;
+      place-items: center;
+      border-radius: 0 0 8px 8px;
+
+      & > div {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+
+        & > div {
+          background-color: ${colors.darkPink};
+          width: 100%;
+          height: 100%;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          padding: 11.5px 0;
+          cursor: pointer;
+          transition: 0.4s all;
+
+          & > p {
+            color: ${colors.white};
+          }
+
+          :hover {
+            background-color: ${colors.pink};
+          }
+        }
+      }
+    }
   `
 
   return (
@@ -201,11 +238,30 @@ export default function Card(props: IPropsC) {
           </ul>
         </footer>
       </main>
+      <footer>
+        {landlord && (
+          <div>
+            <div>
+              <Icon color={colors.white}>
+                <BiEdit />
+              </Icon>
+              <TextButton>Edit</TextButton>
+            </div>
+            <div>
+              <Icon color={colors.white}>
+                <RiCloseCircleLine />
+              </Icon>
+              <TextButton>Close</TextButton>
+            </div>
+          </div>
+        )}
+      </footer>
     </StyledCard>
   )
 }
 
 Card.defaultProps = {
+  landlord: false,
   type: 'rental',
   image: imageDefault,
 }

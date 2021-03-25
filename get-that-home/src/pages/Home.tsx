@@ -6,7 +6,7 @@ export const Home: React.FC = () => {
   return (
     <Fragment>
       <Header />
-      <Card type="sale" />
+      <Card landlord type="sale" />
     </Fragment>
   )
 }
