@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { colors } from '../ui'
+import Container from '../contents/Container'
 
 const StyledHeader = styled.header`
   background-color: blue;
@@ -11,5 +12,11 @@ const StyledHeader = styled.header`
 `
 
 export default function Header() {
-  return <StyledHeader>Header</StyledHeader>
+  return (
+    <StyledHeader>
+      <Container>
+        Header
+      </Container>
+    </StyledHeader>
+  )
 }
