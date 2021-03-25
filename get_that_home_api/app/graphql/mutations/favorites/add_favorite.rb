@@ -6,9 +6,6 @@ module Mutations
       field :favorite, Types::FavoriteType, null: false
       def resolve(id:)
         property = Property.find(id)
-        puts '-------------'
-        p context[:current_user].role
-        puts '--------------'
         if context[:current_user].home_seeker?
           favorite = property.favorites.create!(user_id: context[:current_user].id)
         end
