@@ -1,10 +1,15 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { RiCoinsLine, RiMoneyDollarCircleLine, RiBuildingLine } from 'react-icons/ri'
-import { BiBed, BiBath, BiArea,  } from 'react-icons/bi'
+import {
+  RiCoinsLine,
+  RiMoneyDollarCircleLine,
+  RiBuildingLine,
+} from 'react-icons/ri'
+import { BiBed, BiBath, BiArea } from 'react-icons/bi'
 import { MdPets } from 'react-icons/md'
 import { TextBody1, TextBody2, colors } from '../ui'
 import imageDefault from '../assets/image-default.png'
+import Icon from './Icon'
 
 // CardLabel function:
 
@@ -79,6 +84,23 @@ export default function Card(props: IPropsC) {
       background-size: cover;
       background-position: center center;
     }
+
+    & > footer {
+      & > ul {
+        display: flex;
+        flex-direcion: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 16px;
+
+        & > li {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 6px;
+        }
+      }
+    }
   `
 
   return (
@@ -88,28 +110,30 @@ export default function Card(props: IPropsC) {
       <main>
         <div>
           <div>
-            <RiMoneyDollarCircleLine />
+            <Icon>
+              <RiMoneyDollarCircleLine />
+            </Icon>
             <h5>3,000</h5>
           </div>
           <div>
             <RiBuildingLine />
-            <TextBody1>
-              Apartment
-            </TextBody1>
+            <TextBody1>Apartment</TextBody1>
           </div>
         </div>
-        <p>
-          86872 Jacob Gateway, Durganport, WV 48044
-        </p>
+        <p>86872 Jacob Gateway, Durganport, WV 48044</p>
       </main>
       <footer>
         <ul>
           <li>
-            <BiBed />
+            <Icon>
+              <BiBed />
+            </Icon>
             <span>4</span>
           </li>
           <li>
-            <BiBath />
+            <Icon>
+              <BiBath />
+            </Icon>
             <span>2</span>
           </li>
           <li>

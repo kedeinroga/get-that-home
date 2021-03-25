@@ -1,8 +1,10 @@
 import React, { ReactNode } from 'react'
 import styled from '@emotion/styled'
+import { colors } from '../ui'
 
 interface IProps {
   children: ReactNode
+  color?: string
 }
 
 const StyledIcon = styled.i`
@@ -12,10 +14,15 @@ const StyledIcon = styled.i`
   place-items: center;
   & > svg {
     font-size: 20px;
+    fill: ${(props: IProps) => props.color};
   }
 `
 
 export default function Icon(props: IProps) {
-  const { children } = props
-  return <StyledIcon>{children}</StyledIcon>
+  const { children, color } = props
+  return <StyledIcon color={color}>{children}</StyledIcon>
+}
+
+Icon.defaultProps = {
+  color: colors.darkGray,
 }
