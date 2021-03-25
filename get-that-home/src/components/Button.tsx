@@ -50,7 +50,7 @@ const StyledButton = styled.button`
     border-radius: 16px;
     border-radius: ${(props: IProps) => props.icon && '50px'};
 
-    transition: 0.45s all;
+    transition: 0.4s all;
     cursor: pointer;
 
     & > p {
