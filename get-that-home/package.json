@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@apollo/client": "^3.3.13",
     "@emotion/react": "^11.1.5",
     "@emotion/styled": "^11.1.5",
     "@types/enzyme": "3.10.4",
@@ -25,6 +26,7 @@
     "eslint-plugin-react": "7.21.5",
     "eslint-plugin-react-hooks": "4.0.8",
     "faker": "^5.4.0",
+    "graphql": "^15.5.0",
     "prettier": "^2.2.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
