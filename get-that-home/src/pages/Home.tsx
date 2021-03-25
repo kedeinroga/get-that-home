@@ -5,12 +5,8 @@ import Title from '../components/Title'
 export const Home: React.FC = () => {
   return (
     <Fragment>
-      <Button>
-        Button
-      </Button>
-      <Title>
-        Some title
-      </Title>
+      <Button>Button</Button>
+      <Title>Some title</Title>
     </Fragment>
   )
 }
