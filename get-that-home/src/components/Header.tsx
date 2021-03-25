@@ -112,5 +112,5 @@ export default function Header(props: IProps) {
 }
 
 Header.defaultProps = {
-  type: 'visit'
+  type: 'visit',
 }

@@ -1,9 +1,13 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { RiCoinsLine } from 'react-icons/ri'
+import { RiCoinsLine, RiMoneyDollarCircleLine } from 'react-icons/ri'
 import { TextBody2 } from '../ui'
 
 interface IPropsCL {
+  label?: string
+}
+
+interface IPropsC {
   type?: string
 }
 
@@ -14,48 +18,39 @@ const StyledCard = styled.div`
 `
 
 const StyledCardLabel = styled.div`
-  background-color: black;
+  background-color: whitesmoke;
+
+  & > p {
+    text-transform: capitalize;
+  }
 `
 
 function CardLabel(props: IPropsCL) {
-  const { type } = props
+  const { label } = props
 
-  switch(type) { 
-    case 'rental': {
-      return (
-        <StyledCardLabel>
-          <RiCoinsLine />
-          <TextBody2>
-            For Rental
-          </TextBody2>
-        </StyledCardLabel>
-      )
-    } 
-    case 'sale': { 
-      return (
-        <StyledCardLabel>
-          <RiCoinsLine />
-          <TextBody2>
-            For Rental
-          </TextBody2>
-        </StyledCardLabel> 
-      )
-    } 
-    default: { 
-       break; 
-    } 
- } 
+  return (
+    <StyledCardLabel>
+      {label === 'rental' && <RiCoinsLine />}
+      {label === 'sale' && <RiMoneyDollarCircleLine />}
+      <TextBody2>For {label}</TextBody2>
+    </StyledCardLabel>
+  )
 }
 
-export default function Card() {
+export default function Card(props: IPropsC) {
+  const { type } = props
 
   return (
     <StyledCard>
-      <CardLabel />
+      <CardLabel label={type} />
     </StyledCard>
   )
 }
 
 CardLabel.defaultProps = {
-  type: 'rental'
+  label: 'rental',
+}
+
+Card.defaultProps = {
+  type: 'rental',
 }
