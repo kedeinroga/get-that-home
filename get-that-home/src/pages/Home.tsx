@@ -13,7 +13,11 @@ export const Home: React.FC = () => {
         Prettier for you. Take a look around ;)
       </p>
       <Button
-        childrenIcon="RiUserLine"
+        childrenIcon={
+          <Icon>
+            <FiBell />
+          </Icon>
+        }
         icon={false}
         secundary
         disabled={false}
@@ -23,9 +27,6 @@ export const Home: React.FC = () => {
       >
         Button
       </Button>
-      <Icon>
-        <FiBell />
-      </Icon>
     </Fragment>
   )
 }

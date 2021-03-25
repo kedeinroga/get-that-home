@@ -6,7 +6,7 @@ import { colors, TextButton } from '../ui'
 
 interface IProps {
   children: ReactNode
-  childrenIcon: string
+  childrenIcon: ReactNode
   icon: boolean
   secundary: boolean
   disabled: boolean
@@ -124,7 +124,7 @@ export default function Button(props: IProps) {
     >
       {icon === false && (
         <div>
-          childrenIcon
+          {childrenIcon}
           <TextButton>{children}</TextButton>
           <RiArrowDownSLine />
         </div>
