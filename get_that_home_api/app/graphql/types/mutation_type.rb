@@ -9,5 +9,7 @@ module Types
 
     field :login, mutation: Mutations::Sessions::Login
     field :logout, mutation: Mutations::Sessions::Logout
+
+    field :add_favorite, mutation: Mutations::Favorites::AddFavorite
   end
 end
