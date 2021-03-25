@@ -149,6 +149,9 @@ export default function Card(props: IPropsC) {
     }
 
     & > footer {
+      min-height: 7px;
+      width: 100%;
+      background-color: ${colors.darkPink};
       display: grid;
       place-items: center;
       border-radius: 0 0 8px 8px;
@@ -171,6 +174,14 @@ export default function Card(props: IPropsC) {
           padding: 11.5px 0;
           cursor: pointer;
           transition: 0.4s all;
+
+          :first-child {
+            border-radius: 0 0 0 8px;
+          }
+
+          :last-child {
+            border-radius: 0 0 8px 0;
+          }
 
           & > p {
             color: ${colors.white};
