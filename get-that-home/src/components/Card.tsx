@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { RiCoinsLine, RiMoneyDollarCircleLine } from 'react-icons/ri'
-import { TextBody2, colors } from '../ui'
+import { RiCoinsLine, RiMoneyDollarCircleLine, RiBuildingLine } from 'react-icons/ri'
+import { BiBed, BiBath, BiArea,  } from 'react-icons/bi'
+import { MdPets } from 'react-icons/md'
+import { TextBody1, TextBody2, colors } from '../ui'
 import imageDefault from '../assets/image-default.png'
 
 // CardLabel function:
@@ -83,6 +85,42 @@ export default function Card(props: IPropsC) {
     <StyledCard>
       <CardLabel label={type} />
       <header />
+      <main>
+        <div>
+          <div>
+            <RiMoneyDollarCircleLine />
+            <h5>3,000</h5>
+          </div>
+          <div>
+            <RiBuildingLine />
+            <TextBody1>
+              Apartment
+            </TextBody1>
+          </div>
+        </div>
+        <p>
+          86872 Jacob Gateway, Durganport, WV 48044
+        </p>
+      </main>
+      <footer>
+        <ul>
+          <li>
+            <BiBed />
+            <span>4</span>
+          </li>
+          <li>
+            <BiBath />
+            <span>2</span>
+          </li>
+          <li>
+            <BiArea />
+            <span>180 m2</span>
+          </li>
+          <li>
+            <MdPets />
+          </li>
+        </ul>
+      </footer>
     </StyledCard>
   )
 }
