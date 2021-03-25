@@ -7,9 +7,13 @@ module Mutations
 
       def resolve(params:)
         property_params = Hash params
+        property_params[:user_id] = context[:current_user].id
+        puts 'resolve:'
+        p property_params
+        puts '-----------'
 
         begin
-          property = Property.create!(property_params)
+          property = Property.create!(property_params) if context[:current_user].landlord?
 
           { property: property }
         rescue ActiveRecord::RecordInvalid => e

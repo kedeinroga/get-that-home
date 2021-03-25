@@ -12,7 +12,6 @@ module Types
       argument :pets, Boolean, required: false
       argument :about, String, required: false
       argument :photos, String, required: true
-      argument :user_id, Integer, required: true
     end
   end
 end
