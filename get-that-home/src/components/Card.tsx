@@ -7,7 +7,7 @@ import {
 } from 'react-icons/ri'
 import { BiBed, BiBath, BiArea } from 'react-icons/bi'
 import { MdPets } from 'react-icons/md'
-import { TextBody1, TextBody2, colors } from '../ui'
+import { TextSubtitle1, TextBody1, TextBody2, colors } from '../ui'
 import imageDefault from '../assets/image-default.png'
 import Icon from './Icon'
 
@@ -83,24 +83,60 @@ export default function Card(props: IPropsC) {
       background-image: url(${image});
       background-size: cover;
       background-position: center center;
+      border-radius: 0 8px 0 0;
     }
 
-    & > footer {
-      & > ul {
-        display: flex;
-        flex-direcion: row;
-        align-items: center;
-        justify-content: flex-start;
-        gap: 16px;
+    & > main {
+      padding: 8px;
 
-        & > li {
+      & > header {
+        & > div {
           display: flex;
           flex-direction: row;
           align-items: center;
-          gap: 6px;
+          justify-content: space-between;
 
-          & > p {
-            color: ${colors.gray};
+          & > span {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+          }
+
+          & > div {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 5px;
+
+            & > p {
+              color: ${colors.gray};
+            }
+          }
+        }
+      }
+
+      & > main {
+        margin: 8px 0 25px 0;
+      }
+
+      & > footer {
+        & > ul {
+          display: flex;
+          flex-direcion: row;
+          align-items: center;
+          justify-content: flex-start;
+          gap: 16px;
+
+          & > li {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 6px;
+
+            & > p {
+              color: ${colors.gray};
+            }
           }
         }
       }
@@ -112,47 +148,55 @@ export default function Card(props: IPropsC) {
       <CardLabel label={type} />
       <header />
       <main>
-        <div>
+        <header>
           <div>
-            <Icon>
-              <RiMoneyDollarCircleLine />
-            </Icon>
-            <h5>3,000</h5>
+            <span>
+              <Icon size="26px">
+                <RiMoneyDollarCircleLine />
+              </Icon>
+              <h5>3,000</h5>
+            </span>
+            <div>
+              <Icon color={colors.gray}>
+                <RiBuildingLine />
+              </Icon>
+              <TextBody1>Apartment</TextBody1>
+            </div>
           </div>
-          <div>
-            <RiBuildingLine />
-            <TextBody1>Apartment</TextBody1>
-          </div>
-        </div>
-        <p>86872 Jacob Gateway, Durganport, WV 48044</p>
+        </header>
+        <main>
+          <TextSubtitle1>
+            86872 Jacob Gateway, Durganport, WV 48044
+          </TextSubtitle1>
+        </main>
+        <footer>
+          <ul>
+            <li>
+              <Icon color={colors.gray}>
+                <BiBed />
+              </Icon>
+              <TextBody1>4</TextBody1>
+            </li>
+            <li>
+              <Icon color={colors.gray}>
+                <BiBath />
+              </Icon>
+              <TextBody1>2</TextBody1>
+            </li>
+            <li>
+              <Icon color={colors.gray}>
+                <BiArea />
+              </Icon>
+              <TextBody1>180 m2</TextBody1>
+            </li>
+            <li>
+              <Icon color={colors.gray}>
+                <MdPets />
+              </Icon>
+            </li>
+          </ul>
+        </footer>
       </main>
-      <footer>
-        <ul>
-          <li>
-            <Icon color={colors.gray}>
-              <BiBed />
-            </Icon>
-            <TextBody1>4</TextBody1>
-          </li>
-          <li>
-            <Icon color={colors.gray}>
-              <BiBath />
-            </Icon>
-            <TextBody1>2</TextBody1>
-          </li>
-          <li>
-            <Icon color={colors.gray}>
-              <BiArea />
-            </Icon>
-            <TextBody1>180 m2</TextBody1>
-          </li>
-          <li>
-            <Icon color={colors.gray}>
-              <MdPets />
-            </Icon>
-          </li>
-        </ul>
-      </footer>
     </StyledCard>
   )
 }

@@ -28,6 +28,7 @@ const globalStyles = css`
     font-size: 96px;
     line-height: 128px;
     letter-spacing: -1.5px;
+    margin: 0;
   }
 
   h2 {
@@ -35,22 +36,26 @@ const globalStyles = css`
     font-size: 64px;
     line-height: 88px;
     letter-spacing: -0.5px;
+    margin: 0;
   }
 
   h3 {
     font-size: 48px;
     line-height: 64px;
+    margin: 0;
   }
 
   h4 {
     font-size: 36px;
     line-height: 48px;
     letter-spacing: 0.25px;
+    margin: 0;
   }
 
   h5 {
     font-size: 24px;
     line-height: 32px;
+    margin: 0;
   }
 
   h6 {
@@ -58,6 +63,7 @@ const globalStyles = css`
     font-size: 20px;
     line-height: 28px;
     letter-spacing: 0.15px;
+    margin: 0;
   }
 `
 
