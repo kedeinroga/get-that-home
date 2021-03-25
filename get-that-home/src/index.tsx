@@ -20,7 +20,7 @@ const globalStyles = css`
   }
 
   body {
-    background-color: ${colors.white};
+    background-color: green;
   }
 
   h1 {
