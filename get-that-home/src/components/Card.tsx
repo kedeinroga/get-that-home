@@ -98,6 +98,10 @@ export default function Card(props: IPropsC) {
           flex-direction: row;
           align-items: center;
           gap: 6px;
+
+          & > p {
+            color: ${colors.gray};
+          }
         }
       }
     }
@@ -125,23 +129,27 @@ export default function Card(props: IPropsC) {
       <footer>
         <ul>
           <li>
-            <Icon>
+            <Icon color={colors.gray}>
               <BiBed />
             </Icon>
-            <span>4</span>
+            <TextBody1>4</TextBody1>
           </li>
           <li>
-            <Icon>
+            <Icon color={colors.gray}>
               <BiBath />
             </Icon>
-            <span>2</span>
+            <TextBody1>2</TextBody1>
           </li>
           <li>
-            <BiArea />
-            <span>180 m2</span>
+            <Icon color={colors.gray}>
+              <BiArea />
+            </Icon>
+            <TextBody1>180 m2</TextBody1>
           </li>
           <li>
-            <MdPets />
+            <Icon color={colors.gray}>
+              <MdPets />
+            </Icon>
           </li>
         </ul>
       </footer>
