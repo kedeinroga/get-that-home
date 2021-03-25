@@ -3,6 +3,7 @@ import styled from '@emotion/styled'
 import {
   RiCoinsLine,
   RiMoneyDollarCircleLine,
+  RiMoneyDollarCircleFill,
   RiBuildingLine,
 } from 'react-icons/ri'
 import { BiBed, BiBath, BiArea } from 'react-icons/bi'
@@ -35,11 +36,6 @@ function CardLabel(props: IPropsCL) {
     top: 0;
     right: 0;
 
-    & > svg {
-      font-size: 16px;
-      fill: ${colors.white};
-    }
-
     & > p {
       text-transform: capitalize;
       color: ${colors.white};
@@ -48,8 +44,16 @@ function CardLabel(props: IPropsCL) {
 
   return (
     <StyledCardLabel>
-      {label === 'rental' && <RiCoinsLine />}
-      {label === 'sale' && <RiMoneyDollarCircleLine />}
+      {label === 'rental' && (
+        <Icon color={colors.white}>
+          <RiCoinsLine />
+        </Icon>
+      )}
+      {label === 'sale' && (
+        <Icon color={colors.white}>
+          <RiMoneyDollarCircleFill />
+        </Icon>
+      )}
       <TextBody2>For {label}</TextBody2>
     </StyledCardLabel>
   )
