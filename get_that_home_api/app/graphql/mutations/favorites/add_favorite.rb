@@ -1,3 +1,5 @@
+class IncorrectUser < StandardError; end
+
 module Mutations
   module Favorites
     class AddFavorite < Mutations::BaseMutation
@@ -8,8 +10,12 @@ module Mutations
         property = Property.find(id)
         if context[:current_user].home_seeker?
           favorite = property.favorites.create!(user_id: context[:current_user].id)
+          { favorite: favorite }
+        else
+          raise IncorrectUser, 'You are not a home seeker'
         end
-        { favorite: favorite }
+      rescue IncorrectUser => e
+        GraphQL::ExecutionError.new(e.message)
       end
     end
   end
