@@ -2,6 +2,9 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { RiCoinsLine, RiMoneyDollarCircleLine } from 'react-icons/ri'
 import { TextBody2, colors } from '../ui'
+import imageDefault from '../assets/image-default.png'
+
+// CardLabel function:
 
 interface IPropsCL {
   label?: string
@@ -49,8 +52,11 @@ CardLabel.defaultProps = {
   label: 'rental',
 }
 
+// Card function:
+
 interface IPropsC {
   type?: string
+  image?: string
 }
 
 const StyledCard = styled.div`
@@ -63,15 +69,17 @@ const StyledCard = styled.div`
 `
 
 export default function Card(props: IPropsC) {
-  const { type } = props
+  const { type, image } = props
 
   return (
     <StyledCard>
       <CardLabel label={type} />
+      <img src={image} alt="Default property" />
     </StyledCard>
   )
 }
 
 Card.defaultProps = {
   type: 'rental',
+  image: imageDefault,
 }
