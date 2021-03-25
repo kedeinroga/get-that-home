@@ -1,18 +1,23 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import styled from '@emotion/styled'
 
 import { About } from './pages/About'
 import { Home } from './pages/Home'
 
+const Container = styled.div`
+  background-color: red;
+`
+
 const App: React.FC = () => {
   return (
     <BrowserRouter>
-      <div className="container">
+      <Container>
         <Switch>
           <Route path="/" component={Home} exact />
           <Route path="/about" component={About} />
         </Switch>
-      </div>
+      </Container>
     </BrowserRouter>
   )
 }

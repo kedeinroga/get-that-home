@@ -1,12 +1,10 @@
 import React, { Fragment } from 'react'
-import Button from '../components/Button'
-import Title from '../components/Title'
+import Header from '../components/Header'
 
 export const Home: React.FC = () => {
   return (
     <Fragment>
-      <Button secundary>Button</Button>
-      <Title>Some title</Title>
+      <Header />
     </Fragment>
   )
 }
