@@ -1,12 +1,12 @@
 import styled from '@emotion/styled'
 import React, { ReactNode } from 'react'
 import { RiArrowDownSLine } from 'react-icons/ri'
-import { FiBell } from 'react-icons/fi'
 import { colors, TextButton } from '../ui'
 
 interface IProps {
   children: ReactNode
   childrenIcon?: ReactNode
+  select?: boolean
   icon: boolean
   secundary: boolean
   disabled: boolean
@@ -45,8 +45,11 @@ const StyledButton = styled.button`
     padding: 8px 16px;
     padding: ${(props: IProps) => props.large && '16px 24px'};
     padding: ${(props: IProps) => props.small && '4px 8px'};
+    padding: ${(props: IProps) => props.icon && '8px'};
 
     border-radius: 16px;
+    border-radius: ${(props: IProps) => props.icon && '50px'};
+
     transition: 0.45s all;
     cursor: pointer;
 
@@ -59,9 +62,13 @@ const StyledButton = styled.button`
     }
 
     & > svg {
+      stroke: ${colors.white};
       fill: ${colors.white};
+      stroke: ${(props: IProps) => props.secundary && colors.gray};
       fill: ${(props: IProps) => props.secundary && colors.gray};
+      stroke: ${(props: IProps) => props.ghost && colors.gray};
       fill: ${(props: IProps) => props.ghost && colors.gray};
+      stroke: ${(props: IProps) => props.disabled && colors.lightGray};
       fill: ${(props: IProps) => props.disabled && colors.lightGray};
       font-size: 20px;
     }
@@ -76,27 +83,28 @@ const StyledButton = styled.button`
 
       border-color: ${colors.darkPink};
       border-color: ${(props: IProps) => props.secundary && colors.darkPink};
-      border-color: ${(props: IProps) => props.ghost && colors.shallowPink};
+      border-color: ${(props: IProps) => props.ghost && colors.darkPink};
       border-color: ${(props: IProps) => props.disabled && colors.shallowGray};
+
+      & > p {
+        color: ${(props: IProps) => props.secundary && colors.darkGray};
+        color: ${(props: IProps) => props.ghost && colors.darkGray};
+        color: ${(props: IProps) => props.disabled && colors.lightGray};
+        margin: 0 12px;
+      }
+
+      & > svg {
+        stroke: ${colors.white};
+        fill: ${colors.white};
+        stroke: ${(props: IProps) => props.secundary && colors.darkGray};
+        fill: ${(props: IProps) => props.secundary && colors.darkGray};
+        stroke: ${(props: IProps) => props.ghost && colors.darkGray};
+        fill: ${(props: IProps) => props.ghost && colors.darkGray};
+        stroke: ${(props: IProps) => props.disabled && colors.lightGray};
+        fill: ${(props: IProps) => props.disabled && colors.lightGray};
+        font-size: 20px;
+      }
     }
-  }
-`
-
-const StyledButtonIcon = styled.i`
-  display: grid;
-  place-items: center;
-  font-size: 20px;
-  padding: 8px;
-  border-radius: 50px;
-  transition: 0.45s all;
-  cursor: pointer;
-
-  :hover {
-    background-color: ${colors.shallowPink};
-  }
-
-  :focus {
-    background-color: black;
   }
 `
 
@@ -104,6 +112,7 @@ export default function Button(props: IProps) {
   const {
     children,
     childrenIcon,
+    select,
     icon,
     secundary,
     disabled,
@@ -115,6 +124,7 @@ export default function Button(props: IProps) {
   return (
     <StyledButton
       childrenIcon={childrenIcon}
+      select={select}
       icon={icon}
       secundary={secundary}
       disabled={disabled}
@@ -126,19 +136,16 @@ export default function Button(props: IProps) {
         <div>
           {childrenIcon}
           <TextButton>{children}</TextButton>
-          <RiArrowDownSLine />
+          {select === true && <RiArrowDownSLine />}
         </div>
       )}
-      {icon && (
-        <StyledButtonIcon>
-          <FiBell />
-        </StyledButtonIcon>
-      )}
+      {icon && <div>{children}</div>}
     </StyledButton>
   )
 }
 
 Button.defaultProps = {
   // ghost: false
-  childrenIcon: ""
+  childrenIcon: '',
+  select: false,
 }
