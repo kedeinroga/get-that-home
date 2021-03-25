@@ -5,7 +5,7 @@ import Title from '../components/Title'
 export const Home: React.FC = () => {
   return (
     <Fragment>
-      <Button>Button</Button>
+      <Button secundary>Button</Button>
       <Title>Some title</Title>
     </Fragment>
   )
