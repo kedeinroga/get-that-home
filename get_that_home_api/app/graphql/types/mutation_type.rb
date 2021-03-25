@@ -12,5 +12,8 @@ module Types
 
     field :add_contacted, mutation: Mutations::Contacteds::AddContacted
     field :destroy_contacted, mutation: Mutations::Contacteds::DestroyContacted
+    
+    field :add_favorite, mutation: Mutations::Favorites::AddFavorite
+    field :remove_favorite, mutation: Mutations::Favorites::RemoveFavorite
   end
 end
