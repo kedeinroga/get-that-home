@@ -1,7 +1,5 @@
 import React, { Fragment } from 'react'
-import { FiBell } from 'react-icons/fi'
 import Button from '../components/Button'
-import Icon from '../components/Icon'
 
 export const Home: React.FC = () => {
   return (
@@ -13,15 +11,10 @@ export const Home: React.FC = () => {
         Prettier for you. Take a look around ;)
       </p>
       <Button
-        childrenIcon={
-          <Icon>
-            <FiBell />
-          </Icon>
-        }
         icon={false}
-        secundary
+        secundary={false}
         disabled={false}
-        ghost
+        ghost={false}
         large={false}
         small={false}
       >

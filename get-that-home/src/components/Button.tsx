@@ -6,7 +6,7 @@ import { colors, TextButton } from '../ui'
 
 interface IProps {
   children: ReactNode
-  childrenIcon: ReactNode
+  childrenIcon?: ReactNode
   icon: boolean
   secundary: boolean
   disabled: boolean
@@ -140,4 +140,5 @@ export default function Button(props: IProps) {
 
 Button.defaultProps = {
   // ghost: false
+  childrenIcon: ""
 }
