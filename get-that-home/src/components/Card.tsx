@@ -20,6 +20,10 @@ function CardLabel(props: IPropsCL) {
     gap: 6px;
     width: 115px;
     height: 28px;
+    border-radius: 0 8px 0 0;
+    position: absolute;
+    top: 0;
+    right: 0;
 
     & > svg {
       font-size: 16px;
@@ -55,6 +59,7 @@ const StyledCard = styled.div`
   height: 360px;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
+  position: relative;
 `
 
 export default function Card(props: IPropsC) {
