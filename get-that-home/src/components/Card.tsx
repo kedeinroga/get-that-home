@@ -59,22 +59,30 @@ interface IPropsC {
   image?: string
 }
 
-const StyledCard = styled.div`
-  background-color: ${colors.white};
-  width: 300px;
-  height: 360px;
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
-  position: relative;
-`
-
 export default function Card(props: IPropsC) {
   const { type, image } = props
+
+  const StyledCard = styled.div`
+    background-color: ${colors.white};
+    width: 300px;
+    height: 360px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    position: relative;
+
+    & > header {
+      width: 100%;
+      height: 200px;
+      background-image: url(${image});
+      background-size: cover;
+      background-position: center center;
+    }
+  `
 
   return (
     <StyledCard>
       <CardLabel label={type} />
-      <img src={image} alt="Default property" />
+      <header />
     </StyledCard>
   )
 }
