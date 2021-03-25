@@ -11,5 +11,6 @@ module Types
     field :logout, mutation: Mutations::Sessions::Logout
 
     field :add_contacted, mutation: Mutations::Contacteds::AddContacted
+    field :destroy_contacted, mutation: Mutations::Contacteds::DestroyContacted
   end
 end
