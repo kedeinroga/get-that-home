@@ -5,7 +5,7 @@ module Mutations
     class UpdateProperty < Mutations::BaseMutation
       argument :id, ID, required: true
 
-      argument :params, Types::Input::PropertyInputType, required: true
+      argument :params, Types::Input::UpdatePropertyInputType, required: true
 
       field :property, Types::PropertyType, null: false
 
