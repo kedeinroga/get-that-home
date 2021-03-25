@@ -4,7 +4,7 @@ import Header from '../components/Header'
 export const Home: React.FC = () => {
   return (
     <Fragment>
-      <Header />
+      <Header type="landlord" />
     </Fragment>
   )
 }
