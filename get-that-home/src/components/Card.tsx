@@ -70,10 +70,28 @@ interface IPropsC {
   landlord?: boolean
   type?: string
   image?: string
+  rent?: string
+  propertyType?: string
+  address?: string
+  bedrooms?: number
+  bathrooms?: number
+  area?: number
+  pets?: boolean
 }
 
 export default function Card(props: IPropsC) {
-  const { landlord, type, image } = props
+  const {
+    landlord,
+    type,
+    image,
+    rent,
+    propertyType,
+    address,
+    bedrooms,
+    bathrooms,
+    area,
+    pets,
+  } = props
 
   const StyledCard = styled.div`
     background-color: ${colors.white};
@@ -116,6 +134,7 @@ export default function Card(props: IPropsC) {
             gap: 5px;
 
             & > p {
+              text-transform: capitalize;
               color: ${colors.gray};
             }
           }
@@ -206,20 +225,18 @@ export default function Card(props: IPropsC) {
               <Icon size="26px">
                 <RiMoneyDollarCircleLine />
               </Icon>
-              <h5>3,000</h5>
+              <h5>{rent}</h5>
             </span>
             <div>
               <Icon color={colors.gray}>
                 <RiBuildingLine />
               </Icon>
-              <TextBody1>Apartment</TextBody1>
+              <TextBody1>{propertyType}</TextBody1>
             </div>
           </div>
         </header>
         <main>
-          <TextSubtitle1>
-            86872 Jacob Gateway, Durganport, WV 48044
-          </TextSubtitle1>
+          <TextSubtitle1>{address}</TextSubtitle1>
         </main>
         <footer>
           <ul>
@@ -227,24 +244,22 @@ export default function Card(props: IPropsC) {
               <Icon color={colors.gray}>
                 <BiBed />
               </Icon>
-              <TextBody1>4</TextBody1>
+              <TextBody1>{bedrooms}</TextBody1>
             </li>
             <li>
               <Icon color={colors.gray}>
                 <BiBath />
               </Icon>
-              <TextBody1>2</TextBody1>
+              <TextBody1>{bathrooms}</TextBody1>
             </li>
             <li>
               <Icon color={colors.gray}>
                 <BiArea />
               </Icon>
-              <TextBody1>180 m2</TextBody1>
+              <TextBody1>{area} m2</TextBody1>
             </li>
             <li>
-              <Icon color={colors.gray}>
-                <MdPets />
-              </Icon>
+              <Icon color={colors.gray}>{pets && <MdPets />}</Icon>
             </li>
           </ul>
         </footer>
@@ -275,4 +290,11 @@ Card.defaultProps = {
   landlord: false,
   type: 'rental',
   image: imageDefault,
+  rent: '0.00',
+  propertyType: 'apartment',
+  address: 'No address',
+  bedrooms: 0,
+  bathrooms: 0,
+  area: 0,
+  pets: false,
 }
