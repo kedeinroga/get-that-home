@@ -14,16 +14,19 @@ import store from './store'
 import App from './App'
 
 const client = new ApolloClient({
-  uri: 'https://rickandmortyapi.com/graphql',
+  uri: 'http://127.0.0.1:3000/graphql',
   cache: new InMemoryCache(),
 })
 
 const EXCHANGE_RATES = gql`
   query {
-    characters(page: 2, filter: { name: "rick" }) {
-      results {
-        name
-      }
+    fetchProperties {
+      id
+      address
+      rent
+      area
+      photos
+      userId
     }
   }
 `
@@ -32,9 +35,9 @@ function ExchangeRates() {
   const { loading, error, data } = useQuery(EXCHANGE_RATES)
   if (loading) return <p>Loading...</p>
   if (error) return <p>Error :</p>
-  return data.characters.results.map(({ name }: { name: any }) => (
-    <div key={name}>
-      <p>{name}</p>
+  return data.fetchProperties.map(({ address }: { address: any }) => (
+    <div key={address}>
+      <p>{address}</p>
     </div>
   ))
 }
