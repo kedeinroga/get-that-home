@@ -1,5 +1,7 @@
 import React from 'react'
 import Select from 'react-select'
+import styled from '@emotion/styled'
+import makeAnimated from 'react-select/animated'
 
 const options = [
   { value: 'chocolate', label: 'Chocolate' },
@@ -7,6 +9,19 @@ const options = [
   { value: 'vanilla', label: 'Vanilla' },
 ]
 
+const StyledSelect = styled.div``
+
+const animatedComponents = makeAnimated()
+
 export default function SelectContent() {
-  return <Select options={options} />
+  return (
+    <StyledSelect>
+      <Select
+        closeMenuOnSelect={false}
+        components={animatedComponents}
+        isMulti
+        options={options}
+      />
+    </StyledSelect>
+  )
 }
