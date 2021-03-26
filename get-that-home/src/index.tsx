@@ -1,10 +1,43 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  gql,
+  useQuery,
+} from '@apollo/client'
 import { Provider } from 'react-redux'
 import { Global, css } from '@emotion/react'
 import { colors } from './ui'
 import store from './store'
 import App from './App'
+
+const client = new ApolloClient({
+  uri: 'https://rickandmortyapi.com/graphql',
+  cache: new InMemoryCache(),
+})
+
+const EXCHANGE_RATES = gql`
+  query {
+    characters(page: 2, filter: { name: "rick" }) {
+      results {
+        name
+      }
+    }
+  }
+`
+
+function ExchangeRates() {
+  const { loading, error, data } = useQuery(EXCHANGE_RATES)
+  if (loading) return <p>Loading...</p>
+  if (error) return <p>Error :</p>
+  return data.characters.results.map(({ name }: { name: any }) => (
+    <div key={name}>
+      <p>{name}</p>
+    </div>
+  ))
+}
 
 const globalStyles = css`
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@300;400;500;700&display=swap');
@@ -62,9 +95,12 @@ const globalStyles = css`
 `
 
 ReactDOM.render(
-  <Provider store={store}>
-    <Global styles={globalStyles} />
-    <App />
-  </Provider>,
+  <ApolloProvider client={client}>
+    <Provider store={store}>
+      <Global styles={globalStyles} />
+      <App />
+      <ExchangeRates />
+    </Provider>
+  </ApolloProvider>,
   document.getElementById('root')
 )
