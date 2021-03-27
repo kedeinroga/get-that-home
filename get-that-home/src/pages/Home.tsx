@@ -3,13 +3,14 @@ import styled from '@emotion/styled'
 import { colors, TextSubtitle2 } from '../ui'
 import Header from '../components/Header'
 import Card from '../components/Card'
-import illustrationHero from '../assets/illustration-1.svg'
+import IllustrationHero from '../assets/illustration-1.svg'
 import Button from '../components/Button'
+import TeamCard from '../components/TeamCard'
 
 const StyledHero = styled.section`
   height: 600px;
   width: 100%;
-  background-image: url(${illustrationHero});
+  background-image: url(${IllustrationHero});
   background-size: cover;
   background-position: center;
   padding: 64px 0;
@@ -158,6 +159,7 @@ export const Home: React.FC = () => {
       </StyledSignup>
       <StyledTeam>
         <h3>Meet the team</h3>
+        <TeamCard name="Heraldo Fortuna" />
       </StyledTeam>
       <StyledFooter>
         <div>
