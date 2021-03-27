@@ -5,6 +5,7 @@ import Header from '../components/Header'
 import Card from '../components/Card'
 import SelectContent from '../contents/SelectContent'
 import illustrationHero from '../assets/illustration-1.svg'
+import Button from '../components/Button'
 
 const StyledHero = styled.section`
   height: 600px;
@@ -29,7 +30,6 @@ const StyledHeroTitle = styled.div`
 `
 
 const StyledProperties = styled.section`
-  background-color: green;
   padding: 64px 0;
   display: flex;
   flex-direction: column;
@@ -55,6 +55,19 @@ const StyledPropertiesList = styled.ul`
   justify-content: center;
   gap: 48px;
   margin: 0 auto;
+`
+
+const StyledSignup = styled.section`
+  background-color: ${colors.shallowPink};
+  display: grid;
+  place-items: center;
+  gap: 32px;
+  padding: 64px 0;
+
+  & > h4 {
+    width: 75%;
+    text-align: center;
+  }
 `
 
 export const Home: React.FC = () => {
@@ -105,7 +118,10 @@ export const Home: React.FC = () => {
           />
         </StyledPropertiesList>
       </StyledProperties>
-      <SelectContent />
+      <StyledSignup>
+        <h4>Getting someone to rent your apartment has never been this easy</h4>
+        <Button large>Create an account now</Button>
+      </StyledSignup>
     </Fragment>
   )
 }

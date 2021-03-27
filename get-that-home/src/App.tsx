@@ -5,9 +5,7 @@ import styled from '@emotion/styled'
 import { About } from './pages/About'
 import { Home } from './pages/Home'
 
-const Container = styled.div`
-  background-color: red;
-`
+const Container = styled.div``
 
 const App: React.FC = () => {
   return (
