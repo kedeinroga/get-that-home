@@ -5,6 +5,7 @@ import Header from '../components/Header'
 import Card from '../components/Card'
 import IllustrationHero from '../assets/illustration-1.svg'
 import Button from '../components/Button'
+import TeamCard from '../components/TeamCard'
 
 const StyledHero = styled.section`
   height: 600px;
@@ -70,9 +71,23 @@ const StyledSignup = styled.section`
 
 const StyledTeam = styled.section`
   padding: 64px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 26px;
 
   & > h3 {
     color: ${colors.darkPink};
+    text-align: center;
+  }
+
+  & > ul {
+    width: 75%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
     text-align: center;
   }
 `
@@ -158,6 +173,28 @@ export const Home: React.FC = () => {
       </StyledSignup>
       <StyledTeam>
         <h3>Meet the team</h3>
+        <ul>
+          <TeamCard
+            name="Heraldo Fortuna"
+            github="https://github.com/heraldofortuna"
+            linkedin="https://www.linkedin.com/in/heraldo-fortuna/"
+          />
+          <TeamCard
+            name="Heraldo Fortuna"
+            github="https://github.com/heraldofortuna"
+            linkedin="https://www.linkedin.com/in/heraldo-fortuna/"
+          />
+          <TeamCard
+            name="Heraldo Fortuna"
+            github="https://github.com/heraldofortuna"
+            linkedin="https://www.linkedin.com/in/heraldo-fortuna/"
+          />
+          <TeamCard
+            name="Heraldo Fortuna"
+            github="https://github.com/heraldofortuna"
+            linkedin="https://www.linkedin.com/in/heraldo-fortuna/"
+          />
+        </ul>
       </StyledTeam>
       <StyledFooter>
         <div>
