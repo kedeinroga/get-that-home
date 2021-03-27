@@ -10,7 +10,10 @@ const StyledHero = styled.section`
   height: 600px;
   width: 100%;
   background-image: url(${illustrationHero});
+  background-size: cover;
+  background-position: center;
   padding: 64px 0;
+  margin: 72px 0 0 0;
 `
 
 const StyledHeroTitle = styled.div`
@@ -39,6 +42,10 @@ const StyledPropertiesTitle = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 16px;
+
+  & > h4 {
+    color: ${colors.darkPink};
+  }
 `
 
 const StyledPropertiesList = styled.ul`

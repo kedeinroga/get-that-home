@@ -19,6 +19,9 @@ interface IProps {
 }
 
 const StyledHeader = styled.header`
+  position: fixed;
+  top: 0;
+  width: 100%;
   background-color: blue;
   height: 72px;
   background: ${colors.white};
