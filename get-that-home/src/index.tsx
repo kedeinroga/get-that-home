@@ -56,7 +56,7 @@ const globalStyles = css`
   }
 
   body {
-    background-color: green;
+    background-color: ${colors.white};
   }
 
   h1 {
