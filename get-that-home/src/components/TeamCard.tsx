@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import imageDefault from '../assets/image-default.png'
+import { RiGithubFill, RiLinkedinBoxFill } from 'react-icons/ri'
+import userDefault from '../assets/user-default.jpg'
 
 interface IProps {
   image?: string
@@ -9,23 +10,38 @@ interface IProps {
   linkdin?: string
 }
 
-const StyledTeamCard = styled.div``
-
 export default function TeamCard(props: IProps) {
   const { image, name, github, linkdin } = props
 
+  const StyledTeamCard = styled.div`
+    & > section {
+      width: 180px;
+      height: 180px;
+      background-image: url(${image});
+      background-size: cover;
+      background-position: center center;
+      border-radius: 100px;
+    }
+  `
+
   return (
     <StyledTeamCard>
-      {image}
-      {name}
-      {github}
-      {linkdin}
+      <section />
+      <h5>{name}</h5>
+      <div>
+        <a href={github}>
+          <RiGithubFill />
+        </a>
+        <a href={linkdin}>
+          <RiLinkedinBoxFill />
+        </a>
+      </div>
     </StyledTeamCard>
   )
 }
 
 TeamCard.defaultProps = {
-  image: imageDefault,
+  image: userDefault,
   name: 'Unnamed',
   github: 'No link',
   linkdin: 'No link',
