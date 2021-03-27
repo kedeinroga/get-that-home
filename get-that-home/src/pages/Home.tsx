@@ -36,7 +36,7 @@ const StyledProperties = styled.section`
 `
 
 const StyledPropertiesTitle = styled.div`
-  background-color: gray;
+  background-color: rgba(40, 40, 40, 0.25);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -48,7 +48,6 @@ const StyledPropertiesTitle = styled.div`
 `
 
 const StyledPropertiesList = styled.ul`
-  background-color: blue;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -69,17 +68,39 @@ const StyledSignup = styled.section`
   }
 `
 
+const StyledTeam = styled.section`
+  padding: 64px 0;
+
+  & > h3 {
+    color: ${colors.darkPink};
+    text-align: center;
+  }
+`
+
 const StyledFooter = styled.footer`
   background-color: ${colors.background};
   border-top: 1px solid ${colors.darkPink};
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 16px 32px;
 
   & > div {
+    width: 75%;
     display: flex;
     flex-direction: row;
     align-items: center;
-    
+    justify-content: space-between;
+  }
+
+  & > section {
+    width: 75%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
   }
 `
 
@@ -135,6 +156,9 @@ export const Home: React.FC = () => {
         <h4>Getting someone to rent your apartment has never been this easy</h4>
         <Button large>Create an account now</Button>
       </StyledSignup>
+      <StyledTeam>
+        <h3>Meet the team</h3>
+      </StyledTeam>
       <StyledFooter>
         <div>
           <TextSubtitle2>© 2021 - Find That Home</TextSubtitle2>
