@@ -15,6 +15,13 @@ export default function TeamCard(props: IProps) {
   const { image, name, github, linkdin } = props
 
   const StyledTeamCard = styled.div`
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+
     & > section {
       width: 180px;
       height: 180px;
@@ -22,6 +29,14 @@ export default function TeamCard(props: IProps) {
       background-size: cover;
       background-position: center center;
       border-radius: 100px;
+    }
+
+    & > div {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 50px;
     }
   `
 
