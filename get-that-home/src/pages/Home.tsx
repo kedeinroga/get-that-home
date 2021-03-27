@@ -3,7 +3,6 @@ import styled from '@emotion/styled'
 import { colors, TextSubtitle2 } from '../ui'
 import Header from '../components/Header'
 import Card from '../components/Card'
-import SelectContent from '../contents/SelectContent'
 import illustrationHero from '../assets/illustration-1.svg'
 import Button from '../components/Button'
 
@@ -70,6 +69,20 @@ const StyledSignup = styled.section`
   }
 `
 
+const StyledFooter = styled.footer`
+  background-color: ${colors.background};
+  border-top: 1px solid ${colors.darkPink};
+  display: flex;
+  flex-direction: column;
+
+  & > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+  }
+`
+
 export const Home: React.FC = () => {
   return (
     <Fragment>
@@ -122,6 +135,21 @@ export const Home: React.FC = () => {
         <h4>Getting someone to rent your apartment has never been this easy</h4>
         <Button large>Create an account now</Button>
       </StyledSignup>
+      <StyledFooter>
+        <div>
+          <TextSubtitle2>© 2021 - Find That Home</TextSubtitle2>
+          <TextSubtitle2>Source Code</TextSubtitle2>
+          <TextSubtitle2>Codeable - Cohort 3 Final Project</TextSubtitle2>
+        </div>
+        <section>
+          <div>
+            <TextSubtitle2>Ruby on Rails REST API</TextSubtitle2>
+          </div>
+          <div>
+            <TextSubtitle2>React Responsive SPA</TextSubtitle2>
+          </div>
+        </section>
+      </StyledFooter>
     </Fragment>
   )
 }
