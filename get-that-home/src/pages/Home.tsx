@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import Header from '../components/Header'
 import Card from '../components/Card'
+import SelectContent from '../contents/SelectContent'
 
 export const Home: React.FC = () => {
   return (
@@ -16,6 +17,7 @@ export const Home: React.FC = () => {
         bathrooms={2}
         area={100}
       />
+      <SelectContent />
     </Fragment>
   )
 }
