@@ -5,7 +5,6 @@ import Header from '../components/Header'
 import Card from '../components/Card'
 import IllustrationHero from '../assets/illustration-1.svg'
 import Button from '../components/Button'
-import TeamCard from '../components/TeamCard'
 
 const StyledHero = styled.section`
   height: 600px;
@@ -159,7 +158,6 @@ export const Home: React.FC = () => {
       </StyledSignup>
       <StyledTeam>
         <h3>Meet the team</h3>
-        <TeamCard name="Heraldo Fortuna" />
       </StyledTeam>
       <StyledFooter>
         <div>
