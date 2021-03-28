@@ -1,46 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  gql,
-  useQuery,
-} from '@apollo/client'
+import { ApolloProvider } from '@apollo/client'
 import { Provider } from 'react-redux'
 import { Global, css } from '@emotion/react'
 import { colors } from './ui'
 import store from './store'
 import App from './App'
-
-const client = new ApolloClient({
-  uri: 'http://127.0.0.1:3000/graphql',
-  cache: new InMemoryCache(),
-})
-
-const EXCHANGE_RATES = gql`
-  query {
-    fetchProperties {
-      id
-      address
-      rent
-      area
-      photos
-      userId
-    }
-  }
-`
-
-function ExchangeRates() {
-  const { loading, error, data } = useQuery(EXCHANGE_RATES)
-  if (loading) return <p>Loading...</p>
-  if (error) return <p>Error :</p>
-  return data.fetchProperties.map(({ address }: { address: any }) => (
-    <div key={address}>
-      <p>{address}</p>
-    </div>
-  ))
-}
+import { client } from './client'
+import { AllProperties } from './features/properties/properties'
+import { Login } from './features/session/sessions'
 
 const globalStyles = css`
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@300;400;500;700&display=swap');
@@ -108,7 +76,8 @@ ReactDOM.render(
     <Provider store={store}>
       <Global styles={globalStyles} />
       <App />
-      <ExchangeRates />
+      <Login />
+      <AllProperties />
     </Provider>
   </ApolloProvider>,
   document.getElementById('root')
