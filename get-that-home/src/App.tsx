@@ -4,6 +4,7 @@ import styled from '@emotion/styled'
 
 import { About } from './pages/About'
 import { Home } from './pages/Home'
+import { AddProperty } from './pages/AddProperty'
 
 const Container = styled.div``
 
@@ -14,6 +15,7 @@ const App: React.FC = () => {
         <Switch>
           <Route path="/" component={Home} exact />
           <Route path="/about" component={About} />
+          <Route path="/addProperty" component={AddProperty} />
         </Switch>
       </Container>
     </BrowserRouter>
