@@ -6,7 +6,8 @@ import { Global, css } from '@emotion/react'
 import { colors } from './ui'
 import store from './store'
 import App from './App'
-import { client, ExchangeRates } from './client'
+import { client } from './client'
+import { AllProperties } from './features/properties/properties'
 
 const globalStyles = css`
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@300;400;500;700&display=swap');
@@ -74,7 +75,7 @@ ReactDOM.render(
     <Provider store={store}>
       <Global styles={globalStyles} />
       <App />
-      <ExchangeRates />
+      <AllProperties />
     </Provider>
   </ApolloProvider>,
   document.getElementById('root')
