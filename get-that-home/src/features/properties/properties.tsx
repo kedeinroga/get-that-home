@@ -18,7 +18,7 @@ function AllProperties() {
   const { loading, error, data } = useQuery(ALL_PROPERTIES)
   if (loading) return <p>Loading...</p>
   if (error) return <p>Error :</p>
-  console.log(data)
+  // console.log(data)
 
   return data.fetchProperties.map((properties: any) => (
     <div key={properties.id}>

@@ -8,6 +8,7 @@ import store from './store'
 import App from './App'
 import { client } from './client'
 import { AllProperties } from './features/properties/properties'
+import { Login } from './features/session/sessions'
 
 const globalStyles = css`
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@300;400;500;700&display=swap');
@@ -75,6 +76,7 @@ ReactDOM.render(
     <Provider store={store}>
       <Global styles={globalStyles} />
       <App />
+      <Login />
       <AllProperties />
     </Provider>
   </ApolloProvider>,
