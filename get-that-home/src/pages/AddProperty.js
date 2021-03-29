@@ -1,6 +1,7 @@
 import React from "react";
 import { gql, useMutation } from "@apollo/client";
 import { useFormik } from "formik";
+import UrlCloud from "../helpers/UrlCloud";
 
 const ADD_PROPERTY = gql`
   mutation AddProperty(
@@ -70,7 +71,9 @@ const AddProperty = () => {
       rent: 0,
     },
 
-    onSubmit: (values) => {
+    onSubmit: async (values) => {
+      const photos = await UrlCloud(values.photos);
+      console.log(photos);
       addProperty({
         variables: {
           about: values.about,
@@ -81,7 +84,7 @@ const AddProperty = () => {
           maintanance: values.maintanance,
           operationType: values.operationType,
           pets: values.pets,
-          photos: values.photos,
+          photos: photos.join("|"),
           propertyType: values.propertyType,
           rent: values.rent,
         },
@@ -198,11 +201,12 @@ const AddProperty = () => {
         <input
           id="photos"
           name="photos"
-          type="text"
-          onChange={formik.handleChange}
-          value={formik.values.photos}
+          type="file"
+          multiple
+          onChange={(e) => {
+            formik.setFieldValue("photos", e.currentTarget.files);
+          }}
         />
-
         <button type="submit">Publish property listing </button>
       </form>
     </>
