@@ -1,6 +1,7 @@
 import React from "react";
 import { gql, useMutation } from "@apollo/client";
 import { useFormik } from "formik";
+import { GET_CURRENT_USER_QUERY } from "./CurrentUser";
 
 const LOGIN = gql`
   mutation Login($email: String!, $password: String!) {
@@ -18,11 +19,27 @@ const LOGIN = gql`
 `;
 
 const Login = () => {
-  const [login, { data }] = useMutation(LOGIN);
-  if (data) {
-    console.log(data.login.user.token);
-    localStorage.setItem("token", data.login.user.token);
-  }
+  // const [login, { data }] = useMutation(LOGIN);
+  // if (data) {
+  //   console.log(data.login.user.token);
+  //   localStorage.setItem("token", data.login.user.token);
+  // }
+
+  const [login] = useMutation(LOGIN, {
+    onCompleted({ login }) {
+      localStorage.setItem("token", login.user.token);
+    },
+    update(cache, { data }) {
+      console.log(data);
+      console.log(cache);
+      cache.writeQuery({
+        query: GET_CURRENT_USER_QUERY,
+        data: {
+          user: data.login,
+        },
+      });
+    },
+  });
 
   const formik = useFormik({
     initialValues: {
