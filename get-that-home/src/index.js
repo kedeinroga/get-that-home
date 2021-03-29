@@ -74,6 +74,7 @@ const globalStyles = css`
 ReactDOM.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
+      <Global styles={globalStyles} />
       <App />
       <Login />
       <UpdateUser />
