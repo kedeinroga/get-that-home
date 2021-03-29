@@ -1,13 +1,14 @@
-import React from 'react'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import styled from '@emotion/styled'
+import React from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import styled from "@emotion/styled";
+import { colors } from "./ui";
 
-import { Landing } from './pages/Landing'
-import { Login } from './pages/Login'
+import { Landing } from "./pages/Landing";
+import { Login } from "./pages/Login";
 
 const Container = styled.div`
-  background-color: red;
-`
+  background-color: ${colors.white};
+`;
 
 var App = function () {
   return (
@@ -19,7 +20,7 @@ var App = function () {
         </Switch>
       </Container>
     </BrowserRouter>
-  )
-}
+  );
+};
 
 export default App;
