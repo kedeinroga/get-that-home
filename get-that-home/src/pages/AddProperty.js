@@ -1,6 +1,6 @@
 import React from "react";
 import { gql, useMutation } from "@apollo/client";
-import { useFormik, Field } from "formik";
+import { useFormik } from "formik";
 
 const ADD_PROPERTY = gql`
   mutation AddProperty(
@@ -96,11 +96,11 @@ const AddProperty = () => {
         <p>Operation Type</p>
         <label htmlFor="rent">
           Rent
-          <Field type="radio" id="rent" name="operationType" value="rent" />
+          <input type="radio" id="rent" name="operationType" value="rent" />
         </label>
         <label htmlFor="sale">
           sale
-          <Field type="radio" id="sale" name="operationType" value="sale" />
+          <input type="radio" id="sale" name="operationType" value="sale" />
         </label>
 
         <label htmlFor="address">Address</label>
@@ -133,7 +133,7 @@ const AddProperty = () => {
         <p>Property Type</p>
         <label htmlFor="apartment">
           Apartment
-          <Field
+          <input
             type="radio"
             id="apartment"
             name="propertyType"
@@ -142,7 +142,7 @@ const AddProperty = () => {
         </label>
         <label htmlFor="house">
           House
-          <Field type="radio" id="house" name="propertyType" value="house" />
+          <input type="radio" id="house" name="propertyType" value="house" />
         </label>
 
         <label htmlFor="bedrooms">Bedrooms</label>
@@ -174,8 +174,8 @@ const AddProperty = () => {
 
         <label htmlFor="pets">
           Pets Allowed
-          <Field
-            type="radio"
+          <input
+            type="checkbox"
             id="pets"
             name="pets"
             value={formik.values.pets}
