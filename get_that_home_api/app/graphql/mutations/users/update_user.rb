@@ -1,17 +1,15 @@
 module Mutations
   module Users 
     class UpdateUser < Mutations::BaseMutation
-      argument :id, ID, required: true
-
       argument :params, Types::Input::UserInputType, required: true
 
       field :user, Types::UserType, null: false
 
-      def resolve(id:, params:)
+      def resolve( params:)
         user_params = Hash params
 
         begin
-          user = User.find(id)
+          user = context[:current_user]
           user.update!(user_params)
 
           { user: user }
