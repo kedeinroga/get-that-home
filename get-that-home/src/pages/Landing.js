@@ -1,5 +1,10 @@
+import Button from "../components/Button";
+
 export function Landing() {
   return (
-    <h1>Landing Page</h1>
-  )
-};
+    <div>
+      <h1>Landing Page</h1>
+      <Button />
+    </div>
+  );
+}
