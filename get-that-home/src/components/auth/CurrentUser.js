@@ -5,10 +5,11 @@ import { gql, useLazyQuery } from "@apollo/client";
 const GET_CURRENT_USER_QUERY = gql`
   query {
     currentUser {
+      id
       name
+      email
       phone
       role
-      token
     }
   }
 `;

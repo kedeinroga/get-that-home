@@ -1,5 +1,5 @@
 import React from "react";
-import { gql, useMutation } from "@apollo/client";
+import { gql, useMutation, useQuery } from "@apollo/client";
 import { useFormik } from "formik";
 import { GET_CURRENT_USER_QUERY } from "./CurrentUser";
 
@@ -19,11 +19,7 @@ const LOGIN = gql`
 `;
 
 const Login = () => {
-  // const [login, { data }] = useMutation(LOGIN);
-  // if (data) {
-  //   console.log(data.login.user.token);
-  //   localStorage.setItem("token", data.login.user.token);
-  // }
+  useQuery(GET_CURRENT_USER_QUERY);
 
   const [login] = useMutation(LOGIN, {
     onCompleted({ login }) {
@@ -35,7 +31,7 @@ const Login = () => {
       cache.writeQuery({
         query: GET_CURRENT_USER_QUERY,
         data: {
-          user: data.login,
+          currentUser: data.login.user,
         },
       });
     },
