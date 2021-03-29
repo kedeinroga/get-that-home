@@ -8,5 +8,6 @@ module Types
 
     field :fetch_users, resolver: Queries::Users::FetchUsers
     field :fetch_user, resolver: Queries::Users::FetchUser
+    field :current_user, resolver: Queries::Users::CurrentUser
   end
 end
