@@ -1,17 +1,27 @@
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import React from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import AddProperty from "./pages/AddProperty";
+import styled from "@emotion/styled";
+
+// import { Landing } from "./pages/Landing";
+// import { Login } from "./pages/Login";
 import Home from "./pages/Home";
 
-function App() {
+const Container = styled.div`
+  background-color: red;
+`;
+
+var App = function () {
   return (
-    <div>
-      <Router>
-        <Switch>
+    <BrowserRouter>
+      <Switch>
+        <Container>
           <Route path="/addproperty" component={AddProperty} />
           <Route path="/" component={Home} />
-        </Switch>
-      </Router>
-    </div>
+          {/* <Route path="/login" component={Login} /> */}
+        </Container>
+      </Switch>
+    </BrowserRouter>
   );
-}
+};
 export default App;
