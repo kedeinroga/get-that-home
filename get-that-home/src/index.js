@@ -7,8 +7,6 @@ import { colors } from './ui'
 
 import { ApolloProvider } from "@apollo/client";
 import client from "./client";
-import Login from "./components/auth/Login";
-import UpdateUser from "./components/users/UpdateUser";
 
 const globalStyles = css`
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@300;400;500;700&display=swap');
@@ -76,8 +74,6 @@ ReactDOM.render(
     <ApolloProvider client={client}>
       <Global styles={globalStyles} />
       <App />
-      <Login />
-      <UpdateUser />
     </ApolloProvider>
   </React.StrictMode>,
   document.getElementById("root")

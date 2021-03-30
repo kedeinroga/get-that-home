@@ -12,14 +12,13 @@ const Container = styled.div`
 var App = function () {
   return (
     <BrowserRouter>
-      <Container>
-        <Switch>
-          <Route path="/" component={Landing} exact />
-          <Route path="/login" component={Login} />
-        </Switch>
-      </Container>
+      <Switch>
+        <Container>
+          <Route path="/addproperty" component={AddProperty} />
+          <Route path="/" component={Home} />
+          {/* <Route path="/login" component={Login} /> */}
+        </Container>
+      </Switch>
     </BrowserRouter>
   );
 };
-
-export default App;
