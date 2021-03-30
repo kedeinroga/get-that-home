@@ -3,7 +3,10 @@ import Header from "../components/Header";
 import Card from "../components/Card";
 import ImageHero from "../assets/image-hero.svg";
 
-const StyledLanding = styled.div``;
+const StyledLanding = styled.div`
+  padding: 60px 0;
+  margin: 72px 0 0 0;
+`;
 
 const StyledLandingHero = styled.section`
   width: 100%;

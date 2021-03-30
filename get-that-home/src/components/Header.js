@@ -15,13 +15,15 @@ import Logo from "../assets/logo.svg";
 import Button from "./Button";
 
 const StyledHeader = styled.header`
-  background-color: blue;
+  position: fixed;
+  top: 0;
+  width: 100%;
   height: 72px;
-  background: ${colors.white};
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
-  margin: 0 auto;
+  background-color: ${colors.white};
   display: grid;
   place-items: center;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  margin: 0 auto;
 
   & > div {
     display: flex;
