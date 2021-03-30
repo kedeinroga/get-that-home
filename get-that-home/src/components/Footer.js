@@ -1,7 +1,9 @@
 import styled from "@emotion/styled";
-import { colors, TextSubtitle2 } from "../ui";
+import { colors, TextBody2, TextSubtitle2, TextCaption } from "../ui";
 import Icon from "./Icon";
 import { DiRuby, DiReact } from "react-icons/di";
+import { RiGithubFill } from "react-icons/ri";
+import Logo from "../assets/logo.svg";
 
 const StyledFooter = styled.footer`
   background-color: ${colors.background};
@@ -39,6 +41,61 @@ const StyledFooter = styled.footer`
       }
     }
   }
+
+  .footer-default {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 85%;
+    margin: 0 auto;
+    padding: 16px 0;
+
+    p {
+      color: ${colors.gray};
+    }
+
+    span {
+      color: ${colors.darkPink};
+    }
+
+    & > div {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+
+      & > .footer__logo {
+        height: 40px;
+      }
+
+      & > .teamwork {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 4px 0;
+
+        & > div {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 4px;
+        }
+      }
+
+      & > .source {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        
+        & > div {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 10px;
+        }
+      }
+    }
+  }
 `;
 
 export default function Footer({ landing = false }) {
@@ -67,9 +124,57 @@ export default function Footer({ landing = false }) {
           <TextSubtitle2>Codeable - Cohort 3 Final Project</TextSubtitle2>
         </div>
       )}
-      {!landing && 
-        <h1>Otro footer</h1>
-      }
+      {!landing && (
+        <div className="footer-default">
+          <div>
+            <img className="footer__logo" src={Logo} />
+            <TextBody2>© 2021 - Get That Job</TextBody2>
+            <TextBody2>Codeable - Cohort 3 Final Project</TextBody2>
+          </div>
+          <div>
+            <TextCaption>
+              Build with <span>❤</span> by:
+            </TextCaption>
+            <div className="teamwork">
+              <div>
+                <Icon size="16px">
+                  <RiGithubFill />
+                </Icon>
+                <TextBody2>Álvaro Torres</TextBody2>
+              </div>
+              <div>
+                <Icon size="16px">
+                  <RiGithubFill />
+                </Icon>
+                <TextBody2>Kedein Rodríguez</TextBody2>
+              </div>
+              <div>
+                <Icon size="16px">
+                  <RiGithubFill />
+                </Icon>
+                <TextBody2>Heraldo Fortuna</TextBody2>
+              </div>
+            </div>
+          </div>
+          <div>
+            <TextCaption>Source code:</TextCaption>
+            <div className="source">
+              <div>
+                <Icon size="16px">
+                  <DiRuby />
+                </Icon>
+                <TextBody2>Ruby on Rails REST API</TextBody2>
+              </div>
+              <div>
+                <Icon size="16px">
+                  <DiReact />
+                </Icon>
+                <TextBody2>React Responsive SPA</TextBody2>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </StyledFooter>
   );
 }
