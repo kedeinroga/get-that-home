@@ -1,14 +1,12 @@
-import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import AddProperty from "./pages/AddProperty";
 import styled from "@emotion/styled";
+import { colors } from "./ui";
 
-// import { Landing } from "./pages/Landing";
-// import { Login } from "./pages/Login";
-import Home from "./pages/Home";
+import { Landing } from "./pages/Landing";
+import { Login } from "./pages/Login";
 
 const Container = styled.div`
-  background-color: red;
+  background-color: ${colors.white};
 `;
 
 var App = function () {
@@ -24,4 +22,3 @@ var App = function () {
     </BrowserRouter>
   );
 };
-export default App;
