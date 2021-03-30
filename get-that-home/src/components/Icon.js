@@ -16,7 +16,7 @@ const StyledIcon = styled.i`
     `}
 `;
 
-export default function Icon({ children, color = "#616161", size = "20px" }) {
+export default function Icon({ children, color, size = "20px" }) {
   return (
     <StyledIcon color={color} size={size}>
       {children}

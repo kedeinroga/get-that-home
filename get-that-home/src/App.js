@@ -3,7 +3,6 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { colors } from "./ui";
 
 import { Landing } from "./pages/Landing";
-import { Login } from "./pages/Login";
 import AddProperty from "./pages/AddProperty";
 import Signup from "./pages/SignUp";
 import ListProperties from "./pages/ListProperties";
@@ -19,7 +18,6 @@ var App = function () {
         <Container>
           <Route path="/properties/:id" component={Property} />
           <Route exact path="/properties" component={ListProperties} />
-          <Route path="/Login" component={Login} />
           <Route exact path="/" component={Landing} />
           <Route path="/signup" component={Signup} />
           {/* <Route path="/login" component={Login} /> */}

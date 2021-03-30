@@ -59,6 +59,16 @@ export default function Header({ type = "visit" }) {
     });
     history.replace("/");
   };
+
+  function showLogin(e) {
+    e.preventDefault();
+    console.log("Show login");
+    const landing_page = document.getElementById("landing__content");
+    const login_overlay = document.getElementById("login__overlay");
+    landing_page.style.display = "none";
+    login_overlay.style.display = "grid";
+  }
+
   return (
     <StyledHeader>
       <Container>
@@ -76,7 +86,9 @@ export default function Header({ type = "visit" }) {
               </Button>
             </li>
             <li>
-              <Button icon={<RiUserReceivedLine />}>Login</Button>
+              <Button icon={<RiUserReceivedLine />} onClick={showLogin}>
+                Login
+              </Button>
             </li>
           </ul>
         )}

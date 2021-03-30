@@ -23,6 +23,7 @@ const StyledButton = styled.button`
 
   svg {
     fill: ${colors.white};
+    stroke: ${colors.white};
   }
 
   :hover {
@@ -42,6 +43,7 @@ const StyledButton = styled.button`
 
       svg {
         fill: ${colors.gray};
+        stroke: ${colors.gray};
       }
 
       :hover {
@@ -61,6 +63,7 @@ const StyledButton = styled.button`
 
       svg {
         fill: ${colors.lightGray};
+        stroke: ${colors.lightGray};
       }
 
       :hover {
@@ -78,8 +81,13 @@ const StyledButton = styled.button`
         color: ${colors.gray};
       }
 
+      i {
+        color: ${colors.gray};
+      }
+
       svg {
         fill: ${colors.gray};
+        stroke: ${colors.gray};
       }
 
       :hover {
@@ -106,10 +114,11 @@ function Button({
   size = "normal",
   icon,
   select = false,
+  onClick
 }) {
   return (
-    <StyledButton type={type} size={size} select={select}>
-      <Icon>{icon}</Icon>
+    <StyledButton type={type} size={size} select={select} onClick={onClick}>
+      {icon !== undefined && <Icon>{icon}</Icon>}
       <TextButton>{children}</TextButton>
       {select && (
         <Icon>

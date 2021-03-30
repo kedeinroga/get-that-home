@@ -8,8 +8,11 @@ import Button from "../components/Button";
 import CardTeam from "../components/CardTeam";
 import Footer from "../components/Footer";
 
+import Login from "../components/auth/Login";
+
 const StyledLanding = styled.div`
-  margin: 72px 0 0 0;
+  #landing__content {
+  }
 `;
 
 const StyledLandingHero = styled.section`
@@ -19,6 +22,7 @@ const StyledLandingHero = styled.section`
   background-position: center center;
   background-size: cover;
   padding: 60px 0;
+  margin: 72px 0 0 0;
 
   & > div {
     display: grid;
@@ -98,45 +102,48 @@ const StyledLandingWorkteam = styled.section`
 export function Landing() {
   return (
     <StyledLanding>
-      <Header />
-      <StyledLandingHero>
-        <div>
-          <h2>Meet your new Home</h2>
-          <h5>The easiest way to find where you belong</h5>
-        </div>
-      </StyledLandingHero>
-      <StyledLandingProperties>
-        <Container>
+      <Login />
+      <div id="landing__content">
+        <Header />
+        <StyledLandingHero>
           <div>
-            <TextSubtitle2>Find an Apartment you Love</TextSubtitle2>
-            <h4>Homes for rent at the best prices</h4>
+            <h2>Meet your new Home</h2>
+            <h5>The easiest way to find where you belong</h5>
           </div>
-          <ul>
-            <Card />
-            <Card type="sale" />
-            <Card />
-          </ul>
-        </Container>
-      </StyledLandingProperties>
-      <StyledLandingSignup>
-        <Container>
-          <h4>
-            Getting someone to rent your apartment has never been this easy
-          </h4>
-          <Button size="large">Create an account now</Button>
-        </Container>
-      </StyledLandingSignup>
-      <StyledLandingWorkteam>
-        <Container>
-          <h3>Meet the team</h3>
-          <ul>
-            <CardTeam />
-            <CardTeam />
-            <CardTeam />
-          </ul>
-        </Container>
-      </StyledLandingWorkteam>
-      <Footer landing />
+        </StyledLandingHero>
+        <StyledLandingProperties>
+          <Container>
+            <div>
+              <TextSubtitle2>Find an Apartment you Love</TextSubtitle2>
+              <h4>Homes for rent at the best prices</h4>
+            </div>
+            <ul>
+              <Card />
+              <Card type="sale" />
+              <Card />
+            </ul>
+          </Container>
+        </StyledLandingProperties>
+        <StyledLandingSignup>
+          <Container>
+            <h4>
+              Getting someone to rent your apartment has never been this easy
+            </h4>
+            <Button size="large">Create an account now</Button>
+          </Container>
+        </StyledLandingSignup>
+        <StyledLandingWorkteam>
+          <Container>
+            <h3>Meet the team</h3>
+            <ul>
+              <CardTeam />
+              <CardTeam />
+              <CardTeam />
+            </ul>
+          </Container>
+        </StyledLandingWorkteam>
+        <Footer landing />
+      </div>
     </StyledLanding>
   );
 }
