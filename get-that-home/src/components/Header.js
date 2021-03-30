@@ -62,7 +62,11 @@ export default function Header({ type = "visit" }) {
 
   function showLogin(e) {
     e.preventDefault();
-    console.log("The link was clicked.");
+    console.log("Show login");
+    const landing_page = document.getElementById("landing__content");
+    const login_overlay = document.getElementById("login__overlay");
+    landing_page.style.display = "none";
+    login_overlay.style.display = "grid";
   }
 
   return (

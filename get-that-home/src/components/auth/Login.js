@@ -27,22 +27,31 @@ const LOGIN = gql`
 const StyledLogin = styled.div`
   background-color: rgba(97, 97, 97, 0.25);
   min-height: 100vh;
-  display: grid;
+  display: none;
   place-items: center;
 
-  & > form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    space-content: center;
+  & > div {
+    display: grid;
+    place-items: center;
     gap: 16px;
-
     background-color: ${colors.white};
     width: fit-content;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
     padding: 16px;
     margin: 0 auto;
+
+    & > form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      space-content: center;
+      gap: 8px;
+
+      & > button {
+        margin: 8px 0 0 0;
+      }
+    }
   }
 `;
 
@@ -77,36 +86,29 @@ const Login = () => {
   });
 
   return (
-    <StyledLogin>
-      <form onSubmit={formik.handleSubmit}>
+    <StyledLogin id="login__overlay">
+      <div>
         <h5>Login</h5>
-        <label htmlFor="email">Email Address</label>
-
-        <input
-          id="email"
-          name="email"
-          type="email"
-          onChange={formik.handleChange}
-          value={formik.values.email}
-        />
-
-        <label htmlFor="password">Password </label>
-
-        <input
-          id="password"
-          name="password"
-          type="password"
-          onChange={formik.handleChange}
-          value={formik.values.password}
-        />
-
-        <Input placeholder="Placeholder" icon={<RiSearchLine />} select />
-
-        <Button type="secundary" type="submit" icon={<RiUserReceivedLine />}>
-          Login
-        </Button>
-        <button type="submit">Submit</button>
-      </form>
+        <form onSubmit={formik.handleSubmit}>
+          <Input
+            name="email"
+            onChange={formik.handleChange}
+            value={formik.values.email}
+            label="Email"
+            type="email"
+            placeholder="user@mail.com"
+          />
+          <Input
+            name="password"
+            onChange={formik.handleChange}
+            value={formik.values.password}
+            label="Password"
+            type="password"
+            placeholder="******"
+          />
+          <Button icon={<RiUserReceivedLine />}>Login</Button>
+        </form>
+      </div>
     </StyledLogin>
   );
 };

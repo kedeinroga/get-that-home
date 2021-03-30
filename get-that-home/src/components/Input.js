@@ -6,7 +6,7 @@ import { RiArrowDownSLine } from "react-icons/ri";
 const StyledInput = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 4px;
 
   & > div {
     display: flex;
@@ -33,7 +33,11 @@ const StyledInput = styled.div`
 `;
 
 export default function Input({
+  name,
+  onChange,
+  value,
   label = "Label",
+  type = "text",
   placeholder = "",
   icon,
   select = false,
@@ -42,8 +46,14 @@ export default function Input({
     <StyledInput>
       <TextOverline>{label}</TextOverline>
       <div>
-        <Icon>{icon}</Icon>
-        <input placeholder={placeholder} />
+        {icon !== undefined && <Icon>{icon}</Icon>}
+        <input
+          name={name}
+          onChange={onChange}
+          value={value}
+          placeholder={placeholder}
+          type={type}
+        />
         {select && (
           <Icon>
             <RiArrowDownSLine />

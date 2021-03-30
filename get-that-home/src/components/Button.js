@@ -21,10 +21,6 @@ const StyledButton = styled.button`
     color: ${colors.white};
   }
 
-  i {
-    color: ${colors.white};
-  }
-
   svg {
     fill: ${colors.white};
     stroke: ${colors.white};
@@ -45,10 +41,6 @@ const StyledButton = styled.button`
         color: ${colors.gray};
       }
 
-      i {
-        color: ${colors.gray};
-      }
-
       svg {
         fill: ${colors.gray};
         stroke: ${colors.gray};
@@ -66,10 +58,6 @@ const StyledButton = styled.button`
       border-color: ${colors.shallowGray};
 
       & > p {
-        color: ${colors.lightGray};
-      }
-
-      i {
         color: ${colors.lightGray};
       }
 
@@ -126,9 +114,10 @@ function Button({
   size = "normal",
   icon,
   select = false,
+  onClick
 }) {
   return (
-    <StyledButton type={type} size={size} select={select}>
+    <StyledButton type={type} size={size} select={select} onClick={onClick}>
       {icon !== undefined && <Icon>{icon}</Icon>}
       <TextButton>{children}</TextButton>
       {select && (
