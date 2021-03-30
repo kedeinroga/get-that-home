@@ -4,7 +4,9 @@ import { colors } from "./ui";
 
 import { Landing } from "./pages/Landing";
 import { Login } from "./pages/Login";
-
+import AddProperty from "./pages/AddProperty";
+import Home from "./pages/Home";
+import Signup from "./pages/SignUp";
 const Container = styled.div`
   background-color: ${colors.white};
 `;
@@ -14,11 +16,14 @@ var App = function () {
     <BrowserRouter>
       <Switch>
         <Container>
+          <Route path="/signup" component={Signup} />
           <Route path="/addproperty" component={AddProperty} />
-          <Route path="/" component={Home} />
+          <Route exact path="/" component={Home} />
           {/* <Route path="/login" component={Login} /> */}
         </Container>
       </Switch>
     </BrowserRouter>
   );
 };
+
+export default App;
