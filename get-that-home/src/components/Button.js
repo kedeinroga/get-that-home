@@ -9,11 +9,7 @@ const StyledButton = styled.button`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  ${(props) =>
-    props.icon !== undefined &&
-    css`
-      gap: 12px;
-    `}
+  gap: 12px;
   background-color: ${colors.pink};
   border: 1px solid ${colors.pink};
   border-radius: 16px;
@@ -113,7 +109,7 @@ function Button({
 }) {
   return (
     <StyledButton type={type} size={size} select={select}>
-      <Icon>{icon}</Icon>
+      {icon !== undefined && <Icon>{icon}</Icon>}
       <TextButton>{children}</TextButton>
       {select && (
         <Icon>

@@ -5,6 +5,8 @@ import { GET_CURRENT_USER_QUERY } from "./CurrentUser";
 
 import styled from "@emotion/styled";
 import Button from "../Button";
+import { colors } from "../../ui";
+import { RiUserReceivedLine } from "react-icons/ri";
 
 const LOGIN = gql`
   mutation Login($email: String!, $password: String!) {
@@ -22,12 +24,21 @@ const LOGIN = gql`
 `;
 
 const StyledLogin = styled.div`
-  background-color: green;
+  background: rgba(97, 97, 97, 0.25);
+
   & > form {
     display: flex;
     flex-direction: column;
     align-items: center;
     space-content: center;
+    gap: 16px;
+
+    background-color: ${colors.white};
+    width: fit-content;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 16px;
+    margin: 0 auto;
   }
 `;
 
@@ -63,8 +74,8 @@ const Login = () => {
 
   return (
     <StyledLogin>
-      <h5>Login</h5>
       <form onSubmit={formik.handleSubmit}>
+        <h5>Login</h5>
         <label htmlFor="email">Email Address</label>
 
         <input
@@ -85,7 +96,9 @@ const Login = () => {
           value={formik.values.password}
         />
 
-        <Button type="submit">Login</Button>
+        <Button type="secundary" type="submit" icon={<RiUserReceivedLine />}>
+          Login
+        </Button>
         <button type="submit">Submit</button>
       </form>
     </StyledLogin>
