@@ -3,8 +3,6 @@ import { css } from "@emotion/react";
 import { colors, TextButton } from "../ui";
 
 const StyledButton = styled.button`
-  width: 161px;
-  height: 40px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -14,10 +12,16 @@ const StyledButton = styled.button`
   border-radius: 16px;
   padding: 8px 16px;
   cursor: pointer;
+  transition: 0.4s all;
 
   & > p {
     color: ${colors.white};
   }
+
+  :hover {
+    background-color: ${colors.darkPink};
+  }
+
   ${(props) =>
     props.type === "secundary" &&
     css`
@@ -26,6 +30,11 @@ const StyledButton = styled.button`
 
       & > p {
         color: ${colors.gray};
+      }
+
+      :hover {
+        background-color: ${colors.shallowPink};
+        border-color: ${colors.darkPink};
       }
     `}
   ${(props) =>
@@ -37,6 +46,11 @@ const StyledButton = styled.button`
       & > p {
         color: ${colors.lightGray};
       }
+
+      :hover {
+        background-color: ${colors.shallowGray};
+        border-color: ${colors.shallowGray};
+      }
     `}
   ${(props) =>
     props.type === "ghost" &&
@@ -47,12 +61,28 @@ const StyledButton = styled.button`
       & > p {
         color: ${colors.gray};
       }
+
+      :hover {
+        background-color: ${colors.shallowPink};
+        border-color: ${colors.shallowPink};
+      }
+    `}
+  ${(props) =>
+    props.size === "large" &&
+    css`
+      padding: 16px 24px;
+    `}
+  ${(props) =>
+    props.size === "small" &&
+    css`
+      border-radius: 8px;
+      padding: 4px 8px;
     `}
 `;
 
-function Button({ children, type = "primary", color = "cyan" }) {
+function Button({ children, type = "primary", size = "normal" }) {
   return (
-    <StyledButton type={type} color={color}>
+    <StyledButton type={type} size={size}>
       <TextButton>{children}</TextButton>
     </StyledButton>
   );
