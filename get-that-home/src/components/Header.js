@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
+import { useHistory } from "react-router-dom";
+import { useApolloClient } from "@apollo/client";
 import {
   RiUserAddLine,
   RiUserReceivedLine,
@@ -13,6 +15,8 @@ import { colors } from "../ui";
 import Container from "../contents/Container";
 import Logo from "../assets/logo.svg";
 import Button from "./Button";
+import { GET_CURRENT_USER_QUERY } from "../components/auth/CurrentUser";
+import CurrentUser from "../components/auth/CurrentUser";
 
 const StyledHeader = styled.header`
   position: fixed;
@@ -42,6 +46,19 @@ const StyledHeader = styled.header`
 `;
 
 export default function Header({ type = "visit" }) {
+  let history = useHistory();
+  let client = useApolloClient();
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    client.writeQuery({
+      query: GET_CURRENT_USER_QUERY,
+      data: {
+        currentUser: null,
+      },
+    });
+    history.replace("/");
+  };
   return (
     <StyledHeader>
       <Container>
@@ -71,7 +88,11 @@ export default function Header({ type = "visit" }) {
               </Button>
             </li>
             <li>
-              <Button childrenIcon={<RiLogoutCircleLine />} secundary>
+              <Button
+                onClick={handleLogout}
+                childrenIcon={<RiLogoutCircleLine />}
+                secundary
+              >
                 Logout
               </Button>
             </li>
@@ -91,7 +112,11 @@ export default function Header({ type = "visit" }) {
               </Button>
             </li>
             <li>
-              <Button childrenIcon={<RiLogoutCircleLine />} secundary>
+              <Button
+                onClick={handleLogout}
+                childrenIcon={<RiLogoutCircleLine />}
+                secundary
+              >
                 Logout
               </Button>
             </li>
