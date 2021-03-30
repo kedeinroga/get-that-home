@@ -1,11 +1,10 @@
-import { BrowserRouter, Switch, Route } from "react-router-dom";
 import styled from "@emotion/styled";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { colors } from "./ui";
 
 import { Landing } from "./pages/Landing";
 import { Login } from "./pages/Login";
 import AddProperty from "./pages/AddProperty";
-import Home from "./pages/Home";
 import Signup from "./pages/SignUp";
 import ListProperties from "./pages/ListProperties";
 import Property from "./pages/Property";
@@ -18,6 +17,7 @@ var App = function () {
     <BrowserRouter>
       <Switch>
         <Container>
+          <Route path="/listproperties" component={ListProperties} />
           <Route path="/properties/:id" component={Property} />
           <Route exact path="/properties" component={ListProperties} />
           <Route path="/Login" component={Login} />
