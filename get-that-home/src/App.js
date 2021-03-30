@@ -14,11 +14,13 @@ var App = function () {
     <BrowserRouter>
       <Switch>
         <Container>
-          <Route path="/addproperty" component={AddProperty} />
-          <Route path="/" component={Home} />
+          <Route path="/Login" component={Login} />
+          <Route path="/" component={Landing} />
           {/* <Route path="/login" component={Login} /> */}
         </Container>
       </Switch>
     </BrowserRouter>
   );
 };
+
+export default App;
