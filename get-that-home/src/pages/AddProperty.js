@@ -50,7 +50,7 @@ const ADD_PROPERTY = gql`
   }
 `;
 
-const AddProperty = () => {
+export function AddProperty() {
   const [addProperty, { data }] = useMutation(ADD_PROPERTY);
   if (data) {
     console.log(data);
@@ -212,5 +212,3 @@ const AddProperty = () => {
     </>
   );
 };
-
-export default AddProperty;

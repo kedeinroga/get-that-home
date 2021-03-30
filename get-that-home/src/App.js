@@ -17,10 +17,10 @@ var App = function () {
     <BrowserRouter>
       <Switch>
         <Container>
+          <Route path="/Login" component={Login} />
+          <Route path="/" component={Landing} />
           <Route path="/listproperties" component={ListProperties} />
           <Route path="/signup" component={Signup} />
-          <Route path="/addproperty" component={AddProperty} />
-          <Route exact path="/" component={Home} />
           {/* <Route path="/login" component={Login} /> */}
         </Container>
       </Switch>
