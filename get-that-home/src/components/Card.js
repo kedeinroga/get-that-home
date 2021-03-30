@@ -68,7 +68,6 @@ export default function Card({
   const StyledCard = styled.div`
     background-color: ${colors.white};
     width: 300px;
-    min-height: 360px;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
     position: relative;
@@ -79,7 +78,7 @@ export default function Card({
       background-image: url(${image});
       background-size: cover;
       background-position: center center;
-      border-radius: 0 8px 0 0;
+      border-radius: 8px 8px 0 0;
     }
 
     & > main {
