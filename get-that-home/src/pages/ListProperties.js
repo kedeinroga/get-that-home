@@ -1,4 +1,5 @@
 import { gql, useQuery } from "@apollo/client";
+import { Link } from "react-router-dom";
 
 const LIST_POPERTIES = gql`
   query {
@@ -30,12 +31,14 @@ function ListProperties() {
       {data.fetchProperties.map((property) => (
         <div key={property.id}>
           <p>{property.address}</p>
-          <img
-            src={property.photos.split("|")[0]}
-            alt="Property"
-            width="300"
-            height="200"
-          />
+          <Link to={`/properties/${property.id}`}>
+            <img
+              src={property.photos.split("|")[0]}
+              alt="Property"
+              width="300"
+              height="200"
+            />
+          </Link>
         </div>
       ))}
     </div>
