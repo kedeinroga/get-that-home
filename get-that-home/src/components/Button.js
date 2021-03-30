@@ -9,7 +9,11 @@ const StyledButton = styled.button`
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  ${(props) =>
+    props.icon !== undefined &&
+    css`
+      gap: 12px;
+    `}
   background-color: ${colors.pink};
   border: 1px solid ${colors.pink};
   border-radius: 16px;

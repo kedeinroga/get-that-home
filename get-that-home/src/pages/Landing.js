@@ -8,6 +8,8 @@ import Button from "../components/Button";
 import CardTeam from "../components/CardTeam";
 import Footer from "../components/Footer";
 
+import Login from "../components/auth/Login";
+
 const StyledLanding = styled.div`
   margin: 72px 0 0 0;
 `;
@@ -98,6 +100,7 @@ const StyledLandingWorkteam = styled.section`
 export function Landing() {
   return (
     <StyledLanding>
+      <Login />
       <Header />
       <StyledLandingHero>
         <div>

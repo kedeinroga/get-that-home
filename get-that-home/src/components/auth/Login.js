@@ -3,6 +3,9 @@ import { gql, useMutation, useQuery } from "@apollo/client";
 import { useFormik } from "formik";
 import { GET_CURRENT_USER_QUERY } from "./CurrentUser";
 
+import styled from "@emotion/styled";
+import Button from "../Button";
+
 const LOGIN = gql`
   mutation Login($email: String!, $password: String!) {
     login(params: { email: $email, password: $password }) {
@@ -15,6 +18,16 @@ const LOGIN = gql`
         role
       }
     }
+  }
+`;
+
+const StyledLogin = styled.div`
+  background-color: green;
+  & > form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    space-content: center;
   }
 `;
 
@@ -49,29 +62,33 @@ const Login = () => {
   });
 
   return (
-    <form onSubmit={formik.handleSubmit}>
-      <label htmlFor="email">Email Address</label>
+    <StyledLogin>
+      <h5>Login</h5>
+      <form onSubmit={formik.handleSubmit}>
+        <label htmlFor="email">Email Address</label>
 
-      <input
-        id="email"
-        name="email"
-        type="email"
-        onChange={formik.handleChange}
-        value={formik.values.email}
-      />
+        <input
+          id="email"
+          name="email"
+          type="email"
+          onChange={formik.handleChange}
+          value={formik.values.email}
+        />
 
-      <label htmlFor="password">Password </label>
+        <label htmlFor="password">Password </label>
 
-      <input
-        id="password"
-        name="password"
-        type="password"
-        onChange={formik.handleChange}
-        value={formik.values.password}
-      />
+        <input
+          id="password"
+          name="password"
+          type="password"
+          onChange={formik.handleChange}
+          value={formik.values.password}
+        />
 
-      <button type="submit">Submit</button>
-    </form>
+        <Button type="submit">Login</Button>
+        <button type="submit">Submit</button>
+      </form>
+    </StyledLogin>
   );
 };
 
