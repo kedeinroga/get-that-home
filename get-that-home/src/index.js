@@ -16,6 +16,7 @@ const globalStyles = css`
     font-family: 'Montserrat', sans-serif;
     font-style: normal;
     font-weight: 400;
+    list-style: none;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
