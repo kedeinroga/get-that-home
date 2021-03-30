@@ -6,6 +6,7 @@ import Card from "../components/Card";
 import ImageHero from "../assets/image-hero.svg";
 import Button from "../components/Button";
 import CardTeam from "../components/CardTeam";
+import Footer from "../components/Footer";
 
 const StyledLanding = styled.div`
   margin: 72px 0 0 0;
@@ -135,6 +136,7 @@ export function Landing() {
           </ul>
         </Container>
       </StyledLandingWorkteam>
+      <Footer landing />
     </StyledLanding>
   );
 }
