@@ -17,7 +17,6 @@ var App = function () {
     <BrowserRouter>
       <Switch>
         <Container>
-          <Route path="/listproperties" component={ListProperties} />
           <Route path="/properties/:id" component={Property} />
           <Route exact path="/properties" component={ListProperties} />
           <Route path="/Login" component={Login} />
