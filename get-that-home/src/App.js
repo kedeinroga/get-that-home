@@ -17,8 +17,8 @@ var App = function () {
     <BrowserRouter>
       <Switch>
         <Container>
-          <Route path="/Login" component={Login} />
           <Route path="/" component={Landing} />
+          <Route path="/Login" component={Login} />
           <Route path="/listproperties" component={ListProperties} />
           <Route path="/signup" component={Signup} />
           {/* <Route path="/login" component={Login} /> */}
