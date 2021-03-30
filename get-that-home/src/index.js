@@ -2,18 +2,23 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 
-import { Global, css } from '@emotion/react'
-import { colors } from './ui'
+import { Global, css } from "@emotion/react";
+import { colors } from "./ui";
 
 import { ApolloProvider } from "@apollo/client";
 import client from "./client";
 
 const globalStyles = css`
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@300;400;500;700&display=swap');
+  @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@300;400;500;700&display=swap");
+
+  :root {
+    --font-inter: "Inter", sans-serif;
+    --font-montserrat: "Montserrat", sans-serif;
+  }
 
   * {
     color: ${colors.darkGray};
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-montserrat);
     font-style: normal;
     font-weight: 400;
     list-style: none;
@@ -68,7 +73,7 @@ const globalStyles = css`
     letter-spacing: 0.15px;
     margin: 0;
   }
-`
+`;
 
 ReactDOM.render(
   <React.StrictMode>
