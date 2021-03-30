@@ -20,9 +20,9 @@ var App = function () {
         <Container>
           <Route path="/properties/:id" component={Property} />
           <Route exact path="/properties" component={ListProperties} />
+          <Route path="/Login" component={Login} />
+          <Route exact path="/" component={Landing} />
           <Route path="/signup" component={Signup} />
-          <Route path="/addproperty" component={AddProperty} />
-          <Route exact path="/" component={Home} />
           {/* <Route path="/login" component={Login} /> */}
         </Container>
       </Switch>
