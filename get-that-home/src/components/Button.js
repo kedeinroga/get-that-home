@@ -1,12 +1,15 @@
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 import { colors, TextButton } from "../ui";
+import Icon from "./Icon";
+import { RiArrowDownSLine } from "react-icons/ri";
 
 const StyledButton = styled.button`
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  gap: 12px;
   background-color: ${colors.pink};
   border: 1px solid ${colors.pink};
   border-radius: 16px;
@@ -18,8 +21,13 @@ const StyledButton = styled.button`
     color: ${colors.white};
   }
 
+  svg {
+    fill: ${colors.white};
+  }
+
   :hover {
     background-color: ${colors.darkPink};
+    border-color: ${colors.darkPink};
   }
 
   ${(props) =>
@@ -30,6 +38,10 @@ const StyledButton = styled.button`
 
       & > p {
         color: ${colors.gray};
+      }
+
+      svg {
+        fill: ${colors.gray};
       }
 
       :hover {
@@ -47,6 +59,10 @@ const StyledButton = styled.button`
         color: ${colors.lightGray};
       }
 
+      svg {
+        fill: ${colors.lightGray};
+      }
+
       :hover {
         background-color: ${colors.shallowGray};
         border-color: ${colors.shallowGray};
@@ -60,6 +76,10 @@ const StyledButton = styled.button`
 
       & > p {
         color: ${colors.gray};
+      }
+
+      svg {
+        fill: ${colors.gray};
       }
 
       :hover {
@@ -80,10 +100,22 @@ const StyledButton = styled.button`
     `}
 `;
 
-function Button({ children, type = "primary", size = "normal" }) {
+function Button({
+  children,
+  type = "primary",
+  size = "normal",
+  icon,
+  select = false,
+}) {
   return (
-    <StyledButton type={type} size={size}>
+    <StyledButton type={type} size={size} select={select}>
+      <Icon>{icon}</Icon>
       <TextButton>{children}</TextButton>
+      {select && (
+        <Icon>
+          <RiArrowDownSLine />
+        </Icon>
+      )}
     </StyledButton>
   );
 }

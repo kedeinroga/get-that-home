@@ -1,4 +1,3 @@
-import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import styled from "@emotion/styled";
 import { colors } from "./ui";

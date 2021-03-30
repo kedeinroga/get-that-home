@@ -1,19 +1,19 @@
-import React, { ReactNode } from "react";
 import styled from "@emotion/styled";
-import { colors } from "../ui";
+import { css } from "@emotion/react";
 
 const StyledIcon = styled.i`
   width: fit-content;
   height: fit-content;
   display: grid;
   place-items: center;
-  & > svg {
-    ${(props) =>
-      css`
+
+  ${(props) =>
+    css`
+      & > svg {
         font-size: ${props.size};
         fill: ${props.color};
-      `}
-  }
+      }
+    `}
 `;
 
 export default function Icon({ children, color = "#616161", size = "20px" }) {
