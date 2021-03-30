@@ -24,7 +24,10 @@ const LOGIN = gql`
 `;
 
 const StyledLogin = styled.div`
-  background: rgba(97, 97, 97, 0.25);
+  background-color: rgba(97, 97, 97, 0.25);
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
 
   & > form {
     display: flex;
@@ -96,7 +99,11 @@ const Login = () => {
           value={formik.values.password}
         />
 
-        <Button type="secundary" type="submit" icon={<RiUserReceivedLine />}>
+        <Button
+          type="secundary"
+          type="submit"
+          icon={<RiUserReceivedLine />}
+        >
           Login
         </Button>
         <button type="submit">Submit</button>

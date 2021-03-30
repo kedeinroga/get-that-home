@@ -11,8 +11,7 @@ import Footer from "../components/Footer";
 import Login from "../components/auth/Login";
 
 const StyledLanding = styled.div`
-  .landing__content {
-    display: none;
+  #landing__content {
   }
 `;
 
@@ -104,7 +103,7 @@ export function Landing() {
   return (
     <StyledLanding>
       <Login />
-      <div className="landing__content">
+      <div id="landing__content">
         <Header />
         <StyledLandingHero>
           <div>

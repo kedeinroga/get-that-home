@@ -59,6 +59,12 @@ export default function Header({ type = "visit" }) {
     });
     history.replace("/");
   };
+
+  function showLogin(e) {
+    e.preventDefault();
+    console.log("The link was clicked.");
+  }
+
   return (
     <StyledHeader>
       <Container>
@@ -76,7 +82,9 @@ export default function Header({ type = "visit" }) {
               </Button>
             </li>
             <li>
-              <Button icon={<RiUserReceivedLine />}>Login</Button>
+              <Button icon={<RiUserReceivedLine />} onClick={showLogin}>
+                Login
+              </Button>
             </li>
           </ul>
         )}
