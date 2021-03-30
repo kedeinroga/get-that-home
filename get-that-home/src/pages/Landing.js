@@ -136,7 +136,7 @@ export function Landing() {
           </ul>
         </Container>
       </StyledLandingWorkteam>
-      <Footer />
+      <Footer landing />
     </StyledLanding>
   );
 }
