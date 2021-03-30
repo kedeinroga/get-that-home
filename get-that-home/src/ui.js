@@ -12,6 +12,7 @@ const colors = {
   background: "#F5F5F6",
   backgroundLight: "#E1E2E1",
   white: "#FFFFFF",
+  black: "#000000",
 };
 
 const shadows = {

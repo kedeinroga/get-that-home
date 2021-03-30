@@ -17,6 +17,7 @@ import Button from "./Button";
 const StyledHeader = styled.header`
   position: fixed;
   top: 0;
+  z-index: 1;
   width: 100%;
   height: 72px;
   background-color: ${colors.white};
