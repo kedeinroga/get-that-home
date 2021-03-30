@@ -21,8 +21,13 @@ const StyledButton = styled.button`
     color: ${colors.white};
   }
 
+  i {
+    color: ${colors.white};
+  }
+
   svg {
     fill: ${colors.white};
+    stroke: ${colors.white};
   }
 
   :hover {
@@ -40,8 +45,13 @@ const StyledButton = styled.button`
         color: ${colors.gray};
       }
 
+      i {
+        color: ${colors.gray};
+      }
+
       svg {
         fill: ${colors.gray};
+        stroke: ${colors.gray};
       }
 
       :hover {
@@ -59,8 +69,13 @@ const StyledButton = styled.button`
         color: ${colors.lightGray};
       }
 
+      i {
+        color: ${colors.lightGray};
+      }
+
       svg {
         fill: ${colors.lightGray};
+        stroke: ${colors.lightGray};
       }
 
       :hover {
@@ -78,8 +93,13 @@ const StyledButton = styled.button`
         color: ${colors.gray};
       }
 
+      i {
+        color: ${colors.gray};
+      }
+
       svg {
         fill: ${colors.gray};
+        stroke: ${colors.gray};
       }
 
       :hover {

@@ -4,9 +4,10 @@ import { useFormik } from "formik";
 import { GET_CURRENT_USER_QUERY } from "./CurrentUser";
 
 import styled from "@emotion/styled";
-import Button from "../Button";
 import { colors } from "../../ui";
-import { RiUserReceivedLine } from "react-icons/ri";
+import { RiUserReceivedLine, RiSearchLine } from "react-icons/ri";
+import Button from "../Button";
+import Input from "../Input";
 
 const LOGIN = gql`
   mutation Login($email: String!, $password: String!) {
@@ -99,11 +100,9 @@ const Login = () => {
           value={formik.values.password}
         />
 
-        <Button
-          type="secundary"
-          type="submit"
-          icon={<RiUserReceivedLine />}
-        >
+        <Input placeholder="Placeholder" icon={<RiSearchLine />} select />
+
+        <Button type="secundary" type="submit" icon={<RiUserReceivedLine />}>
           Login
         </Button>
         <button type="submit">Submit</button>
