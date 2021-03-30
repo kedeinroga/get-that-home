@@ -8,6 +8,7 @@ import AddProperty from "./pages/AddProperty";
 import Home from "./pages/Home";
 import Signup from "./pages/SignUp";
 import ListProperties from "./pages/ListProperties";
+import Property from "./pages/Property";
 const Container = styled.div`
   background-color: ${colors.white};
 `;
@@ -17,9 +18,10 @@ var App = function () {
     <BrowserRouter>
       <Switch>
         <Container>
+          <Route path="/properties/:id" component={Property} />
+          <Route exact path="/properties" component={ListProperties} />
           <Route path="/Login" component={Login} />
-          <Route path="/" component={Landing} />
-          <Route path="/listproperties" component={ListProperties} />
+          <Route exact path="/" component={Landing} />
           <Route path="/signup" component={Signup} />
           {/* <Route path="/login" component={Login} /> */}
         </Container>
