@@ -1,3 +1,4 @@
+import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { colors } from "../ui";
 
@@ -5,7 +6,7 @@ const StyledButton = styled.button`
   border: none;
   outline: none;
   cursor: pointer;
-  border-bottom: 1px solid ${colors.pink};
+
   background-color: ${colors.white};
   padding-bottom: 6px;
   h4 {
@@ -17,18 +18,32 @@ const StyledButton = styled.button`
     text-align: center;
     letter-spacing: 1.25px;
     color: ${colors.darkGray};
+    border-bottom: 1px solid ${colors.pink};
   }
   transition: all 1s;
   &:hover {
-    border-bottom: 1px solid ${colors.darkPink};
-    color: ${colors.gray};
+    h4 {
+      border-bottom: 1px solid ${colors.darkPink};
+      color: ${colors.gray};
+    }
   }
-  &:disabled {
-    color: ${colors.lightGray};
-    border-bottom: 1px solid ${colors.gray4};
-  }
+
+  ${(props) =>
+    props.disabled &&
+    css`
+      h4 {
+        color: ${colors.lightGray};
+        border-bottom: 1px solid ${colors.gray4};
+      }
+      &:hover {
+        h4 {
+          color: ${colors.lightGray};
+          border-bottom: 1px solid ${colors.gray4};
+        }
+      }
+    `}
 `;
 
-export default function SomeTitle({ children }) {
-  return <StyledButton>{children}</StyledButton>;
+export default function SomeTitle({ children, disabled = false }) {
+  return <StyledButton disabled={disabled}>{children}</StyledButton>;
 }
