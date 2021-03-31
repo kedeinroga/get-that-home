@@ -95,7 +95,7 @@ export default function Header({ type = "visit" }) {
         {type === "seeker" && (
           <ul>
             <li>
-              <Button childrenIcon={<RiSearchLine />} ghost>
+              <Button childrenIcon={<RiSearchLine />} type="ghost">
                 Find a home
               </Button>
             </li>
@@ -103,7 +103,7 @@ export default function Header({ type = "visit" }) {
               <Button
                 onClick={handleLogout}
                 childrenIcon={<RiLogoutCircleLine />}
-                secundary
+                type="secundary"
               >
                 Logout
               </Button>
@@ -119,7 +119,7 @@ export default function Header({ type = "visit" }) {
         {type === "landlord" && (
           <ul>
             <li>
-              <Button childrenIcon={<RiSearchLine />} ghost>
+              <Button childrenIcon={<RiSearchLine />} type="ghost">
                 Find a home
               </Button>
             </li>
@@ -127,7 +127,7 @@ export default function Header({ type = "visit" }) {
               <Button
                 onClick={handleLogout}
                 childrenIcon={<RiLogoutCircleLine />}
-                secundary
+                type="secundary"
               >
                 Logout
               </Button>
