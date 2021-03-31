@@ -15,8 +15,8 @@ import { colors } from "../ui";
 import Container from "../contents/Container";
 import Logo from "../assets/logo.svg";
 import Button from "./Button";
+
 import { GET_CURRENT_USER_QUERY } from "../components/auth/CurrentUser";
-import CurrentUser from "../components/auth/CurrentUser";
 
 const StyledHeader = styled.header`
   position: fixed;
@@ -62,7 +62,6 @@ export default function Header({ type = "visit" }) {
 
   function showLogin(e) {
     e.preventDefault();
-    console.log("Show login");
     const landing_page = document.getElementById("landing__content");
     const login_overlay = document.getElementById("login__overlay");
     landing_page.style.display = "none";
