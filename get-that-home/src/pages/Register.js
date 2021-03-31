@@ -69,8 +69,8 @@ export default function Register() {
             <p>You want to find a home</p>
           </CardRegister>
         </StyleContentCards>
-        <FormNewUser role={1} />
       </StyledCardRegister>
+      <FormNewUser role={1} />
       <Footer />
     </StyledRegister>
   );

@@ -6,11 +6,28 @@ import { colors } from "../../ui";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 
-const StyledFormNewUser = styled.form`
+const StyledFormNewUser = styled.div`
+  width: 388px;
+  background-color: ${colors.white};
   display: flex;
   flex-direction: column;
-  background-color: ${colors.white};
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
   padding: 16px;
+
+  & > form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    & > button {
+      width: fit-content;
+      margin: 16px auto 0 auto;
+    }
+  }
 `;
 
 const FormNewUser = ({ role }) => {
@@ -90,44 +107,47 @@ const FormNewUser = ({ role }) => {
 
   return (
     <StyledFormNewUser>
-      <Input
-        name="name"
-        onChange={formik.handleChange}
-        value={formik.values.name}
-        label="name"
-        type="text"
-      />
-      <Input
-        name="email"
-        onChange={formik.handleChange}
-        value={formik.values.email}
-        label="email"
-        type="email"
-      />
-      <Input
-        name="phone"
-        onChange={formik.handleChange}
-        value={formik.values.phone}
-        label="phone"
-        type="number"
-      />
-      <Input
-        name="password"
-        onChange={formik.handleChange}
-        value={formik.values.password}
-        label="password"
-        type="password"
-      />
-      <Input
-        name="confirmPassword"
-        onChange={formik.handleChange}
-        value={formik.values.confirmPassword}
-        label="password Confirmation"
-        type="password"
-      />
-      <Button onClick={formik.handleSubmit}>
-        Create account
-      </Button>
+      <h5>Create your Account</h5>
+      <form>
+        <Input
+          name="name"
+          onChange={formik.handleChange}
+          value={formik.values.name}
+          label="name"
+          type="text"
+        />
+        <Input
+          name="email"
+          onChange={formik.handleChange}
+          value={formik.values.email}
+          label="email"
+          type="email"
+        />
+        <Input
+          name="phone"
+          onChange={formik.handleChange}
+          value={formik.values.phone}
+          label="phone"
+          type="number"
+        />
+        <Input
+          name="password"
+          onChange={formik.handleChange}
+          value={formik.values.password}
+          label="password"
+          type="password"
+        />
+        <Input
+          name="confirmPassword"
+          onChange={formik.handleChange}
+          value={formik.values.confirmPassword}
+          label="password Confirmation"
+          type="password"
+        />
+        <Button onClick={formik.handleSubmit}>
+          Create account
+        </Button>
+      </form>
     </StyledFormNewUser>
   );
 };
