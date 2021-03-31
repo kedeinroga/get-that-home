@@ -1,38 +1,47 @@
 import React from "react";
+import styled from "@emotion/styled";
 import { gql, useMutation, useQuery } from "@apollo/client";
 import { useFormik } from "formik";
-import { GET_CURRENT_USER_QUERY } from "../components/auth/CurrentUser";
+import { GET_CURRENT_USER_QUERY } from "../auth/CurrentUser";
+import { colors } from "../../ui";
 
-const SIGNUP = gql`
-  mutation AddUser(
-    $email: String!
-    $name: String!
-    $password: String!
-    $phone: Int!
-    $role: Int
-  ) {
-    addUser(
-      params: {
-        email: $email
-        name: $name
-        password: $password
-        phone: $phone
-        role: $role
-      }
-    ) {
-      user {
-        token
-        id
-        name
-        email
-        phone
-        role
-      }
-    }
-  }
+const StyledFormNewUser = styled.form`
+  display: flex;
+  flex-direction: column;
+  background-color: ${colors.white};
+  padding: 16px;
 `;
 
-const Signup = () => {
+const FormNewUser = ({ role }) => {
+  const SIGNUP = gql`
+    mutation AddUser(
+      $email: String!
+      $name: String!
+      $password: String!
+      $phone: Int!
+      $role: Int
+    ) {
+      addUser(
+        params: {
+          email: $email
+          name: $name
+          password: $password
+          phone: $phone
+          role: $role
+        }
+      ) {
+        user {
+          token
+          id
+          name
+          email
+          phone
+          role
+        }
+      }
+    }
+  `;
+
   useQuery(GET_CURRENT_USER_QUERY);
 
   const [addUser] = useMutation(SIGNUP, {
@@ -48,7 +57,7 @@ const Signup = () => {
       });
     },
   });
-
+  const role_user = role;
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -56,10 +65,11 @@ const Signup = () => {
       confirmPassword: "",
       name: "",
       phone: 0,
-      role: 0,
+      role: role_user,
     },
 
     onSubmit: (values) => {
+      console.log(role_user);
       const password = values.password;
       const confirmPassword = values.confirmPassword;
       if (password !== confirmPassword) {
@@ -71,7 +81,7 @@ const Signup = () => {
             password: values.password,
             name: values.name,
             phone: values.phone,
-            role: values.role,
+            role: role_user,
           },
         });
       }
@@ -79,7 +89,7 @@ const Signup = () => {
   });
 
   return (
-    <form onSubmit={formik.handleSubmit}>
+    <StyledFormNewUser onSubmit={formik.handleSubmit}>
       <label htmlFor="name">Name</label>
       <input
         id="name"
@@ -126,8 +136,8 @@ const Signup = () => {
       />
 
       <button type="submit">Create account</button>
-    </form>
+    </StyledFormNewUser>
   );
 };
 
-export default Signup;
+export default FormNewUser;

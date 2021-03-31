@@ -10,8 +10,8 @@ require 'faker'
 puts 'Start generate users'
 users = User.create([
   { email: "test@mail.com", password: "123456" , name: "test",  phone: 123456789, role: 0}, 
-  { email: "test1@mail.com", password: "123456" , name: "test1",  phone: 123456789, role: 1 },
-  { email: "test2@mail.com", password: "123456" , name: "test2",  phone: 123456789, role: 1 }
+  { email: "test1@mail.com", password: "123456" , name: "test1", phone: 123456789, role: 1 },
+  { email: "test2@mail.com", password: "123456" , name: "test2", phone: 123456789, role: 1 }
   ])
 puts 'End generate users'
 
@@ -22,6 +22,7 @@ users.each do |user|
     rent = (rand()*10**4).floor
     area = (rand()*10**3).floor
     about = Faker::Lorem.paragraph
+    maintanance = (rand()*10**2).floor
     photos = "https://source.unsplash.com/user/erondu/512x384"
     if user.role == "landlord"
       property_data = {
@@ -30,7 +31,8 @@ users.each do |user|
         area: area,
         about: about,
         photos: photos,
-        user_id: user.id
+        user_id: user.id,
+        maintanance: maintanance
         }
         Property.find_or_create_by(property_data)
     end
