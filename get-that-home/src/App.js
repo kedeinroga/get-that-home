@@ -5,7 +5,7 @@ import { colors } from "./ui";
 import { Landing } from "./pages/Landing";
 import { Login } from "./pages/Login";
 import AddProperty from "./pages/AddProperty";
-import Signup from "./pages/SignUp";
+import Signup from "./components/users/FormNewUser";
 import ListProperties from "./pages/ListProperties";
 import Property from "./pages/Property";
 import Register from "./pages/Register";

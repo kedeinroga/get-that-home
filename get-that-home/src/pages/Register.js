@@ -5,6 +5,7 @@ import landlord from "../assets/landlord.svg";
 import seeker from "../assets/seeker.svg";
 import { colors } from "../ui";
 import CardRegister from "../components/CardRegister";
+import FormNewUser from "../components/users/FormNewUser";
 
 const StyledRegister = styled.div`
   margin: 72px 0 0 0;
@@ -68,8 +69,9 @@ export default function Register() {
             <p>You want to find a home</p>
           </CardRegister>
         </StyleContentCards>
+        <FormNewUser role={1} />
       </StyledCardRegister>
-      <Footer landing />
+      <Footer />
     </StyledRegister>
   );
 }
