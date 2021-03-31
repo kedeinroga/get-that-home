@@ -165,14 +165,6 @@ export default function Card({
           cursor: pointer;
           transition: 0.4s all;
 
-          :first-child {
-            border-radius: 0 0 0 8px;
-          }
-
-          :last-child {
-            border-radius: 0 0 8px 0;
-          }
-
           & > p {
             color: ${colors.white};
           }

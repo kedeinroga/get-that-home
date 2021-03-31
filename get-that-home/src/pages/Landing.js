@@ -7,8 +7,9 @@ import ImageHero from "../assets/image-hero.svg";
 import Button from "../components/Button";
 import CardTeam from "../components/CardTeam";
 import Footer from "../components/Footer";
-
 import Login from "../components/auth/Login";
+
+import CurrentUser from "../components/auth/CurrentUser";
 
 const StyledLanding = styled.div`
   #landing__content {
@@ -101,49 +102,54 @@ const StyledLandingWorkteam = styled.section`
 
 export function Landing() {
   return (
-    <StyledLanding>
-      <Login />
-      <div id="landing__content">
-        <Header />
-        <StyledLandingHero>
-          <div>
-            <h2>Meet your new Home</h2>
-            <h5>The easiest way to find where you belong</h5>
+    <CurrentUser>
+      {({ loaded }) => (
+        <StyledLanding>
+          <Login />
+          <div id="landing__content">
+            {loaded ? <Header type="seeker" /> : <Header />}
+            <StyledLandingHero>
+              <div>
+                <h2>Meet your new Home</h2>
+                <h5>The easiest way to find where you belong</h5>
+              </div>
+            </StyledLandingHero>
+            <StyledLandingProperties>
+              <Container>
+                <div>
+                  <TextSubtitle2>Find an Apartment you Love</TextSubtitle2>
+                  <h4>Homes for rent at the best prices</h4>
+                </div>
+                <ul>
+                  <Card />
+                  <Card type="sale" />
+                  <Card />
+                </ul>
+              </Container>
+            </StyledLandingProperties>
+            <StyledLandingSignup>
+              <Container>
+                <h4>
+                  Getting someone to rent your apartment has never been this
+                  easy
+                </h4>
+                <Button size="large">Create an account now</Button>
+              </Container>
+            </StyledLandingSignup>
+            <StyledLandingWorkteam>
+              <Container>
+                <h3>Meet the team</h3>
+                <ul>
+                  <CardTeam />
+                  <CardTeam />
+                  <CardTeam />
+                </ul>
+              </Container>
+            </StyledLandingWorkteam>
+            <Footer landing />
           </div>
-        </StyledLandingHero>
-        <StyledLandingProperties>
-          <Container>
-            <div>
-              <TextSubtitle2>Find an Apartment you Love</TextSubtitle2>
-              <h4>Homes for rent at the best prices</h4>
-            </div>
-            <ul>
-              <Card />
-              <Card type="sale" />
-              <Card />
-            </ul>
-          </Container>
-        </StyledLandingProperties>
-        <StyledLandingSignup>
-          <Container>
-            <h4>
-              Getting someone to rent your apartment has never been this easy
-            </h4>
-            <Button size="large">Create an account now</Button>
-          </Container>
-        </StyledLandingSignup>
-        <StyledLandingWorkteam>
-          <Container>
-            <h3>Meet the team</h3>
-            <ul>
-              <CardTeam />
-              <CardTeam />
-              <CardTeam />
-            </ul>
-          </Container>
-        </StyledLandingWorkteam>
-        <Footer landing />
-      </div>
-    </StyledLanding>
+        </StyledLanding>
+      )}
+    </CurrentUser>
   );
 }
