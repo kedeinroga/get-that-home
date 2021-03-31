@@ -2,7 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { useApolloClient } from "@apollo/client";
+import { useApolloClient, useQuery } from "@apollo/client";
 import {
   RiUserAddLine,
   RiUserReceivedLine,
@@ -17,6 +17,7 @@ import Container from "../contents/Container";
 import Logo from "../assets/logo.svg";
 import Button from "./Button";
 
+import CurrentUser from "../components/auth/CurrentUser";
 import { GET_CURRENT_USER_QUERY } from "../components/auth/CurrentUser";
 
 const StyledHeader = styled.header`
@@ -33,7 +34,7 @@ const StyledHeader = styled.header`
 
   .header__logo {
     transition: 0.4s all;
-    
+
     :hover {
       opacity: 0.75;
     }
@@ -55,6 +56,7 @@ const StyledHeader = styled.header`
 `;
 
 export default function Header({ type = "visit" }) {
+  useQuery(GET_CURRENT_USER_QUERY);
   let history = useHistory();
   let client = useApolloClient();
 
@@ -79,79 +81,85 @@ export default function Header({ type = "visit" }) {
   }
 
   return (
-    <StyledHeader>
-      <Container>
-        <Link to="/">
-          <img src={Logo} className="header__logo" alt="Get that home!" />
-        </Link>
-        {type === "visit" && (
-          <ul>
-            <li>
-              <Button icon={<RiSearchLine />} type="ghost">
-                Find a home
-              </Button>
-            </li>
-            <li>
-              <Button icon={<RiUserAddLine />} type="secundary">
-                Join
-              </Button>
-            </li>
-            <li>
-              <Button icon={<RiUserReceivedLine />} onClick={showLogin}>
-                Login
-              </Button>
-            </li>
-          </ul>
-        )}
-        {type === "seeker" && (
-          <ul>
-            <li>
-              <Button childrenIcon={<RiSearchLine />} type="ghost">
-                Find a home
-              </Button>
-            </li>
-            <li>
-              <Button
-                onClick={handleLogout}
-                childrenIcon={<RiLogoutCircleLine />}
-                type="secundary"
-              >
-                Logout
-              </Button>
-            </li>
-            <li>
-              <Button childrenIcon={<RiHeart3Line />}>Saved properties</Button>
-            </li>
-            <li>
-              <Button childrenIcon={<RiUser3Line />}>Profile</Button>
-            </li>
-          </ul>
-        )}
-        {type === "landlord" && (
-          <ul>
-            <li>
-              <Button childrenIcon={<RiSearchLine />} type="ghost">
-                Find a home
-              </Button>
-            </li>
-            <li>
-              <Button
-                onClick={handleLogout}
-                childrenIcon={<RiLogoutCircleLine />}
-                type="secundary"
-              >
-                Logout
-              </Button>
-            </li>
-            <li>
-              <Button childrenIcon={<RiHome8Line />}>My properties</Button>
-            </li>
-            <li>
-              <Button childrenIcon={<RiUser3Line />}>Profile</Button>
-            </li>
-          </ul>
-        )}
-      </Container>
-    </StyledHeader>
+    <CurrentUser>
+      {({ loaded, currentUser }) => (
+        <StyledHeader>
+          <Container>
+            <Link to="/">
+              <img src={Logo} className="header__logo" alt="Get that home!" />
+            </Link>
+            {!loaded && (
+              <ul>
+                <li>
+                  <Button icon={<RiSearchLine />} type="ghost">
+                    Find a home
+                  </Button>
+                </li>
+                <li>
+                  <Button icon={<RiUserAddLine />} type="secundary">
+                    Join
+                  </Button>
+                </li>
+                <li>
+                  <Button icon={<RiUserReceivedLine />} onClick={showLogin}>
+                    Login
+                  </Button>
+                </li>
+              </ul>
+            )}
+            {loaded && currentUser.role === "home_seeker" && (
+              <ul>
+                <li>
+                  <Button childrenIcon={<RiSearchLine />} type="ghost">
+                    Find a home
+                  </Button>
+                </li>
+                <li>
+                  <Button
+                    onClick={handleLogout}
+                    childrenIcon={<RiLogoutCircleLine />}
+                    type="secundary"
+                  >
+                    Logout
+                  </Button>
+                </li>
+                <li>
+                  <Button childrenIcon={<RiHeart3Line />}>
+                    Saved properties
+                  </Button>
+                </li>
+                <li>
+                  <Button childrenIcon={<RiUser3Line />}>Profile</Button>
+                </li>
+              </ul>
+            )}
+            {loaded && currentUser.role === "landlord" && (
+              <ul>
+                <li>
+                  <Button childrenIcon={<RiSearchLine />} type="ghost">
+                    Find a home
+                  </Button>
+                </li>
+                <li>
+                  <Button
+                    onClick={handleLogout}
+                    childrenIcon={<RiLogoutCircleLine />}
+                    type="secundary"
+                  >
+                    Logout
+                  </Button>
+                </li>
+                <li>
+                  <Button childrenIcon={<RiHome8Line />}>My properties</Button>
+                </li>
+                <li>
+                  <Button childrenIcon={<RiUser3Line />}>Profile</Button>
+                </li>
+              </ul>
+            )}
+          </Container>
+        </StyledHeader>
+      )}
+    </CurrentUser>
   );
 }

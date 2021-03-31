@@ -26,7 +26,7 @@ let CurrentUser = ({ children }) => {
 
   if (error) return children({ currentUser: null, loaded: false });
   if (!called || loading) return children({ currentUser: null, loaded: false });
-  return children({ currentUser: data.me, loaded: true });
+  return children({ currentUser: data.currentUser, loaded: true });
 };
 
 CurrentUser.propTypes = {
