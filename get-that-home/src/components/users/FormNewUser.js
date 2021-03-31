@@ -5,6 +5,7 @@ import { GET_CURRENT_USER_QUERY } from "../auth/CurrentUser";
 import { colors } from "../../ui";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
+import { useHistory } from "react-router";
 
 const StyledFormNewUser = styled.div`
   width: 388px;
@@ -61,6 +62,7 @@ const FormNewUser = ({ role }) => {
   `;
 
   useQuery(GET_CURRENT_USER_QUERY);
+  let history = useHistory();
 
   const [addUser] = useMutation(SIGNUP, {
     onCompleted({ addUser }) {
@@ -101,6 +103,7 @@ const FormNewUser = ({ role }) => {
             role: role_user,
           },
         });
+        history.replace("/");
       }
     },
   });
@@ -144,7 +147,9 @@ const FormNewUser = ({ role }) => {
           label="password Confirmation"
           type="password"
         />
-        <Button onClick={formik.handleSubmit} href="/">Create account</Button>
+        <Button onClick={formik.handleSubmit} href="/">
+          Create account
+        </Button>
       </form>
     </StyledFormNewUser>
   );
