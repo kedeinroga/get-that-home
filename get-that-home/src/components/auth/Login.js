@@ -5,7 +5,7 @@ import { GET_CURRENT_USER_QUERY } from "./CurrentUser";
 
 import styled from "@emotion/styled";
 import { colors } from "../../ui";
-import { RiUserReceivedLine, RiSearchLine } from "react-icons/ri";
+import { RiUserReceivedLine } from "react-icons/ri";
 import Button from "../Button";
 import Input from "../Input";
 
@@ -61,10 +61,9 @@ const Login = () => {
   const [login] = useMutation(LOGIN, {
     onCompleted({ login }) {
       localStorage.setItem("token", login.user.token);
+      document.location.reload();
     },
     update(cache, { data }) {
-      console.log(data);
-      console.log(cache);
       cache.writeQuery({
         query: GET_CURRENT_USER_QUERY,
         data: {

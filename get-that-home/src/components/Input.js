@@ -20,6 +20,7 @@ const StyledInput = styled.div`
     border-radius: 8px;
 
     input {
+      width: 100%;
       border: none;
       font-size: 16px;
       line-height: 24px;
@@ -53,6 +54,7 @@ export default function Input({
           value={value}
           placeholder={placeholder}
           type={type}
+          autoComplete="on"
         />
         {select && (
           <Icon>

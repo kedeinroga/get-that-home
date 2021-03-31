@@ -1,15 +1,33 @@
-import React from "react";
 import styled from "@emotion/styled";
 import { gql, useMutation, useQuery } from "@apollo/client";
 import { useFormik } from "formik";
 import { GET_CURRENT_USER_QUERY } from "../auth/CurrentUser";
 import { colors } from "../../ui";
+import Input from "../../components/Input";
+import Button from "../../components/Button";
 
-const StyledFormNewUser = styled.form`
+const StyledFormNewUser = styled.div`
+  width: 388px;
+  background-color: ${colors.white};
   display: flex;
   flex-direction: column;
-  background-color: ${colors.white};
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
   padding: 16px;
+
+  & > form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    & > button {
+      width: fit-content;
+      margin: 16px auto 0 auto;
+    }
+  }
 `;
 
 const FormNewUser = ({ role }) => {
@@ -69,7 +87,6 @@ const FormNewUser = ({ role }) => {
     },
 
     onSubmit: (values) => {
-      console.log(role_user);
       const password = values.password;
       const confirmPassword = values.confirmPassword;
       if (password !== confirmPassword) {
@@ -89,53 +106,46 @@ const FormNewUser = ({ role }) => {
   });
 
   return (
-    <StyledFormNewUser onSubmit={formik.handleSubmit}>
-      <label htmlFor="name">Name</label>
-      <input
-        id="name"
-        name="name"
-        type="text"
-        onChange={formik.handleChange}
-        value={formik.values.name}
-      />
-
-      <label htmlFor="phone">Phone</label>
-      <input
-        id="phone"
-        name="phone"
-        type="number"
-        onChange={formik.handleChange}
-        value={formik.values.phone}
-      />
-
-      <label htmlFor="email">Email Address</label>
-      <input
-        id="email"
-        name="email"
-        type="email"
-        onChange={formik.handleChange}
-        value={formik.values.email}
-      />
-
-      <label htmlFor="password">Password </label>
-      <input
-        id="password"
-        name="password"
-        type="password"
-        onChange={formik.handleChange}
-        value={formik.values.password}
-      />
-
-      <label htmlFor="confirmPassword">Password Confirmation </label>
-      <input
-        id="confirmPassword"
-        name="confirmPassword"
-        type="password"
-        onChange={formik.handleChange}
-        value={formik.values.confirmPassword}
-      />
-
-      <button type="submit">Create account</button>
+    <StyledFormNewUser id="form--register">
+      <h5>Create your Account</h5>
+      <form>
+        <Input
+          name="name"
+          onChange={formik.handleChange}
+          value={formik.values.name}
+          label="name"
+          type="text"
+        />
+        <Input
+          name="email"
+          onChange={formik.handleChange}
+          value={formik.values.email}
+          label="email"
+          type="email"
+        />
+        <Input
+          name="phone"
+          onChange={formik.handleChange}
+          value={formik.values.phone}
+          label="phone"
+          type="number"
+        />
+        <Input
+          name="password"
+          onChange={formik.handleChange}
+          value={formik.values.password}
+          label="password"
+          type="password"
+        />
+        <Input
+          name="confirmPassword"
+          onChange={formik.handleChange}
+          value={formik.values.confirmPassword}
+          label="password Confirmation"
+          type="password"
+        />
+        <Button onClick={formik.handleSubmit} href="/">Create account</Button>
+      </form>
     </StyledFormNewUser>
   );
 };

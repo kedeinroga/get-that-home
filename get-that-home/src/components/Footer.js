@@ -6,6 +6,7 @@ import { RiGithubFill } from "react-icons/ri";
 import Logo from "../assets/logo.svg";
 
 const StyledFooter = styled.footer`
+  width: 100%;
   background-color: ${colors.background};
   border-top: 1px solid ${colors.darkPink};
 
@@ -127,7 +128,7 @@ export default function Footer({ landing = false }) {
       {!landing && (
         <div className="footer-default">
           <div>
-            <img className="footer__logo" src={Logo} />
+            <img className="footer__logo" src={Logo} alt="Get that home!" />
             <TextBody2>© 2021 - Get That Job</TextBody2>
             <TextBody2>Codeable - Cohort 3 Final Project</TextBody2>
           </div>

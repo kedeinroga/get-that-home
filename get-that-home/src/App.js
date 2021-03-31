@@ -1,13 +1,13 @@
-import styled from "@emotion/styled";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import styled from "@emotion/styled";
 import { colors } from "./ui";
 
 import { Landing } from "./pages/Landing";
-import AddProperty from "./pages/AddProperty";
-import Signup from "./components/users/FormNewUser";
 import ListProperties from "./pages/ListProperties";
 import Property from "./pages/Property";
 import Register from "./pages/Register";
+import Signup from "./components/auth/Signup";
+
 const Container = styled.div`
   background-color: ${colors.white};
 `;
@@ -21,6 +21,12 @@ var App = function () {
           <Route exact path="/properties" component={ListProperties} />
           <Route exact path="/" component={Landing} />
           <Route path="/register" component={Register} />
+          <Route path="/signup/landlord">
+            <Signup role={1} />
+          </Route>
+          <Route path="/signup/seeker">
+            <Signup role={0} />
+          </Route>
           {/* <Route path="/login" component={Login} /> */}
         </Container>
       </Switch>
