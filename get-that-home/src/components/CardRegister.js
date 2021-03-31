@@ -8,6 +8,9 @@ const StyledCardRegister = styled.div`
   gap: 8px;
   padding: 16px 28px;
   background-color: ${colors.white};
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+
   & > h6 {
     font-family: var(--font-montserrat);
     font-size: 20px;
@@ -18,6 +21,7 @@ const StyledCardRegister = styled.div`
     text-align: center;
     color: ${colors.darkGray};
   }
+  
   & > p {
     font-family: var(--font-montserrat);
     font-size: 14px;

@@ -8,25 +8,34 @@ import CardRegister from "../components/CardRegister";
 import FormNewUser from "../components/users/FormNewUser";
 
 const StyledRegister = styled.div`
+  display: grid;
+  place-items: center;
+  background: linear-gradient(
+    0deg,
+    ${colors.white} 50%,
+    ${colors.shallowPink} 50%
+  );
   margin: 72px 0 0 0;
+
+  & > div {
+    padding: 64px 0 128px 0;
+  }
 `;
 
 const StyleContentCards = styled.div`
   display: flex;
   gap: 54px;
+
+  a {
+    cursor: pointer;
+  }
 `;
 
 const StyledCardRegister = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 64px;
-  padding-bottom: 189px;
-  background: linear-gradient(
-    0deg,
-    ${colors.white} 50%,
-    ${colors.shallowPink} 50%
-  );
+
   & > h5 {
     font-family: var(--font-montserrat);
     font-size: 24px;
@@ -37,6 +46,7 @@ const StyledCardRegister = styled.div`
     text-align: left;
     color: ${colors.teal};
   }
+
   & > h2 {
     font-family: var(--font-montserrat);
     font-size: 64px;
@@ -50,27 +60,42 @@ const StyledCardRegister = styled.div`
   }
 `;
 
+function showRegisterForm(e) {
+  e.preventDefault();
+  console.log("Show register form")
+  const register_page = document.getElementById("card--register");
+  const register_overlay = document.getElementById("form--register");
+  register_page.style.display = "none";
+  register_overlay.style.display = "flex";
+}
+
 export default function Register() {
   return (
     <StyledRegister>
       <Header />
-      <StyledCardRegister>
-        <h5>Selecciona el perfil con el que te identificas</h5>
-        <h2>¿Qué estas buscando?</h2>
-        <StyleContentCards>
-          <CardRegister>
-            <img src={landlord} alt="Landlord" width="240" height="180" />
-            <h6>Landlord</h6>
-            <p>You want to rent or sell a home</p>
-          </CardRegister>
-          <CardRegister>
-            <img src={seeker} alt="Landlord" width="240" height="180" />
-            <h6>Home seeker</h6>
-            <p>You want to find a home</p>
-          </CardRegister>
-        </StyleContentCards>
-      </StyledCardRegister>
-      <FormNewUser role={1} />
+      <div>
+        <StyledCardRegister id="card--register">
+          <h5>Selecciona el perfil con el que te identificas</h5>
+          <h2>¿Qué estas buscando?</h2>
+          <StyleContentCards>
+            <a onClick={showRegisterForm}>
+              <CardRegister>
+                <img src={landlord} alt="Landlord" width="240" height="180" />
+                <h6>Landlord</h6>
+                <p>You want to rent or sell a home</p>
+              </CardRegister>
+            </a>
+            <a onClick={showRegisterForm}>
+              <CardRegister>
+                <img src={seeker} alt="Landlord" width="240" height="180" />
+                <h6>Home seeker</h6>
+                <p>You want to find a home</p>
+              </CardRegister>
+            </a>
+          </StyleContentCards>
+        </StyledCardRegister>
+        <FormNewUser role={1} />
+      </div>
       <Footer />
     </StyledRegister>
   );

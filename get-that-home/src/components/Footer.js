@@ -6,6 +6,7 @@ import { RiGithubFill } from "react-icons/ri";
 import Logo from "../assets/logo.svg";
 
 const StyledFooter = styled.footer`
+  width: 100%;
   background-color: ${colors.background};
   border-top: 1px solid ${colors.darkPink};
 
