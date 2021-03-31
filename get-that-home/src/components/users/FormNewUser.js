@@ -9,7 +9,7 @@ import Button from "../../components/Button";
 const StyledFormNewUser = styled.div`
   width: 388px;
   background-color: ${colors.white};
-  display: none;
+  display: flex;
   flex-direction: column;
   align-items: center;
   gap: 16px;
@@ -101,14 +101,13 @@ const FormNewUser = ({ role }) => {
             role: role_user,
           },
         });
-        console.log(role_user);
       }
     },
   });
 
   return (
     <StyledFormNewUser id="form--register">
-      <h5>Create your Account {role}</h5>
+      <h5>Create your Account</h5>
       <form>
         <Input
           name="name"

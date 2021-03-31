@@ -54,6 +54,7 @@ export default function Input({
           value={value}
           placeholder={placeholder}
           type={type}
+          autoComplete="on"
         />
         {select && (
           <Icon>

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "@emotion/styled";
 import { colors } from "../ui";
 import Header from "../components/Header";
@@ -5,7 +6,6 @@ import Footer from "../components/Footer";
 import landlord from "../assets/landlord.svg";
 import seeker from "../assets/seeker.svg";
 import CardRegister from "../components/CardRegister";
-import FormNewUser from "../components/users/FormNewUser";
 
 const StyledRegister = styled.div`
   display: grid;
@@ -60,32 +60,7 @@ const StyledCardRegister = styled.div`
   }
 `;
 
-export default function Register({ typeRegister = 1 }) {
-  function showRegisterLandlord(e) {
-    e.preventDefault();
-    const register_content = document.getElementById("card--register");
-    const register_overlay = document.getElementById("form--register");
-    // const container = document.getElementById("register__content");
-    // dangerouslySetInnerHTML
-    register_content.style.display = "none";
-    register_overlay.style.display = "flex";
-    console.log("Landlord");
-    return Register(typeRegister = 1);
-  }
-
-  function showRegisterSeeker(e) {
-    e.preventDefault();
-    const register_content = document.getElementById("card--register");
-    const register_overlay = document.getElementById("form--register");
-    // const container = document.getElementById("register__content");
-    // container.innerHTML = "Seeker";
-    register_content.style.display = "none";
-    register_overlay.style.display = "flex";
-    console.log("Seeker");
-    return Register(typeRegister);
-  }
-
-  console.log("Entramos a Register", typeRegister);
+export default function Register() {
   return (
     <StyledRegister>
       <Header />
@@ -94,7 +69,7 @@ export default function Register({ typeRegister = 1 }) {
           <h5>Selecciona el perfil con el que te identificas</h5>
           <h2>¿Qué estas buscando?</h2>
           <StyleContentCards>
-            <a onClick={showRegisterLandlord}>
+            <Link to="/signup/landlord">
               <CardRegister>
                 <img
                   src={landlord}
@@ -105,8 +80,8 @@ export default function Register({ typeRegister = 1 }) {
                 <h6>Landlord</h6>
                 <p>You want to rent or sell a home</p>
               </CardRegister>
-            </a>
-            <a onClick={showRegisterSeeker}>
+            </Link>
+            <Link to="/signup/seeker">
               <CardRegister>
                 <img
                   src={seeker}
@@ -117,10 +92,9 @@ export default function Register({ typeRegister = 1 }) {
                 <h6>Home seeker</h6>
                 <p>You want to find a home</p>
               </CardRegister>
-            </a>
+            </Link>
           </StyleContentCards>
         </StyledCardRegister>
-        <FormNewUser role={typeRegister} />
       </div>
       <Footer />
     </StyledRegister>
