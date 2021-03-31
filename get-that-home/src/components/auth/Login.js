@@ -61,10 +61,7 @@ const Login = () => {
   const [login] = useMutation(LOGIN, {
     onCompleted({ login }) {
       localStorage.setItem("token", login.user.token);
-      const landing_page = document.getElementById("landing__content");
-      const login_overlay = document.getElementById("login__overlay");
-      landing_page.style.display = "block";
-      login_overlay.style.display = "none";
+      document.location.reload();
     },
     update(cache, { data }) {
       cache.writeQuery({

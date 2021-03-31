@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "@emotion/styled";
 import { colors, TextSubtitle2 } from "../ui";
 import Container from "../contents/Container";
@@ -133,7 +134,9 @@ export function Landing() {
                   Getting someone to rent your apartment has never been this
                   easy
                 </h4>
-                <Button size="large">Create an account now</Button>
+                <Link to="/signup">
+                  <Button size="large">Create an account now</Button>
+                </Link>
               </Container>
             </StyledLandingSignup>
             <StyledLandingWorkteam>

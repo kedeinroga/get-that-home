@@ -21,6 +21,7 @@ const globalStyles = css`
     font-family: var(--font-montserrat);
     font-style: normal;
     font-weight: 400;
+    text-decoration: none;
     list-style: none;
     padding: 0;
     margin: 0;

@@ -3,10 +3,10 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { colors } from "./ui";
 
 import { Landing } from "./pages/Landing";
-import AddProperty from "./pages/AddProperty";
 import Signup from "./pages/SignUp";
 import ListProperties from "./pages/ListProperties";
 import Property from "./pages/Property";
+
 const Container = styled.div`
   background-color: ${colors.white};
 `;

@@ -58,6 +58,7 @@ export default function Header({ type = "visit" }) {
       },
     });
     history.replace("/");
+    document.location.reload();
   };
 
   function showLogin(e) {
