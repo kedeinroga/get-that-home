@@ -5,7 +5,7 @@ import { GET_CURRENT_USER_QUERY } from "./CurrentUser";
 
 import styled from "@emotion/styled";
 import { colors } from "../../ui";
-import { RiUserReceivedLine, RiSearchLine } from "react-icons/ri";
+import { RiUserReceivedLine } from "react-icons/ri";
 import Button from "../Button";
 import Input from "../Input";
 

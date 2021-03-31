@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useApolloClient } from "@apollo/client";
 import {
   RiUserAddLine,
@@ -29,6 +30,14 @@ const StyledHeader = styled.header`
   place-items: center;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
   margin: 0 auto;
+
+  .header__logo {
+    transition: 0.4s all;
+    
+    :hover {
+      opacity: 0.75;
+    }
+  }
 
   & > div {
     display: flex;
@@ -72,7 +81,9 @@ export default function Header({ type = "visit" }) {
   return (
     <StyledHeader>
       <Container>
-        <img src={Logo} alt="Get that home!" />
+        <Link to="/">
+          <img src={Logo} className="header__logo" alt="Get that home!" />
+        </Link>
         {type === "visit" && (
           <ul>
             <li>

@@ -101,13 +101,14 @@ const FormNewUser = ({ role }) => {
             role: role_user,
           },
         });
+        console.log(role_user);
       }
     },
   });
 
   return (
     <StyledFormNewUser id="form--register">
-      <h5>Create your Account</h5>
+      <h5>Create your Account {role}</h5>
       <form>
         <Input
           name="name"
@@ -144,9 +145,7 @@ const FormNewUser = ({ role }) => {
           label="password Confirmation"
           type="password"
         />
-        <Button onClick={formik.handleSubmit}>
-          Create account
-        </Button>
+        <Button onClick={formik.handleSubmit}>Create account</Button>
       </form>
     </StyledFormNewUser>
   );
