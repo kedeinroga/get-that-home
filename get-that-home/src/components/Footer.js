@@ -86,7 +86,7 @@ const StyledFooter = styled.footer`
         display: flex;
         flex-direction: column;
         gap: 4px;
-        
+
         & > div {
           display: flex;
           flex-direction: row;
@@ -163,7 +163,7 @@ export default function Footer({ landing = false }) {
                 <Icon size="16px">
                   <DiRuby />
                 </Icon>
-                <TextBody2>Ruby on Rails REST API</TextBody2>
+                <TextBody2>Ruby on Rails GRAPHQL API</TextBody2>
               </div>
               <div>
                 <Icon size="16px">
