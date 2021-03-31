@@ -144,7 +144,7 @@ const FormNewUser = ({ role }) => {
           label="password Confirmation"
           type="password"
         />
-        <Button onClick={formik.handleSubmit}>Create account</Button>
+        <Button onClick={formik.handleSubmit} href="/">Create account</Button>
       </form>
     </StyledFormNewUser>
   );
