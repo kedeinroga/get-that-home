@@ -36,6 +36,13 @@ const Property = () => {
         height="200"
       />
       <p>{data.fetchProperty.about}</p>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.3918117858298!2d-96.16968368498391!3d19.178081787029384!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85c343f61527e927%3A0x83d8e79159820310!2sCalle%20Siempre%20Viva%2C%20Dos%20Caminos%2C%2091726%20Veracruz%2C%20Ver.%2C%20M%C3%A9xico!5e0!3m2!1ses-419!2spe!4v1617171991648!5m2!1ses-419!2spe"
+        width="600"
+        height="450"
+        allowfullscreen=""
+        loading="lazy"
+      ></iframe>
     </div>
   );
 };
