@@ -3,8 +3,6 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { colors } from "./ui";
 
 import { Landing } from "./pages/Landing";
-import Signup from "./pages/SignUp";
-import Property from "./pages/Property";
 import Signup from "./components/users/FormNewUser";
 import ListProperties from "./pages/ListProperties";
 import Property from "./pages/Property";

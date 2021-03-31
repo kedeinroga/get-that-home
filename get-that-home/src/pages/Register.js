@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
+import { colors } from "../ui";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import landlord from "../assets/landlord.svg";
 import seeker from "../assets/seeker.svg";
-import { colors } from "../ui";
 import CardRegister from "../components/CardRegister";
 import FormNewUser from "../components/users/FormNewUser";
 
@@ -56,7 +56,7 @@ export default function Register() {
       <Header />
       <StyledCardRegister>
         <h5>Selecciona el perfil con el que te identificas</h5>
-        <h2>Que estas buscando?</h2>
+        <h2>¿Qué estas buscando?</h2>
         <StyleContentCards>
           <CardRegister>
             <img src={landlord} alt="Landlord" width="240" height="180" />

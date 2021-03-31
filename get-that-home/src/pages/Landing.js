@@ -134,7 +134,7 @@ export function Landing() {
                   Getting someone to rent your apartment has never been this
                   easy
                 </h4>
-                <Link to="/signup">
+                <Link to="/register">
                   <Button size="large">Create an account now</Button>
                 </Link>
               </Container>

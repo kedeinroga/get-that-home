@@ -1,9 +1,10 @@
-import React from "react";
 import styled from "@emotion/styled";
 import { gql, useMutation, useQuery } from "@apollo/client";
 import { useFormik } from "formik";
 import { GET_CURRENT_USER_QUERY } from "../auth/CurrentUser";
 import { colors } from "../../ui";
+import Input from "../../components/Input";
+import Button from "../../components/Button";
 
 const StyledFormNewUser = styled.form`
   display: flex;
@@ -69,7 +70,6 @@ const FormNewUser = ({ role }) => {
     },
 
     onSubmit: (values) => {
-      console.log(role_user);
       const password = values.password;
       const confirmPassword = values.confirmPassword;
       if (password !== confirmPassword) {
@@ -89,53 +89,45 @@ const FormNewUser = ({ role }) => {
   });
 
   return (
-    <StyledFormNewUser onSubmit={formik.handleSubmit}>
-      <label htmlFor="name">Name</label>
-      <input
-        id="name"
+    <StyledFormNewUser>
+      <Input
         name="name"
-        type="text"
         onChange={formik.handleChange}
         value={formik.values.name}
+        label="name"
+        type="text"
       />
-
-      <label htmlFor="phone">Phone</label>
-      <input
-        id="phone"
-        name="phone"
-        type="number"
-        onChange={formik.handleChange}
-        value={formik.values.phone}
-      />
-
-      <label htmlFor="email">Email Address</label>
-      <input
-        id="email"
+      <Input
         name="email"
-        type="email"
         onChange={formik.handleChange}
         value={formik.values.email}
+        label="email"
+        type="email"
       />
-
-      <label htmlFor="password">Password </label>
-      <input
-        id="password"
+      <Input
+        name="phone"
+        onChange={formik.handleChange}
+        value={formik.values.phone}
+        label="phone"
+        type="number"
+      />
+      <Input
         name="password"
-        type="password"
         onChange={formik.handleChange}
         value={formik.values.password}
-      />
-
-      <label htmlFor="confirmPassword">Password Confirmation </label>
-      <input
-        id="confirmPassword"
-        name="confirmPassword"
+        label="password"
         type="password"
+      />
+      <Input
+        name="confirmPassword"
         onChange={formik.handleChange}
         value={formik.values.confirmPassword}
+        label="password Confirmation"
+        type="password"
       />
-
-      <button type="submit">Create account</button>
+      <Button onClick={formik.handleSubmit}>
+        Create account
+      </Button>
     </StyledFormNewUser>
   );
 };
