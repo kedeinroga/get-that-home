@@ -10,8 +10,6 @@ import CardTeam from "../components/CardTeam";
 import Footer from "../components/Footer";
 import Login from "../components/auth/Login";
 
-import CurrentUser from "../components/auth/CurrentUser";
-
 const StyledLanding = styled.div`
   #landing__content {
   }

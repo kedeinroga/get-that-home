@@ -1,5 +1,8 @@
 import { gql, useQuery } from "@apollo/client";
 import { Link } from "react-router-dom";
+import styled from "@emotion/styled";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const LIST_POPERTIES = gql`
   query {
@@ -21,13 +24,19 @@ const LIST_POPERTIES = gql`
   }
 `;
 
+const StyledListProperties = styled.div`
+  background-color: blue;
+`;
+
 function ListProperties() {
   const { loading, error, data } = useQuery(LIST_POPERTIES);
 
   if (loading) return "Loading...";
   if (error) return `Error! ${error.message}`;
+
   return (
-    <div>
+    <StyledListProperties>
+      <Header />
       {data.fetchProperties.map((property) => (
         <div key={property.id}>
           <p>{property.address}</p>
@@ -41,7 +50,8 @@ function ListProperties() {
           </Link>
         </div>
       ))}
-    </div>
+      <Footer />
+    </StyledListProperties>
   );
 }
 
