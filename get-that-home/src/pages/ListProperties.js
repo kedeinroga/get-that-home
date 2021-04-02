@@ -38,6 +38,9 @@ function ListProperties() {
   return (
     <StyledListProperties>
       <Header />
+      <div className=""> 
+
+      </div>
       {data.fetchProperties.map((property) => (
         <Card
           key={property.id}
