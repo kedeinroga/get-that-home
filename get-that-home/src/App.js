@@ -7,6 +7,7 @@ import ListProperties from "./pages/ListProperties";
 import Property from "./pages/Property";
 import Register from "./pages/Register";
 import Signup from "./components/auth/Signup";
+import Login from "./components/auth/Login";
 
 const Container = styled.div`
   background-color: ${colors.white};
@@ -26,6 +27,7 @@ var App = function () {
             <Signup role={0} />
           </Route>
           <Route path="/register" component={Register} />
+          <Route path="/login" component={Login} />
           <Route exact path="/" component={Landing} />
           {/* <Route path="/login" component={Login} /> */}
         </Container>

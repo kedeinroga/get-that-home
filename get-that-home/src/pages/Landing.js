@@ -8,7 +8,6 @@ import ImageHero from "../assets/image-hero.svg";
 import Button from "../components/Button";
 import CardTeam from "../components/CardTeam";
 import Footer from "../components/Footer";
-import Login from "../components/auth/Login";
 
 const StyledLanding = styled.div`
   #landing__content {
@@ -102,7 +101,6 @@ const StyledLandingWorkteam = styled.section`
 export function Landing() {
   return (
     <StyledLanding>
-      <Login />
       <div id="landing__content">
         <Header />
         <StyledLandingHero>

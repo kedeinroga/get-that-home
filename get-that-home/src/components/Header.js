@@ -16,6 +16,7 @@ import { colors } from "../ui";
 import Container from "../contents/Container";
 import Logo from "../assets/logo.svg";
 import Button from "./Button";
+import Login from "../components/auth/Login";
 
 import CurrentUser from "../components/auth/CurrentUser";
 import { GET_CURRENT_USER_QUERY } from "../components/auth/CurrentUser";
@@ -72,14 +73,6 @@ export default function Header({ type = "visit" }) {
     document.location.reload();
   };
 
-  function showLogin(e) {
-    e.preventDefault();
-    const landing_page = document.getElementById("landing__content");
-    const login_overlay = document.getElementById("login__overlay");
-    landing_page.style.display = "none";
-    login_overlay.style.display = "grid";
-  }
-
   return (
     <CurrentUser>
       {({ loaded, currentUser }) => (
@@ -102,11 +95,11 @@ export default function Header({ type = "visit" }) {
                     Join
                   </Button>
                 </li>
-                <li>
-                  <Button icon={<RiUserReceivedLine />} onClick={showLogin}>
-                    Login
-                  </Button>
-                </li>
+                <Link to="/login">
+                  <li>
+                    <Button icon={<RiUserReceivedLine />}>Login</Button>
+                  </li>
+                </Link>
               </ul>
             )}
             {loaded && currentUser.role === "home_seeker" && (

@@ -27,7 +27,7 @@ const LOGIN = gql`
 const StyledLogin = styled.div`
   background-color: rgba(97, 97, 97, 0.25);
   min-height: 100vh;
-  display: none;
+  display: grid;
   place-items: center;
 
   & > div {
