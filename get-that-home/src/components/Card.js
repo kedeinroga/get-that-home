@@ -55,7 +55,7 @@ function CardLabel({ label }) {
 // Card function:
 export default function Card({
   landlord,
-  type,
+  operationType,
   image,
   rent,
   propertyType,
@@ -179,7 +179,7 @@ export default function Card({
 
   return (
     <StyledCard>
-      <CardLabel label={type} />
+      <CardLabel label={operationType} />
       <header />
       <main>
         <header>
@@ -251,7 +251,7 @@ export default function Card({
 
 Card.defaultProps = {
   landlord: false,
-  type: "rental",
+  operationType: "rental",
   image: imageDefault,
   rent: "0.00",
   propertyType: "apartment",

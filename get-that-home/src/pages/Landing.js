@@ -119,7 +119,7 @@ export function Landing() {
             </div>
             <ul>
               <Card />
-              <Card type="sale" />
+              <Card operationType="sale" />
               <Card />
             </ul>
           </Container>

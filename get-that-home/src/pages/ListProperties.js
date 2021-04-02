@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "@emotion/styled";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import Card from "../components/Card";
 
 const LIST_POPERTIES = gql`
   query {
@@ -38,17 +39,19 @@ function ListProperties() {
     <StyledListProperties>
       <Header />
       {data.fetchProperties.map((property) => (
-        <div key={property.id}>
-          <p>{property.address}</p>
-          <Link to={`/properties/${property.id}`}>
-            <img
-              src={property.photos.split("|")[0]}
-              alt="Property"
-              width="300"
-              height="200"
-            />
-          </Link>
-        </div>
+        <Card
+          key={property.id}
+          landlord
+          operationType={property.operationType}
+          image={property.photos.split("|")[0]}
+          rent={property.rent}
+          propertyType={property.propertyType}
+          bedrooms={property.bedrooms}
+          bathrooms={property.bathrooms}
+          area={property.area}
+          pets={property.pets}
+          address={property.address}
+        />
       ))}
       <Footer />
     </StyledListProperties>
