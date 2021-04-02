@@ -1,5 +1,5 @@
 class Property < ApplicationRecord
-  enum operation_type: { rent: 0, sale: 1 }
+  enum operation_type: { rental: 0, sale: 1 }
   enum property_type: { apartment: 0, house: 1 }
   validates :address, presence: true, uniqueness: true
   validates :rent, presence: true

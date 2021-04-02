@@ -127,8 +127,7 @@ export function Landing() {
         <StyledLandingSignup>
           <Container>
             <h4>
-              Getting someone to rent your apartment has never been this
-              easy
+              Getting someone to rent your apartment has never been this easy
             </h4>
             <Link to="/register">
               <Button size="large">Create an account now</Button>
