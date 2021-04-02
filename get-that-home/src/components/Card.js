@@ -162,6 +162,7 @@ export default function Card({
           justify-content: center;
           gap: 10px;
           padding: 11.5px 0;
+          border-radius: 0 0 8px 8px;
           cursor: pointer;
           transition: 0.4s all;
 
