@@ -19,14 +19,14 @@ var App = function () {
         <Container>
           <Route path="/properties/:id" component={Property} />
           <Route exact path="/properties" component={ListProperties} />
-          <Route exact path="/" component={Landing} />
-          <Route path="/register" component={Register} />
           <Route path="/signup/landlord">
             <Signup role={1} />
           </Route>
           <Route path="/signup/seeker">
             <Signup role={0} />
           </Route>
+          <Route path="/register" component={Register} />
+          <Route exact path="/" component={Landing} />
           {/* <Route path="/login" component={Login} /> */}
         </Container>
       </Switch>

@@ -91,9 +91,11 @@ export default function Header({ type = "visit" }) {
             {!loaded && (
               <ul>
                 <li>
-                  <Button icon={<RiSearchLine />} type="ghost">
-                    Find a home
-                  </Button>
+                  <Link to="/properties">
+                    <Button icon={<RiSearchLine />} type="ghost">
+                      Find a home
+                    </Button>
+                  </Link>
                 </li>
                 <li>
                   <Button icon={<RiUserAddLine />} type="secundary">
@@ -110,9 +112,11 @@ export default function Header({ type = "visit" }) {
             {loaded && currentUser.role === "home_seeker" && (
               <ul>
                 <li>
-                  <Button childrenIcon={<RiSearchLine />} type="ghost">
-                    Find a home
-                  </Button>
+                  <Link to="/properties">
+                    <Button icon={<RiSearchLine />} type="ghost">
+                      Find a home
+                    </Button>
+                  </Link>
                 </li>
                 <li>
                   <Button
@@ -136,9 +140,11 @@ export default function Header({ type = "visit" }) {
             {loaded && currentUser.role === "landlord" && (
               <ul>
                 <li>
-                  <Button childrenIcon={<RiSearchLine />} type="ghost">
-                    Find a home
-                  </Button>
+                  <Link to="/properties">
+                    <Button icon={<RiSearchLine />} type="ghost">
+                      Find a home
+                    </Button>
+                  </Link>
                 </li>
                 <li>
                   <Button
