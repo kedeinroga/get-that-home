@@ -16,7 +16,6 @@ import { colors } from "../ui";
 import Container from "../contents/Container";
 import Logo from "../assets/logo.svg";
 import Button from "./Button";
-import Login from "../components/auth/Login";
 
 import CurrentUser from "../components/auth/CurrentUser";
 import { GET_CURRENT_USER_QUERY } from "../components/auth/CurrentUser";

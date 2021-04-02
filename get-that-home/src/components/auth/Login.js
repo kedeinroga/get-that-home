@@ -2,6 +2,7 @@ import React from "react";
 import { gql, useMutation, useQuery } from "@apollo/client";
 import { useFormik } from "formik";
 import { GET_CURRENT_USER_QUERY } from "./CurrentUser";
+import { Link } from "react-router-dom";
 
 import styled from "@emotion/styled";
 import { colors } from "../../ui";
@@ -61,7 +62,6 @@ const Login = () => {
   const [login] = useMutation(LOGIN, {
     onCompleted({ login }) {
       localStorage.setItem("token", login.user.token);
-      document.location.reload();
     },
     update(cache, { data }) {
       cache.writeQuery({
@@ -85,7 +85,7 @@ const Login = () => {
   });
 
   return (
-    <StyledLogin id="login__overlay">
+    <StyledLogin>
       <div>
         <h5>Login</h5>
         <form onSubmit={formik.handleSubmit}>
