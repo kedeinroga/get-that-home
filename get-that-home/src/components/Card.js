@@ -54,16 +54,16 @@ function CardLabel({ label }) {
 
 // Card function:
 export default function Card({
-  landlord,
-  operationType,
-  image,
-  rent,
-  propertyType,
-  address,
-  bedrooms,
-  bathrooms,
-  area,
-  pets,
+  landlord = false,
+  operationType = "rental",
+  image = { imageDefault },
+  rent = "0.00",
+  propertyType = "apartment",
+  address = "No address",
+  bedrooms = 0,
+  bathrooms = 0,
+  area = 0,
+  pets = false,
 }) {
   const StyledCard = styled.div`
     background-color: ${colors.white};
@@ -248,16 +248,3 @@ export default function Card({
     </StyledCard>
   );
 }
-
-Card.defaultProps = {
-  landlord: false,
-  operationType: "rental",
-  image: imageDefault,
-  rent: "0.00",
-  propertyType: "apartment",
-  address: "No address",
-  bedrooms: 0,
-  bathrooms: 0,
-  area: 0,
-  pets: false,
-};
