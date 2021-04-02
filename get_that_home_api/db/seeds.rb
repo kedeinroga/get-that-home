@@ -23,6 +23,11 @@ users.each do |user|
     area = (rand()*10**3).floor
     about = Faker::Lorem.paragraph
     maintanance = (rand()*10**2).floor
+    bedrooms = (rand()*10).floor
+    bathrooms = (rand()*10).floor
+    operation_type = rand(2)
+    property_type = rand(2)
+    pets = [true, false].sample
     photos = "https://source.unsplash.com/user/erondu/512x384"
     if user.role == "landlord"
       property_data = {
@@ -32,7 +37,12 @@ users.each do |user|
         about: about,
         photos: photos,
         user_id: user.id,
-        maintanance: maintanance
+        maintanance: maintanance,
+        bedrooms: bedrooms,
+        bathrooms: bathrooms,
+        operation_type: operation_type,
+        property_type: property_type,
+        pets: pets,
         }
         Property.find_or_create_by(property_data)
     end
