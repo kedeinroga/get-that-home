@@ -72,14 +72,6 @@ export default function Header({ type = "visit" }) {
     document.location.reload();
   };
 
-  function showLogin(e) {
-    e.preventDefault();
-    const landing_page = document.getElementById("landing__content");
-    const login_overlay = document.getElementById("login__overlay");
-    landing_page.style.display = "none";
-    login_overlay.style.display = "grid";
-  }
-
   return (
     <CurrentUser>
       {({ loaded, currentUser }) => (
@@ -91,28 +83,32 @@ export default function Header({ type = "visit" }) {
             {!loaded && (
               <ul>
                 <li>
-                  <Button icon={<RiSearchLine />} type="ghost">
-                    Find a home
-                  </Button>
+                  <Link to="/properties">
+                    <Button icon={<RiSearchLine />} type="ghost">
+                      Find a home
+                    </Button>
+                  </Link>
                 </li>
                 <li>
                   <Button icon={<RiUserAddLine />} type="secundary">
                     Join
                   </Button>
                 </li>
-                <li>
-                  <Button icon={<RiUserReceivedLine />} onClick={showLogin}>
-                    Login
-                  </Button>
-                </li>
+                <Link to="/login">
+                  <li>
+                    <Button icon={<RiUserReceivedLine />}>Login</Button>
+                  </li>
+                </Link>
               </ul>
             )}
             {loaded && currentUser.role === "home_seeker" && (
               <ul>
                 <li>
-                  <Button childrenIcon={<RiSearchLine />} type="ghost">
-                    Find a home
-                  </Button>
+                  <Link to="/properties">
+                    <Button icon={<RiSearchLine />} type="ghost">
+                      Find a home
+                    </Button>
+                  </Link>
                 </li>
                 <li>
                   <Button
@@ -136,9 +132,11 @@ export default function Header({ type = "visit" }) {
             {loaded && currentUser.role === "landlord" && (
               <ul>
                 <li>
-                  <Button childrenIcon={<RiSearchLine />} type="ghost">
-                    Find a home
-                  </Button>
+                  <Link to="/properties">
+                    <Button icon={<RiSearchLine />} type="ghost">
+                      Find a home
+                    </Button>
+                  </Link>
                 </li>
                 <li>
                   <Button
