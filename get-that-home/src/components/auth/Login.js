@@ -2,7 +2,7 @@ import React from "react";
 import { gql, useMutation, useQuery } from "@apollo/client";
 import { useFormik } from "formik";
 import { GET_CURRENT_USER_QUERY } from "./CurrentUser";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router";
 
 import styled from "@emotion/styled";
 import { colors } from "../../ui";
@@ -58,6 +58,7 @@ const StyledLogin = styled.div`
 
 const Login = () => {
   useQuery(GET_CURRENT_USER_QUERY);
+  let history = useHistory();
 
   const [login] = useMutation(LOGIN, {
     onCompleted({ login }) {
@@ -81,6 +82,7 @@ const Login = () => {
 
     onSubmit: (values) => {
       login({ variables: { email: values.email, password: values.password } });
+      history.replace("/");
     },
   });
 
