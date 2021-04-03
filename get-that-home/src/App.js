@@ -7,6 +7,7 @@ import ListProperties from "./pages/ListProperties";
 import Property from "./pages/Property";
 import Register from "./pages/Register";
 import Signup from "./components/auth/Signup";
+import UpdateProfile from "./pages/UpdateProfile";
 
 const Container = styled.div`
   background-color: ${colors.white};
@@ -17,6 +18,7 @@ var App = function () {
     <BrowserRouter>
       <Switch>
         <Container>
+          <Route path="/updateuser" component={UpdateProfile} />
           <Route path="/properties/:id" component={Property} />
           <Route exact path="/properties" component={ListProperties} />
           <Route exact path="/" component={Landing} />

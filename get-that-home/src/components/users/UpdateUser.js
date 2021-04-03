@@ -1,6 +1,7 @@
 import React from "react";
-import { gql, useMutation } from "@apollo/client";
+import { gql, useMutation, useQuery } from "@apollo/client";
 import { useFormik } from "formik";
+import { GET_CURRENT_USER_QUERY } from "../auth/CurrentUser";
 
 const UPDATE_USER = gql`
   mutation UpdateUser(
@@ -21,6 +22,15 @@ const UPDATE_USER = gql`
 `;
 
 const UpdateUser = () => {
+  const dataUser = useQuery(GET_CURRENT_USER_QUERY);
+
+  let emailDataUser =
+    dataUser.data === undefined ? "" : dataUser.data.currentUser.email;
+  let nameDataUser =
+    dataUser.data === undefined ? "" : dataUser.data.currentUser.name;
+  let phoneDataUser =
+    dataUser.data === undefined ? "" : dataUser.data.currentUser.phone;
+
   const [updateUser, { data }] = useMutation(UPDATE_USER);
   if (data) {
     console.log(data);
@@ -28,10 +38,10 @@ const UpdateUser = () => {
 
   const formik = useFormik({
     initialValues: {
-      email: "",
-      name: "",
+      email: `${emailDataUser}`,
+      name: `${nameDataUser}`,
       password: "",
-      phone: "",
+      phone: `${phoneDataUser}`,
     },
 
     onSubmit: (values) => {
