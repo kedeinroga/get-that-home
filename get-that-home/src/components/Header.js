@@ -127,7 +127,9 @@ export default function Header({ type = "visit" }) {
                   </Button>
                 </li>
                 <li>
-                  <Button childrenIcon={<RiUser3Line />}>Profile</Button>
+                  <Link to="/updateuser">
+                    <Button childrenIcon={<RiUser3Line />}>Profile</Button>
+                  </Link>
                 </li>
               </ul>
             )}
@@ -153,7 +155,9 @@ export default function Header({ type = "visit" }) {
                   <Button childrenIcon={<RiHome8Line />}>My properties</Button>
                 </li>
                 <li>
-                  <Button childrenIcon={<RiUser3Line />}>Profile</Button>
+                  <Link to="/updateuser">
+                    <Button childrenIcon={<RiUser3Line />}>Profile</Button>
+                  </Link>
                 </li>
               </ul>
             )}
