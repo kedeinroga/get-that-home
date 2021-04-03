@@ -205,6 +205,7 @@ const Property = () => {
                 height="450"
                 allowfullscreen=""
                 loading="lazy"
+                title="Address of property in Google Maps"
               ></iframe>
             </section>
           </div>

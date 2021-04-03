@@ -45,7 +45,7 @@ export default function PropertyContact() {
               <Button icon={<RiUserReceivedLine />}>Login</Button>
             </Link>
           </StyledPropertyContact>
-        ) : currentUser.role == "home_seeker" ? (
+        ) : currentUser.role === "home_seeker" ? (
           <StyledPropertyContact>
             <Button>Contact Advertiser</Button>
             <div>
@@ -56,7 +56,7 @@ export default function PropertyContact() {
             </div>
           </StyledPropertyContact>
         ) : (
-          currentUser.role == "landlord" && (
+          currentUser.role === "landlord" && (
             <Button icon={<BiEdit />}>Edit property</Button>
           )
         )

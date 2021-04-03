@@ -1,7 +1,35 @@
-import React from "react";
 import { gql, useMutation, useQuery } from "@apollo/client";
 import { useFormik } from "formik";
 import { GET_CURRENT_USER_QUERY } from "../auth/CurrentUser";
+
+import styled from "@emotion/styled";
+import { colors } from "../../ui";
+import Button from "../Button";
+import Input from "../Input";
+
+const StyledFormUpdateUser = styled.div`
+  width: 388px;
+  background-color: ${colors.white};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 16px;
+
+  & > form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    & > button {
+      width: fit-content;
+      margin: 16px auto 0 auto;
+    }
+  }
+`;
 
 const UPDATE_USER = gql`
   mutation UpdateUser(
@@ -59,45 +87,42 @@ const UpdateUser = () => {
   });
 
   return (
-    <form onSubmit={formik.handleSubmit}>
-      <label htmlFor="email">Email Address</label>
-      <input
-        id="email"
-        name="email"
-        type="email"
-        onChange={formik.handleChange}
-        value={formik.values.email}
-      />
-
-      <label htmlFor="name">Full Name</label>
-      <input
-        id="name"
-        name="name"
-        type="text"
-        onChange={formik.handleChange}
-        value={formik.values.name}
-      />
-
-      <label htmlFor="phone">Phone</label>
-      <input
-        id="phone"
-        name="phone"
-        type="number"
-        onChange={formik.handleChange}
-        value={formik.values.phone}
-      />
-
-      <label htmlFor="password">Password </label>
-      <input
-        id="password"
-        name="password"
-        type="password"
-        onChange={formik.handleChange}
-        value={formik.values.password}
-      />
-
-      <button type="submit">Submit</button>
-    </form>
+    <StyledFormUpdateUser>
+      <h5>Your Profile</h5>
+      <form>
+        <Input
+          name="email"
+          onChange={formik.handleChange}
+          value={formik.values.email}
+          label="email"
+          type="email"
+        />
+        <Input
+          name="name"
+          onChange={formik.handleChange}
+          value={formik.values.name}
+          label="name"
+          type="text"
+        />
+        <Input
+          name="phone"
+          onChange={formik.handleChange}
+          value={formik.values.phone}
+          label="phone"
+          type="number"
+        />
+        <Input
+          name="password"
+          onChange={formik.handleChange}
+          value={formik.values.password}
+          label="password"
+          type="password"
+        />
+        <Button onClick={formik.handleSubmit} href="/">
+          Submit
+        </Button>
+      </form>
+    </StyledFormUpdateUser>
   );
 };
 
