@@ -8,6 +8,7 @@ import Property from "./pages/Property";
 import Register from "./pages/Register";
 import Signup from "./components/auth/Signup";
 import UpdateProfile from "./pages/UpdateProfile";
+import Login from "./components/auth/Login";
 
 const Container = styled.div`
   background-color: ${colors.white};
@@ -21,14 +22,15 @@ var App = function () {
           <Route path="/updateuser" component={UpdateProfile} />
           <Route path="/properties/:id" component={Property} />
           <Route exact path="/properties" component={ListProperties} />
-          <Route exact path="/" component={Landing} />
-          <Route path="/register" component={Register} />
           <Route path="/signup/landlord">
             <Signup role={1} />
           </Route>
           <Route path="/signup/seeker">
             <Signup role={0} />
           </Route>
+          <Route path="/register" component={Register} />
+          <Route path="/login" component={Login} />
+          <Route exact path="/" component={Landing} />
           {/* <Route path="/login" component={Login} /> */}
         </Container>
       </Switch>
