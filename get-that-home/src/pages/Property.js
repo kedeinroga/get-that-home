@@ -10,18 +10,9 @@ import Icon from "../components/Icon";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Container from "../contents/Container";
-
-const StyledPropertyContact = styled.aside`
-  background-color: ${colors.white};
-  width: 226px;
-  height: 184px;
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
-`;
+import PropertyContact from "../components/PropertyContact";
 
 const StyledProperty = styled.div`
-  background-color: yellow;
-
   & > div {
     display: flex;
     flex-direction: row;
@@ -53,7 +44,6 @@ const StyledProperty = styled.div`
 
           & > div {
             width: 100%;
-            background-color: red;
             display: flex;
             flex-direction: row;
             align-items: center;
@@ -73,7 +63,6 @@ const StyledProperty = styled.div`
         }
 
         & > ul {
-          background-color: blue;
           width: 100%;
           display: flex;
           flex-direction: row;
@@ -97,7 +86,6 @@ const StyledProperty = styled.div`
         }
 
         .property__data--element {
-          background-color: orange;
           width: 100%;
           display: flex;
           flex-direction: column;
@@ -215,7 +203,7 @@ const Property = () => {
             </section>
           </div>
         </main>
-        <StyledPropertyContact />
+        <PropertyContact />
       </Container>
       <Footer />
     </StyledProperty>
