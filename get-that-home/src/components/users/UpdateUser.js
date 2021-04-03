@@ -29,7 +29,9 @@ const UpdateUser = () => {
   let nameDataUser =
     dataUser.data === undefined ? "" : dataUser.data.currentUser.name;
   let phoneDataUser =
-    dataUser.data === undefined ? "" : dataUser.data.currentUser.phone;
+    dataUser.data === undefined
+      ? ""
+      : parseInt(dataUser.data.currentUser.phone);
 
   const [updateUser, { data }] = useMutation(UPDATE_USER);
   if (data) {
