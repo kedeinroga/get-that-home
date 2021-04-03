@@ -7,6 +7,7 @@ import ListProperties from "./pages/ListProperties";
 import Property from "./pages/Property";
 import Register from "./pages/Register";
 import Signup from "./components/auth/Signup";
+import UpdateProfile from "./pages/UpdateProfile";
 import Login from "./components/auth/Login";
 
 const Container = styled.div`
@@ -18,6 +19,7 @@ var App = function () {
     <BrowserRouter>
       <Switch>
         <Container>
+          <Route path="/updateuser" component={UpdateProfile} />
           <Route path="/properties/:id" component={Property} />
           <Route exact path="/properties" component={ListProperties} />
           <Route path="/signup/landlord">
