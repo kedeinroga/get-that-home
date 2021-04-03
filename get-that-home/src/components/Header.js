@@ -90,9 +90,11 @@ export default function Header({ type = "visit" }) {
                   </Link>
                 </li>
                 <li>
-                  <Button icon={<RiUserAddLine />} type="secundary">
-                    Join
-                  </Button>
+                  <Link to="/register">
+                    <Button icon={<RiUserAddLine />} type="secundary">
+                      Join
+                    </Button>
+                  </Link>
                 </li>
                 <Link to="/login">
                   <li>

@@ -17,13 +17,18 @@ const StyledProperty = styled.div`
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    justify-content: space-between;
+    justify-content: center;
+    flex: 5;
     gap: 36px;
     padding: 32px 0;
     margin: 72px auto 0 auto;
 
+    & > aside, button {
+      flex: 1;
+    }
+
     & > main {
-      width: 100%;
+      flex: 4;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -31,6 +36,7 @@ const StyledProperty = styled.div`
       & > img {
         width: 50%;
         height: 100%;
+        padding: 0 0 32px 0;
       }
 
       .property__data {
