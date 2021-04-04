@@ -71,7 +71,7 @@ const UpdateUser = () => {
       email: `${emailDataUser}`,
       name: `${nameDataUser}`,
       password: "",
-      phone: `${phoneDataUser}`,
+      phone: parseInt(`${phoneDataUser}`),
     },
 
     onSubmit: (values) => {
