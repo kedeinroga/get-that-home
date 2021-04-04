@@ -73,24 +73,31 @@ export default function MyProperties() {
               <SomeTitle>Active</SomeTitle>
               <SomeTitle>Closed</SomeTitle>
             </div>
+            {loaded && console.log(currentUser.properties)}
             <h6>20 Properties found</h6>
             <div className="list-myProperties">
               {data.fetchProperties.map((property) => (
-                <Link to={`/properties/${property.id}`}>
-                  <Card
-                    key={property.id}
-                    landlord={loaded && currentUser.role === "landlord"}
-                    operationType={property.operationType}
-                    image={property.photos.split("|")[0]}
-                    rent={property.rent}
-                    propertyType={property.propertyType}
-                    bedrooms={property.bedrooms}
-                    bathrooms={property.bathrooms}
-                    area={property.area}
-                    pets={property.pets}
-                    address={property.address}
-                  />
-                </Link>
+                <>
+                  {loaded && currentUser.id === property.userId ? (
+                    <Link to={`/properties/${property.id}`}>
+                      <Card
+                        key={property.id}
+                        landlord={loaded && currentUser.role === "landlord"}
+                        operationType={property.operationType}
+                        image={property.photos.split("|")[0]}
+                        rent={property.rent}
+                        propertyType={property.propertyType}
+                        bedrooms={property.bedrooms}
+                        bathrooms={property.bathrooms}
+                        area={property.area}
+                        pets={property.pets}
+                        address={property.address}
+                      />
+                    </Link>
+                  ) : (
+                    console.log("este no")
+                  )}
+                </>
               ))}
             </div>
           </Container>
