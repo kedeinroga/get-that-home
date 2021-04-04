@@ -8,6 +8,9 @@ import ImageHero from "../assets/image-hero.svg";
 import Button from "../components/Button";
 import CardTeam from "../components/CardTeam";
 import Footer from "../components/Footer";
+import AlvaroImage from "../assets/alvaro-torres.jpg";
+import KedeinImage from "../assets/kedein-rodriguez.jpg";
+import HeraldoImage from "../assets/heraldo-fortuna.jpg";
 
 const StyledLanding = styled.div`
   #landing__content {
@@ -136,9 +139,24 @@ export function Landing() {
           <Container>
             <h3>Meet the team</h3>
             <ul>
-              <CardTeam />
-              <CardTeam />
-              <CardTeam />
+              <CardTeam
+                image={AlvaroImage}
+                name="Álvaro Torres"
+                github="https://github.com/AlvaroJTorres"
+                linkedin="https://www.linkedin.com/in/alvaro-julian-torres-malla/"
+              />
+              <CardTeam
+                image={KedeinImage}
+                name="Kedein Rodriguez"
+                github="https://github.com/kedeinroga"
+                linkedin="https://www.linkedin.com/in/kedein-rodriguez-gatica/"
+              />
+              <CardTeam
+                image={HeraldoImage}
+                name="Heraldo Fortuna"
+                github="https://github.com/heraldofortuna"
+                linkedin="https://www.linkedin.com/in/heraldo-fortuna/"
+              />
             </ul>
           </Container>
         </StyledLandingWorkteam>
