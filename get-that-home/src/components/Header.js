@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "@emotion/styled";
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
@@ -152,7 +151,9 @@ export default function Header({ type = "visit" }) {
                   </Button>
                 </li>
                 <li>
-                  <Button childrenIcon={<RiHome8Line />}>My properties</Button>
+                  <Link to="/myproperties">
+                    <Button childrenIcon={<RiHome8Line />}>My properties</Button>
+                  </Link>
                 </li>
                 <li>
                   <Link to="/updateuser">

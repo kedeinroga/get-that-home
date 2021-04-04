@@ -150,7 +150,7 @@ export default function Footer({ landing = false }) {
                 <Icon size="16px">
                   <RiGithubFill />
                 </Icon>
-                <a href="https://github.com/AlvaroJTorres" target="_blank">
+                <a href="https://github.com/AlvaroJTorres" target="_blank" rel="noreferrer">
                   <TextBody2>Álvaro Torres</TextBody2>
                 </a>
               </div>
@@ -158,7 +158,7 @@ export default function Footer({ landing = false }) {
                 <Icon size="16px">
                   <RiGithubFill />
                 </Icon>
-                <a href="https://github.com/kedeinroga" target="_blank">
+                <a href="https://github.com/kedeinroga" target="_blank" rel="noreferrer">
                   <TextBody2>Kedein Rodríguez</TextBody2>
                 </a>
               </div>
@@ -166,7 +166,7 @@ export default function Footer({ landing = false }) {
                 <Icon size="16px">
                   <RiGithubFill />
                 </Icon>
-                <a href="https://github.com/heraldofortuna" target="_blank">
+                <a href="https://github.com/heraldofortuna" target="_blank" rel="noreferrer">
                   <TextBody2>Heraldo Fortuna</TextBody2>
                 </a>
               </div>

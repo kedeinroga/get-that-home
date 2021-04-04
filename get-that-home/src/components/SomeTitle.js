@@ -1,15 +1,14 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
-import { colors } from "../ui";
+import { colors, TextButton } from "../ui";
 
-const StyledButton = styled.button`
+const StyledSomeTitle = styled.button`
+  background-color: transparent;
   border: none;
   outline: none;
   cursor: pointer;
 
-  background-color: ${colors.white};
-  padding-bottom: 6px;
-  h4 {
+  p {
     font-family: var(--font-inter);
     font-size: 14px;
     font-style: normal;
@@ -18,12 +17,14 @@ const StyledButton = styled.button`
     text-align: center;
     letter-spacing: 1.25px;
     color: ${colors.darkGray};
-    border-bottom: 1px solid ${colors.pink};
+    padding-bottom: 6px;
+    border-bottom: 2px solid ${colors.pink};
+    transition: 0.4s all;
   }
-  transition: all 1s;
+  
   &:hover {
-    h4 {
-      border-bottom: 1px solid ${colors.darkPink};
+    p {
+      border-bottom: 2px solid ${colors.darkPink};
       color: ${colors.gray};
     }
   }
@@ -31,19 +32,23 @@ const StyledButton = styled.button`
   ${(props) =>
     props.disabled &&
     css`
-      h4 {
+      p {
         color: ${colors.lightGray};
-        border-bottom: 1px solid ${colors.gray4};
+        border-bottom: 2px solid ${colors.gray4};
       }
       &:hover {
-        h4 {
+        p {
           color: ${colors.lightGray};
-          border-bottom: 1px solid ${colors.gray4};
+          border-bottom: 2px solid ${colors.gray4};
         }
       }
     `}
 `;
 
 export default function SomeTitle({ children, disabled = false }) {
-  return <StyledButton disabled={disabled}>{children}</StyledButton>;
+  return (
+    <StyledSomeTitle disabled={disabled}>
+      <TextButton>{children}</TextButton>
+    </StyledSomeTitle>
+  );
 }
