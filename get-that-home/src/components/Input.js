@@ -42,6 +42,7 @@ export default function Input({
   placeholder = "",
   icon,
   select = false,
+  readonly
 }) {
   return (
     <StyledInput>
@@ -55,6 +56,7 @@ export default function Input({
           placeholder={placeholder}
           type={type}
           autoComplete="on"
+          readonly={readonly}
         />
         {select && (
           <Icon>

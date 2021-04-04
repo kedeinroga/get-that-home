@@ -96,6 +96,7 @@ const UpdateUser = () => {
           value={formik.values.email}
           label="email"
           type="email"
+          readonly="readonly"
         />
         <Input
           name="name"
@@ -115,7 +116,7 @@ const UpdateUser = () => {
           name="password"
           onChange={formik.handleChange}
           value={formik.values.password}
-          label="password"
+          label="password confirmation"
           type="password"
         />
         <Button onClick={formik.handleSubmit} href="/">
