@@ -45,12 +45,12 @@ export default function CardTeam({
       <header></header>
       <h5>{name}</h5>
       <div>
-        <a href={github}>
+        <a href={github} target="_blank">
           <Icon size="18px">
             <RiGithubFill />
           </Icon>
         </a>
-        <a href={linkedin}>
+        <a href={linkedin} target="_blank">
           <Icon size="18px">
             <RiLinkedinBoxLine />
           </Icon>
