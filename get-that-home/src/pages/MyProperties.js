@@ -11,20 +11,19 @@ import CurrentUser from "../components/auth/CurrentUser";
 
 const LIST_POPERTIES = gql`
   query {
-    fetchProperties {
+    userProperties {
       id
-      about
       address
+      rent
       area
-      bathrooms
-      bedrooms
+      photos
+      userId
       maintanance
+      propertyType
       operationType
       pets
-      photos
-      propertyType
-      rent
-      userId
+      bathrooms
+      bedrooms
     }
   }
 `;
@@ -73,10 +72,9 @@ export default function MyProperties() {
               <SomeTitle>Active</SomeTitle>
               <SomeTitle>Closed</SomeTitle>
             </div>
-            {loaded && console.log(currentUser.properties)}
-            <h6>20 Properties found</h6>
+            <h6>{data.userProperties.length} Properties found</h6>
             <div className="list-myProperties">
-              {data.fetchProperties.map((property) => (
+              {data.userProperties.map((property) => (
                 <>
                   {loaded && currentUser.id === property.userId ? (
                     <Link to={`/properties/${property.id}`}>
@@ -95,7 +93,7 @@ export default function MyProperties() {
                       />
                     </Link>
                   ) : (
-                    console.log("este no")
+                    ""
                   )}
                 </>
               ))}

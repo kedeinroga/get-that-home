@@ -5,6 +5,7 @@ module Types
 
     field :fetch_properties, resolver: Queries::Properties::FetchProperties
     field :fetch_property, resolver: Queries::Properties::FetchProperty
+    field :user_properties, resolver: Queries::Properties::UserProperties
 
     field :fetch_users, resolver: Queries::Users::FetchUsers
     field :fetch_user, resolver: Queries::Users::FetchUser
