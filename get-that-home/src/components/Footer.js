@@ -43,6 +43,15 @@ const StyledFooter = styled.footer`
     }
   }
 
+  a {
+    transition: 0.4s all;
+
+    :hover {
+      text-decoration: underline;
+      text-decoration-color: ${colors.gray};
+    }
+  }
+
   .footer-default {
     display: flex;
     flex-direction: row;
@@ -141,19 +150,25 @@ export default function Footer({ landing = false }) {
                 <Icon size="16px">
                   <RiGithubFill />
                 </Icon>
-                <TextBody2>Álvaro Torres</TextBody2>
+                <a href="https://github.com/AlvaroJTorres" target="_blank">
+                  <TextBody2>Álvaro Torres</TextBody2>
+                </a>
               </div>
               <div>
                 <Icon size="16px">
                   <RiGithubFill />
                 </Icon>
-                <TextBody2>Kedein Rodríguez</TextBody2>
+                <a href="https://github.com/kedeinroga" target="_blank">
+                  <TextBody2>Kedein Rodríguez</TextBody2>
+                </a>
               </div>
               <div>
                 <Icon size="16px">
                   <RiGithubFill />
                 </Icon>
-                <TextBody2>Heraldo Fortuna</TextBody2>
+                <a href="https://github.com/heraldofortuna" target="_blank">
+                  <TextBody2>Heraldo Fortuna</TextBody2>
+                </a>
               </div>
             </div>
           </div>
