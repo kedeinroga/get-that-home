@@ -9,7 +9,7 @@ import { colors } from "../ui";
 
 import CurrentUser from "../components/auth/CurrentUser";
 
-const LIST_POPERTIES = gql`
+const LIST_PROPERTIES = gql`
   query {
     fetchProperties {
       id
@@ -56,7 +56,7 @@ const StyledListProperties = styled.div`
 `;
 
 export default function ListProperties() {
-  const { loading, error, data } = useQuery(LIST_POPERTIES);
+  const { loading, error, data } = useQuery(LIST_PROPERTIES);
 
   if (loading) return "Loading...";
   if (error) return `Error! ${error.message}`;
@@ -74,7 +74,7 @@ export default function ListProperties() {
                   <Link to={`/properties/${property.id}`}>
                     <Card
                       key={property.id}
-                      landlord={loaded && currentUser.role === "landlord"}
+                      landlord={loaded && property.userId === currentUser.id}
                       operationType={property.operationType}
                       image={property.photos.split("|")[0]}
                       rent={property.rent}

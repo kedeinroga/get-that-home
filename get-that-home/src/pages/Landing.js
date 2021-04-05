@@ -1,3 +1,4 @@
+import { gql, useQuery } from "@apollo/client";
 import { Link } from "react-router-dom";
 import styled from "@emotion/styled";
 import { colors, TextSubtitle2 } from "../ui";
@@ -11,6 +12,28 @@ import Footer from "../components/Footer";
 import AlvaroImage from "../assets/alvaro-torres.jpg";
 import KedeinImage from "../assets/kedein-rodriguez.jpg";
 import HeraldoImage from "../assets/heraldo-fortuna.jpg";
+
+import CurrentUser from "../components/auth/CurrentUser";
+
+const BEST_PROPERTIES = gql`
+  query {
+    fetchProperties {
+      id
+      about
+      address
+      area
+      bathrooms
+      bedrooms
+      maintanance
+      operationType
+      pets
+      photos
+      propertyType
+      rent
+      userId
+    }
+  }
+`;
 
 const StyledLanding = styled.div`
   #landing__content {
@@ -102,66 +125,89 @@ const StyledLandingWorkteam = styled.section`
 `;
 
 export function Landing() {
+  const { loading, error, data } = useQuery(BEST_PROPERTIES);
+
+  if (loading) return "Loading...";
+  if (error) return `Error! ${error.message}`;
+
   return (
-    <StyledLanding>
-      <div id="landing__content">
-        <Header />
-        <StyledLandingHero>
-          <div>
-            <h2>Meet your new Home</h2>
-            <h5>The easiest way to find where you belong</h5>
+    <CurrentUser>
+      {({ loaded, currentUser }) => (
+        <StyledLanding>
+          <div id="landing__content">
+            <Header />
+            <StyledLandingHero>
+              <div>
+                <h2>Meet your new Home</h2>
+                <h5>The easiest way to find where you belong</h5>
+              </div>
+            </StyledLandingHero>
+            <StyledLandingProperties>
+              <Container>
+                <div>
+                  <TextSubtitle2>Find an Apartment you Love</TextSubtitle2>
+                  <h4>Homes for rent at the best prices</h4>
+                </div>
+                <ul>
+                  {data.fetchProperties.map((property) => (
+                    <Link to={`/properties/${property.id}`}>
+                      <Card
+                        key={property.id}
+                        landlord={loaded && currentUser.role === "landlord"}
+                        operationType={property.operationType}
+                        image={property.photos.split("|")[0]}
+                        rent={property.rent}
+                        propertyType={property.propertyType}
+                        bedrooms={property.bedrooms}
+                        bathrooms={property.bathrooms}
+                        area={property.area}
+                        pets={property.pets}
+                        address={property.address}
+                      />
+                    </Link>
+                  ))}
+                </ul>
+              </Container>
+            </StyledLandingProperties>
+            <StyledLandingSignup>
+              <Container>
+                <h4>
+                  Getting someone to rent your apartment has never been this easy
+                </h4>
+                <Link to="/register">
+                  <Button size="large">Create an account now</Button>
+                </Link>
+              </Container>
+            </StyledLandingSignup>
+            <StyledLandingWorkteam>
+              <Container>
+                <h3>Meet the team</h3>
+                <ul>
+                  <CardTeam
+                    image={AlvaroImage}
+                    name="Álvaro Torres"
+                    github="https://github.com/AlvaroJTorres"
+                    linkedin="https://www.linkedin.com/in/alvaro-julian-torres-malla/"
+                  />
+                  <CardTeam
+                    image={KedeinImage}
+                    name="Kedein Rodriguez"
+                    github="https://github.com/kedeinroga"
+                    linkedin="https://www.linkedin.com/in/kedein-rodriguez-gatica/"
+                  />
+                  <CardTeam
+                    image={HeraldoImage}
+                    name="Heraldo Fortuna"
+                    github="https://github.com/heraldofortuna"
+                    linkedin="https://www.linkedin.com/in/heraldo-fortuna/"
+                  />
+                </ul>
+              </Container>
+            </StyledLandingWorkteam>
+            <Footer landing />
           </div>
-        </StyledLandingHero>
-        <StyledLandingProperties>
-          <Container>
-            <div>
-              <TextSubtitle2>Find an Apartment you Love</TextSubtitle2>
-              <h4>Homes for rent at the best prices</h4>
-            </div>
-            <ul>
-              <Card />
-              <Card operationType="sale" />
-              <Card />
-            </ul>
-          </Container>
-        </StyledLandingProperties>
-        <StyledLandingSignup>
-          <Container>
-            <h4>
-              Getting someone to rent your apartment has never been this easy
-            </h4>
-            <Link to="/register">
-              <Button size="large">Create an account now</Button>
-            </Link>
-          </Container>
-        </StyledLandingSignup>
-        <StyledLandingWorkteam>
-          <Container>
-            <h3>Meet the team</h3>
-            <ul>
-              <CardTeam
-                image={AlvaroImage}
-                name="Álvaro Torres"
-                github="https://github.com/AlvaroJTorres"
-                linkedin="https://www.linkedin.com/in/alvaro-julian-torres-malla/"
-              />
-              <CardTeam
-                image={KedeinImage}
-                name="Kedein Rodriguez"
-                github="https://github.com/kedeinroga"
-                linkedin="https://www.linkedin.com/in/kedein-rodriguez-gatica/"
-              />
-              <CardTeam
-                image={HeraldoImage}
-                name="Heraldo Fortuna"
-                github="https://github.com/heraldofortuna"
-                linkedin="https://www.linkedin.com/in/heraldo-fortuna/"
-              />
-            </ul>
-          </Container>
-        </StyledLandingWorkteam>
-        <Footer landing />
-      </div>
-    </StyledLanding>
+        </StyledLanding>
+      )}
+    </CurrentUser>
   );
 }

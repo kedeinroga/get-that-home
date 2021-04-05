@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { colors, TextOverline } from "../ui";
+import { colors, TextOverline, TextCaption } from "../ui";
 import Icon from "../components/Icon";
 import { RiArrowDownSLine } from "react-icons/ri";
 
@@ -31,6 +31,10 @@ const StyledInput = styled.div`
       }
     }
   }
+
+  .textarea__text {
+    color: ${colors.lightGray};
+  }
 `;
 
 export default function Input({
@@ -42,26 +46,47 @@ export default function Input({
   placeholder = "",
   icon,
   select = false,
+  readonly,
+  textarea = false,
 }) {
   return (
     <StyledInput>
       <TextOverline>{label}</TextOverline>
       <div>
         {icon !== undefined && <Icon>{icon}</Icon>}
-        <input
-          name={name}
-          onChange={onChange}
-          value={value}
-          placeholder={placeholder}
-          type={type}
-          autoComplete="on"
-        />
+        {!textarea ? (
+          <input
+            name={name}
+            onChange={onChange}
+            value={value}
+            placeholder={placeholder}
+            type={type}
+            autoComplete="on"
+            readonly={readonly}
+          />
+        ) : (
+          <textarea
+            name={name}
+            onChange={onChange}
+            value={value}
+            placeholder={placeholder}
+            type={type}
+            autoComplete="on"
+            readonly={readonly}
+          />
+        )}
         {select && (
           <Icon>
             <RiArrowDownSLine />
           </Icon>
         )}
       </div>
+      {textarea && (
+        <TextCaption className="textarea__text">
+          Renters will read this first, so highlight any features or important
+          information the apartment has.
+        </TextCaption>
+      )}
     </StyledInput>
   );
 }

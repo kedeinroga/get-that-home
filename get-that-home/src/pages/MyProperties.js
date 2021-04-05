@@ -6,6 +6,7 @@ import Footer from "../components/Footer";
 import SomeTitle from "../components/SomeTitle";
 import Container from "../contents/Container";
 import Card from "../components/Card";
+import Button from "../components/Button";
 
 import CurrentUser from "../components/auth/CurrentUser";
 
@@ -70,7 +71,9 @@ export default function MyProperties() {
           <Container>
             <div className="properties__state">
               <SomeTitle>Active</SomeTitle>
-              <SomeTitle>Closed</SomeTitle>
+              <Link to={"/addproperty"}>
+                <Button type="secundary">New Property</Button>
+              </Link>
             </div>
             <h6>{data.userProperties.length} Properties found</h6>
             <div className="list-myProperties">

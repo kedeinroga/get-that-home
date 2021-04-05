@@ -74,6 +74,19 @@ const globalStyles = css`
     letter-spacing: 0.15px;
     margin: 0;
   }
+
+  input:focus,
+  select:focus,
+  textarea:focus,
+  button:focus {
+    outline: none;
+  }
+
+  textarea {
+    border: none;
+    width: 100%;
+    height: 60px;
+  }
 `;
 
 ReactDOM.render(
