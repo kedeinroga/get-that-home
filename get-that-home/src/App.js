@@ -10,6 +10,7 @@ import Signup from "./components/auth/Signup";
 import UpdateProfile from "./pages/UpdateProfile";
 import Login from "./components/auth/Login";
 import MyProperties from "./pages/MyProperties";
+import AddProperty from "./pages/AddProperty";
 
 const Container = styled.div`
   background-color: ${colors.white};
@@ -20,6 +21,7 @@ var App = function () {
     <BrowserRouter>
       <Switch>
         <Container>
+          <Route path="/addproperty" component={AddProperty} />
           <Route path="/myproperties" component={MyProperties}  />
           <Route path="/updateuser" component={UpdateProfile} />
           <Route path="/properties/:id" component={Property} />
