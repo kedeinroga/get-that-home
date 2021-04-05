@@ -28,10 +28,6 @@ const globalStyles = css`
     box-sizing: border-box;
   }
 
-  body {
-    background-color: green;
-  }
-
   h1 {
     font-weight: 300;
     font-size: 96px;
