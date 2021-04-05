@@ -81,6 +81,12 @@ const globalStyles = css`
   button:focus {
     outline: none;
   }
+
+  textarea {
+    border: none;
+    width: 100%;
+    height: 60px;
+  }
 `;
 
 ReactDOM.render(

@@ -1,7 +1,14 @@
-import React from "react";
 import { gql, useMutation } from "@apollo/client";
 import { useFormik } from "formik";
 import UrlCloud from "../helpers/UrlCloud";
+
+import styled from "@emotion/styled";
+import Input from "../components/Input";
+import Button from "../components/Button";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import { colors } from "../ui";
+import { RiSearchLine, RiMoneyDollarCircleLine } from "react-icons/ri";
 
 const ADD_PROPERTY = gql`
   mutation AddProperty(
@@ -50,6 +57,24 @@ const ADD_PROPERTY = gql`
   }
 `;
 
+const StyledAddProperty = styled.div`
+  & > main {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 32px 0;
+    margin: 72px auto 0 auto;
+
+    & > form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+  }
+`;
+
 export default function AddProperty() {
   const [addProperty, { data }] = useMutation(ADD_PROPERTY);
   if (data) {
@@ -93,122 +118,116 @@ export default function AddProperty() {
   });
 
   return (
-    <>
-      <h1>Create a Property Listing</h1>
-      <form onSubmit={formik.handleSubmit}>
-        <p>Operation Type</p>
-        <label htmlFor="rent">
-          Rent
-          <input type="radio" id="rent" name="operationType" value="rent" />
-        </label>
-        <label htmlFor="sale">
-          sale
-          <input type="radio" id="sale" name="operationType" value="sale" />
-        </label>
+    <StyledAddProperty>
+      <Header />
+      <main>
+        <h4>Create a Property Listing</h4>
+        <form onSubmit={formik.handleSubmit}>
+          <p>Operation Type</p>
+          <label htmlFor="rent">
+            Rent
+            <input type="radio" id="rent" name="operationType" value="rent" />
+          </label>
+          <label htmlFor="sale">
+            sale
+            <input type="radio" id="sale" name="operationType" value="sale" />
+          </label>
 
-        <label htmlFor="address">Address</label>
-        <input
-          id="address"
-          name="address"
-          type="text"
-          onChange={formik.handleChange}
-          value={formik.values.address}
-        />
+          <p>Property Type</p>
+          <label htmlFor="apartment">
+            Apartment
+            <input
+              type="radio"
+              id="apartment"
+              name="propertyType"
+              value="apartment"
+            />
+          </label>
+          <label htmlFor="house">
+            House
+            <input type="radio" id="house" name="propertyType" value="house" />
+          </label>
 
-        <label htmlFor="address">Monthly Rent</label>
-        <input
-          id="rent"
-          name="rent"
-          type="number"
-          onChange={formik.handleChange}
-          value={formik.values.rent}
-        />
-
-        <label htmlFor="maintanance">Maintanance</label>
-        <input
-          id="maintanance"
-          name="maintanance"
-          type="number"
-          onChange={formik.handleChange}
-          value={formik.values.maintanance}
-        />
-
-        <p>Property Type</p>
-        <label htmlFor="apartment">
-          Apartment
+          <label htmlFor="bedrooms">Bedrooms</label>
           <input
-            type="radio"
-            id="apartment"
-            name="propertyType"
-            value="apartment"
+            id="bedrooms"
+            name="bedrooms"
+            type="number"
+            onChange={formik.handleChange}
+            value={formik.values.bedrooms}
           />
-        </label>
-        <label htmlFor="house">
-          House
-          <input type="radio" id="house" name="propertyType" value="house" />
-        </label>
 
-        <label htmlFor="bedrooms">Bedrooms</label>
-        <input
-          id="bedrooms"
-          name="bedrooms"
-          type="number"
-          onChange={formik.handleChange}
-          value={formik.values.bedrooms}
-        />
-
-        <label htmlFor="bathrooms">Bathrooms</label>
-        <input
-          id="bathrooms"
-          name="bathrooms"
-          type="number"
-          onChange={formik.handleChange}
-          value={formik.values.bathrooms}
-        />
-
-        <label htmlFor="area">Area in M2</label>
-        <input
-          id="area"
-          name="area"
-          type="number"
-          onChange={formik.handleChange}
-          value={formik.values.area}
-        />
-
-        <label htmlFor="pets">
-          Pets Allowed
+          <label htmlFor="bathrooms">Bathrooms</label>
           <input
-            type="checkbox"
-            id="pets"
-            name="pets"
-            value={formik.values.pets}
+            id="bathrooms"
+            name="bathrooms"
+            type="number"
+            onChange={formik.handleChange}
+            value={formik.values.bathrooms}
           />
-        </label>
 
-        <label htmlFor="about">About this property</label>
-        <textarea
-          id="about"
-          name="about"
-          type="text"
-          onChange={formik.handleChange}
-          value={formik.values.about}
-        >
-          My apartment is great because...
-        </textarea>
+          <label htmlFor="area">Area in M2</label>
+          <input
+            id="area"
+            name="area"
+            type="number"
+            onChange={formik.handleChange}
+            value={formik.values.area}
+          />
 
-        <label htmlFor="photos">Photos </label>
-        <p>Upload as many photos as you wish</p>
-        <input
-          id="photos"
-          name="photos"
-          type="file"
-          multiple
-          onChange={(e) => {
-            formik.setFieldValue("photos", e.currentTarget.files);
-          }}
-        />
-        <button type="submit">Publish property listing </button>
-      </form>
-    </>
+          <label htmlFor="pets">
+            Pets Allowed
+            <input
+              type="checkbox"
+              id="pets"
+              name="pets"
+              value={formik.values.pets}
+            />
+          </label>
+
+          <Input
+            name="address"
+            onChange={formik.handleChange}
+            label="address"
+            type="text"
+            placeholder="start typing to autocomplete"
+            icon={<RiSearchLine />}
+          />
+          <Input
+            name="rent"
+            onChange={formik.handleChange}
+            label="montly rent"
+            type="number"
+            icon={<RiMoneyDollarCircleLine />}
+          />
+          <Input
+            name="maintanance"
+            onChange={formik.handleChange}
+            label="maintanance"
+            type="number"
+            icon={<RiMoneyDollarCircleLine />}
+          />
+          <Input
+            name="about"
+            onChange={formik.handleChange}
+            label="About this property"
+            type="text"
+            textarea
+          />
+          <h6>Photos</h6>
+          <Input
+            name="photos"
+            onChange={(e) => {
+              formik.setFieldValue("photos", e.currentTarget.files);
+            }}
+            label="photos"
+            type="file"
+            multiple
+          />
+          <Button size="large">Publish property listing</Button>
+        </form>
+      </main>
+      <Footer />
+    </StyledAddProperty>
   );
-};
+}
