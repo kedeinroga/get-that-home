@@ -7,7 +7,6 @@ import Input from "../components/Input";
 import Button from "../components/Button";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { colors } from "../ui";
 import { RiSearchLine, RiMoneyDollarCircleLine } from "react-icons/ri";
 
 const ADD_PROPERTY = gql`

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "@emotion/styled";
 import {
   RiCoinsLine,
@@ -152,26 +153,30 @@ export default function Card({
         display: flex;
         flex-direction: row;
 
-        & > div {
-          background-color: ${colors.darkPink};
+        & > a {
           width: 100%;
-          height: 100%;
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          justify-content: center;
-          gap: 10px;
-          padding: 11.5px 0;
-          border-radius: 0 0 8px 8px;
-          cursor: pointer;
-          transition: 0.4s all;
 
-          & > p {
-            color: ${colors.white};
-          }
+          & > div {
+            background-color: ${colors.darkPink};
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 11.5px 0;
+            border-radius: 0 0 8px 8px;
+            cursor: pointer;
+            transition: 0.4s all;
 
-          :hover {
-            background-color: ${colors.pink};
+            p {
+              color: ${colors.white};
+            }
+
+            :hover {
+              background-color: ${colors.pink};
+            }
           }
         }
       }
@@ -231,18 +236,22 @@ export default function Card({
       <footer>
         {landlord && (
           <div>
-            <div>
-              <Icon color={colors.white}>
-                <BiEdit />
-              </Icon>
-              <TextButton>Edit</TextButton>
-            </div>
-            <div>
-              <Icon color={colors.white}>
-                <RiCloseCircleLine />
-              </Icon>
-              <TextButton>Close</TextButton>
-            </div>
+            <Link to={`/updateproperty/1`}>
+              <div>
+                <Icon color={colors.white}>
+                  <BiEdit />
+                </Icon>
+                <TextButton>Edit</TextButton>
+              </div>
+            </Link>
+            <Link to={`/updateproperty/1`}>
+              <div>
+                <Icon color={colors.white}>
+                  <RiCloseCircleLine />
+                </Icon>
+                <TextButton>Close</TextButton>
+              </div>
+            </Link>
           </div>
         )}
       </footer>

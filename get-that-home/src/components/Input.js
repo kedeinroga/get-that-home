@@ -62,7 +62,7 @@ export default function Input({
             placeholder={placeholder}
             type={type}
             autoComplete="on"
-            readonly={readonly}
+            readOnly={readonly}
           />
         ) : (
           <textarea
