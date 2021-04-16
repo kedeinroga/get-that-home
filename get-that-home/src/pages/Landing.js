@@ -150,9 +150,8 @@ export function Landing() {
                 </div>
                 <ul>
                   {data.fetchProperties.map((property) => (
-                    <Link to={`/properties/${property.id}`}>
+                    <Link to={`/properties/${property.id}`} key={property.id}>
                       <Card
-                        key={property.id}
                         landlord={loaded && currentUser.role === "landlord"}
                         operationType={property.operationType}
                         image={property.photos.split("|")[0]}
@@ -172,7 +171,8 @@ export function Landing() {
             <StyledLandingSignup>
               <Container>
                 <h4>
-                  Getting someone to rent your apartment has never been this easy
+                  Getting someone to rent your apartment has never been this
+                  easy
                 </h4>
                 <Link to="/register">
                   <Button size="large">Create an account now</Button>

@@ -61,8 +61,6 @@ export default function MyProperties() {
   if (loading) return "Loading...";
   if (error) return `Error! ${error.message}`;
 
-  const numProperties = 0;
-
   return (
     <CurrentUser>
       {({ loaded, currentUser }) => (
@@ -76,13 +74,12 @@ export default function MyProperties() {
               </Link>
             </div>
             <h6>{data.userProperties.length} Properties found</h6>
-            <div className="list-myProperties">
+            <ul className="list-myProperties">
               {data.userProperties.map((property) => (
                 <>
                   {loaded && currentUser.id === property.userId ? (
-                    <Link to={`/properties/${property.id}`}>
+                    <Link to={`/properties/${property.id}`} key={property.id}>
                       <Card
-                        key={property.id}
                         landlord={loaded && currentUser.role === "landlord"}
                         operationType={property.operationType}
                         image={property.photos.split("|")[0]}
@@ -100,7 +97,7 @@ export default function MyProperties() {
                   )}
                 </>
               ))}
-            </div>
+            </ul>
           </Container>
           <Footer />
         </StyledMyProperties>
