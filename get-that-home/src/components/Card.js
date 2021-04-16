@@ -1,4 +1,7 @@
+import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { gql, useQuery } from "@apollo/client";
+
 import styled from "@emotion/styled";
 import {
   RiCoinsLine,
@@ -66,6 +69,8 @@ export default function Card({
   area = 0,
   pets = false,
 }) {
+  let { id } = useParams();
+
   const StyledCard = styled.div`
     background-color: ${colors.white};
     width: 300px;

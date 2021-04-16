@@ -1,26 +1,9 @@
+import { useParams } from "react-router-dom";
 import { gql, useQuery } from "@apollo/client";
+
 import styled from "@emotion/styled";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-
-const LIST_POPERTIES = gql`
-  query {
-    userProperties {
-      id
-      address
-      rent
-      area
-      photos
-      userId
-      maintanance
-      propertyType
-      operationType
-      pets
-      bathrooms
-      bedrooms
-    }
-  }
-`;
 
 const StyledUpdateProperty = styled.div`
   background-color: green;
@@ -28,7 +11,27 @@ const StyledUpdateProperty = styled.div`
 `;
 
 export default function UpdateProperty() {
-  const { loading, error, data } = useQuery(LIST_POPERTIES);
+  let { id } = useParams();
+  const SHOW_PROPERTY = gql`
+  query {
+    fetchProperty(id: ${id}) {
+      about
+      address
+      area
+      bathrooms
+      bedrooms
+      id
+      maintanance
+      operationType
+      pets
+      photos
+      propertyType
+      rent
+      userId
+    }
+  }
+`;
+  const { loading, error, data } = useQuery(SHOW_PROPERTY);
 
   if (loading) return "Loading...";
   if (error) return `Error! ${error.message}`;
@@ -36,7 +39,9 @@ export default function UpdateProperty() {
   return (
     <StyledUpdateProperty>
       <Header />
-      <h1>UpdateProperty</h1>
+      <div key={data.fetchProperty.id}>
+        <h1>{data.fetchProperty.address}</h1>
+      </div>
       <Footer />
     </StyledUpdateProperty>
   );
