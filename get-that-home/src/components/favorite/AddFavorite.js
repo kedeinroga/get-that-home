@@ -2,7 +2,6 @@ import React from "react";
 import { gql, useMutation } from "@apollo/client";
 import { useFormik } from "formik";
 import { useParams } from "react-router";
-import Button from "../Button";
 import Input from "../Input";
 
 const AddFavorite = () => {

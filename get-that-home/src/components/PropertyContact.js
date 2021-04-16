@@ -8,6 +8,7 @@ import Button from "../components/Button";
 import { Link } from "react-router-dom";
 import CurrentUser from "../components/auth/CurrentUser";
 import AddFavorite from "./favorite/AddFavorite";
+import RemoveFavorite from "./favorite/DeleteFavorite";
 
 const StyledPropertyContact = styled.aside`
   background-color: ${colors.white};
@@ -56,6 +57,7 @@ export default function PropertyContact() {
               <TextCaption>Add to favorites</TextCaption>
             </div>
             <AddFavorite />
+            <RemoveFavorite />
           </StyledPropertyContact>
         ) : (
           currentUser.role === "landlord" && (
