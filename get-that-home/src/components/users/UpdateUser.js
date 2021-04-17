@@ -6,6 +6,7 @@ import styled from "@emotion/styled";
 import { colors } from "../../ui";
 import Button from "../Button";
 import Input from "../Input";
+import { useHistory } from "react-router";
 
 const StyledFormUpdateUser = styled.div`
   width: 388px;
@@ -50,6 +51,7 @@ const UPDATE_USER = gql`
 `;
 
 const UpdateUser = () => {
+  let history = useHistory();
   const dataUser = useQuery(GET_CURRENT_USER_QUERY);
 
   let emailDataUser =
@@ -83,6 +85,7 @@ const UpdateUser = () => {
           phone: values.phone,
         },
       });
+      history.replace("/");
     },
   });
 
