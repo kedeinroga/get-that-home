@@ -3,8 +3,10 @@ import { useFormik } from "formik";
 import UrlCloud from "../helpers/UrlCloud";
 
 import styled from "@emotion/styled";
+import { TextOverline } from "../ui";
 import Input from "../components/Input";
 import Checkbox from "../components/Checkbox";
+import Select from "../components/Select";
 import Button from "../components/Button";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -71,6 +73,25 @@ const StyledAddProperty = styled.div`
       display: flex;
       flex-direction: column;
       gap: 16px;
+
+      .form__select {
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+      }
+
+      .propertyType {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        & > .propertyType__content {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 16px;
+        }
+      }
     }
   }
 `;
@@ -123,15 +144,7 @@ export default function AddProperty() {
       <main>
         <h4>Create a Property Listing</h4>
         <form onSubmit={formik.handleSubmit}>
-          <p>Operation Type</p>
-          <label htmlFor="rent">
-            Rent
-            <input type="radio" id="rent" name="operationType" value="rent" />
-          </label>
-          <label htmlFor="sale">
-            sale
-            <input type="radio" id="sale" name="operationType" value="sale" />
-          </label>
+          <Select label="Operation Type" dual />
           <Input
             name="address"
             onChange={formik.handleChange}
@@ -146,6 +159,7 @@ export default function AddProperty() {
             label="montly rent"
             type="number"
             icon={<RiMoneyDollarCircleLine />}
+            borderColor="#BF5F82"
           />
           <Input
             name="maintanance"
@@ -153,45 +167,20 @@ export default function AddProperty() {
             label="maintanance"
             type="number"
             icon={<RiMoneyDollarCircleLine />}
+            borderColor="#BF5F82"
           />
-          <p>Property Type</p>
-          <label htmlFor="apartment">
-            Apartment
-            <input
-              type="radio"
-              id="apartment"
-              name="propertyType"
-              value="apartment"
-            />
-          </label>
-          <label htmlFor="house">
-            House
-            <input type="radio" id="house" name="propertyType" value="house" />
-          </label>
-          <label htmlFor="bedrooms">Bedrooms</label>
-          <input
-            id="bedrooms"
-            name="bedrooms"
-            type="number"
-            onChange={formik.handleChange}
-            value={formik.values.bedrooms}
-          />
-          <label htmlFor="bathrooms">Bathrooms</label>
-          <input
-            id="bathrooms"
-            name="bathrooms"
-            type="number"
-            onChange={formik.handleChange}
-            value={formik.values.bathrooms}
-          />
-          <label htmlFor="area">Area in M2</label>
-          <input
-            id="area"
-            name="area"
-            type="number"
-            onChange={formik.handleChange}
-            value={formik.values.area}
-          />
+          <div className="propertyType">
+            <TextOverline>Property Type</TextOverline>
+            <div className="propertyType__content">
+              <Checkbox label="Apartment" />
+              <Checkbox label="House" />
+            </div>
+          </div>
+          <div className="form__select">
+            <Select label="Bedrooms" />
+            <Select label="Bathrooms" />
+            <Select label="Area in m2" />
+          </div>
           <Checkbox
             label="Pets Allowed"
             message="Allowing pets increases the likehood of renters  liking the property by 9001%. It also makes you a better person."

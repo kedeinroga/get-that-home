@@ -5,6 +5,7 @@ import Icon from "./Icon";
 import { RiArrowDownSLine } from "react-icons/ri";
 
 const StyledButton = styled.button`
+  width: fit-content;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -114,7 +115,7 @@ function Button({
   size = "normal",
   icon,
   select = false,
-  onClick
+  onClick,
 }) {
   return (
     <StyledButton type={type} size={size} select={select} onClick={onClick}>
