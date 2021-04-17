@@ -8,6 +8,7 @@ import Button from "../components/Button";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { RiSearchLine, RiMoneyDollarCircleLine } from "react-icons/ri";
+import { useHistory } from "react-router";
 
 const ADD_PROPERTY = gql`
   mutation AddProperty(
@@ -75,6 +76,7 @@ const StyledAddProperty = styled.div`
 `;
 
 export default function AddProperty() {
+  let history = useHistory();
   const [addProperty, { data }] = useMutation(ADD_PROPERTY);
   if (data) {
     console.log(data);
@@ -113,6 +115,7 @@ export default function AddProperty() {
           rent: values.rent,
         },
       });
+      history.replace("/");
     },
   });
 
