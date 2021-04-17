@@ -151,7 +151,7 @@ export function Landing() {
                   <h4>Homes for rent at the best prices</h4>
                 </div>
                 <ul>
-                  {sortedProperties.map((property) => (
+                  {sortedProperties.slice(0, 3).map((property) => (
                     <Link to={`/properties/${property.id}`} key={property.id}>
                       <Card
                         landlord={loaded && currentUser.role === "landlord"}
