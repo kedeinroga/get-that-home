@@ -4,6 +4,7 @@ import UrlCloud from "../helpers/UrlCloud";
 
 import styled from "@emotion/styled";
 import Input from "../components/Input";
+import Checkbox from "../components/Checkbox";
 import Button from "../components/Button";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -131,59 +132,6 @@ export default function AddProperty() {
             sale
             <input type="radio" id="sale" name="operationType" value="sale" />
           </label>
-
-          <p>Property Type</p>
-          <label htmlFor="apartment">
-            Apartment
-            <input
-              type="radio"
-              id="apartment"
-              name="propertyType"
-              value="apartment"
-            />
-          </label>
-          <label htmlFor="house">
-            House
-            <input type="radio" id="house" name="propertyType" value="house" />
-          </label>
-
-          <label htmlFor="bedrooms">Bedrooms</label>
-          <input
-            id="bedrooms"
-            name="bedrooms"
-            type="number"
-            onChange={formik.handleChange}
-            value={formik.values.bedrooms}
-          />
-
-          <label htmlFor="bathrooms">Bathrooms</label>
-          <input
-            id="bathrooms"
-            name="bathrooms"
-            type="number"
-            onChange={formik.handleChange}
-            value={formik.values.bathrooms}
-          />
-
-          <label htmlFor="area">Area in M2</label>
-          <input
-            id="area"
-            name="area"
-            type="number"
-            onChange={formik.handleChange}
-            value={formik.values.area}
-          />
-
-          <label htmlFor="pets">
-            Pets Allowed
-            <input
-              type="checkbox"
-              id="pets"
-              name="pets"
-              value={formik.values.pets}
-            />
-          </label>
-
           <Input
             name="address"
             onChange={formik.handleChange}
@@ -205,6 +153,48 @@ export default function AddProperty() {
             label="maintanance"
             type="number"
             icon={<RiMoneyDollarCircleLine />}
+          />
+          <p>Property Type</p>
+          <label htmlFor="apartment">
+            Apartment
+            <input
+              type="radio"
+              id="apartment"
+              name="propertyType"
+              value="apartment"
+            />
+          </label>
+          <label htmlFor="house">
+            House
+            <input type="radio" id="house" name="propertyType" value="house" />
+          </label>
+          <label htmlFor="bedrooms">Bedrooms</label>
+          <input
+            id="bedrooms"
+            name="bedrooms"
+            type="number"
+            onChange={formik.handleChange}
+            value={formik.values.bedrooms}
+          />
+          <label htmlFor="bathrooms">Bathrooms</label>
+          <input
+            id="bathrooms"
+            name="bathrooms"
+            type="number"
+            onChange={formik.handleChange}
+            value={formik.values.bathrooms}
+          />
+          <label htmlFor="area">Area in M2</label>
+          <input
+            id="area"
+            name="area"
+            type="number"
+            onChange={formik.handleChange}
+            value={formik.values.area}
+          />
+          <Checkbox
+            label="Pets Allowed"
+            message="Allowing pets increases the likehood of renters  liking the property by 9001%. It also makes you a better person."
           />
           <Input
             name="about"
