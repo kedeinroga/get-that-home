@@ -47,6 +47,7 @@ const StyledMyProperties = styled.div`
   }
 
   .list-myProperties {
+    min-height: 42vh;
     display: grid;
     grid-template-columns: repeat(3, 1fr);a
     align-items: center;

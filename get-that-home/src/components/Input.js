@@ -16,7 +16,7 @@ const StyledInput = styled.div`
 
     background-color: ${colors.white};
     padding: 8px;
-    border: 1px solid ${colors.pink};
+    border: 1px solid ${(props) => props.borderColor};
     border-radius: 8px;
 
     input {
@@ -48,9 +48,10 @@ export default function Input({
   select = false,
   readonly,
   textarea = false,
+  borderColor = "#F48FB1",
 }) {
   return (
-    <StyledInput>
+    <StyledInput borderColor={borderColor}>
       <TextOverline>{label}</TextOverline>
       <div>
         {icon !== undefined && <Icon>{icon}</Icon>}
